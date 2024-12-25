@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/router/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1735134859045,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1735134866352,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n import Feather from 'react-native-vector-icons/Feather'\n \n const Tab = createBottomTabNavigator();\n \n-export default function Ro() {\n+export default function Routes() {\n   return (\n     <NavigationContainer>\n       <Tab.Navigator\n         screenOptions={{\n"
+                },
+                {
+                    "date": 1735134897455,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,48 @@\n+import React from 'react';\n+\n+import { NavigationContainer } from '@react-navigation/native';// importa a navevegacao do react native\n+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';// importa o tipo da nevagecao do react native\n+\n+//Paginas\n+import Welcome from './src/pages/Welcome';\n+import Login from './src/pages/Login';\n+import Usuario from '.';\n+import Peca from './src/pages/Peca';\n+\n+//Icones\n+import Feather from 'react-native-vector-icons/Feather'\n+\n+const Tab = createBottomTabNavigator();\n+\n+export default function Routes() {\n+  return (\n+    <NavigationContainer>\n+      <Tab.Navigator\n+        screenOptions={{\n+          headerShown: false,\n+          tabBarHideOnKeyboard: true,\n+          tabBarShowLabel: false,\n+        }}\n+      >\n+\n+        <Tab.Screen\n+          name='Usuario'\n+          component={Usuario}\n+          options={{\n+            tabBarIcon: ({ color, size }) => { return <Feather name='users' color={color} size={size} /> }\n+          }} />\n+\n+        <Tab.Screen\n+          name='Peca'\n+          component={Peca}\n+          options={{\n+            tabBarIcon: ({ color, size }) => { return <Feather name='tool' color={color} size={size} /> }\n+          }} />\n+\n+\n+      </Tab.Navigator>\n+    </NavigationContainer>\n+  );\n+}\n+\n+\n"
+                }
+            ],
+            "date": 1735134859045,
+            "name": "Commit-0",
+            "content": "import React from 'react';\n\nimport { NavigationContainer } from '@react-navigation/native';// importa a navevegacao do react native\nimport { createBottomTabNavigator } from '@react-navigation/bottom-tabs';// importa o tipo da nevagecao do react native\n\n//Paginas\nimport Welcome from './src/pages/Welcome';\nimport Login from './src/pages/Login';\nimport Usuario from './src/pages/Usuario';\nimport Peca from './src/pages/Peca';\n\n//Icones\nimport Feather from 'react-native-vector-icons/Feather'\n\nconst Tab = createBottomTabNavigator();\n\nexport default function App() {\n  return (\n    <NavigationContainer>\n      <Tab.Navigator\n        screenOptions={{\n          headerShown: false,\n          tabBarHideOnKeyboard: true,\n          tabBarShowLabel: false,\n        }}\n      >\n\n        <Tab.Screen\n          name='Usuario'\n          component={Usuario}\n          options={{\n            tabBarIcon: ({ color, size }) => { return <Feather name='users' color={color} size={size} /> }\n          }} />\n\n        <Tab.Screen\n          name='Peca'\n          component={Peca}\n          options={{\n            tabBarIcon: ({ color, size }) => { return <Feather name='tool' color={color} size={size} /> }\n          }} />\n\n\n      </Tab.Navigator>\n    </NavigationContainer>\n  );\n}\n\n\n"
+        }
+    ]
+}

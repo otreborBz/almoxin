@@ -1,0 +1,110 @@
+{
+    "sourceFile": "src/pages/Welcome/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 23,
+            "patches": [
+                {
+                    "date": 1735131424279,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1735131430218,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-import \n\\ No newline at end of file\n+import react from 'react';\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735131439414,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-import react from 'react';\n+import React from 'react';\n"
+                },
+                {
+                    "date": 1735131444805,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,2 @@\n+import React from 'react';\n+import {}\n"
+                },
+                {
+                    "date": 1735131453845,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,2 @@\n+import React from 'react';\n+import { } from \n"
+                },
+                {
+                    "date": 1735131460405,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,2 @@\n+import React from 'react';\n+import { } from 'react-native'\n"
+                },
+                {
+                    "date": 1735131466255,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,4 @@\n+import React from 'react';\n+import { } from 'react-native';\n+\n+r\n"
+                },
+                {
+                    "date": 1735131471627,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,16 @@\n import React from 'react';\n import { } from 'react-native';\n \n-r\n-import React from 'react';\n-import { } from 'react-native'\n-import React from 'react';\n-import { } from \n-import React from 'react';\n-import {}\n-import React from 'react';\n\\ No newline at end of file\n+import PropTypes from 'prop-types'\n+import React, { Component } from 'react'\n+\n+export default class index extends Component {\n+  static propTypes = {second: third}\n+\n+  render() {\n+    return (\n+      <div>index</div>\n+    )\n+  }\n+}\n+\n"
+                },
+                {
+                    "date": 1735131476940,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,4 @@\n import React from 'react';\n import { } from 'react-native';\n \n-import PropTypes from 'prop-types'\n-import React, { Component } from 'react'\n-\n-export default class index extends Component {\n-  static propTypes = {second: third}\n-\n-  render() {\n-    return (\n-      <div>index</div>\n-    )\n-  }\n-}\n-\n+rcn\n"
+                },
+                {
+                    "date": 1735131488807,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,14 @@\n import React from 'react';\n import { } from 'react-native';\n \n-rcn\n+import React, { Component } from 'react';\n+\n+export default class Welcome extends Component{\n+ render(){\n+  return (\n+    <div>\n+\n+    </div>\n+  );\n+ }\n+}\n"
+                },
+                {
+                    "date": 1735131499997,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,17 @@\n import React from 'react';\n import { } from 'react-native';\n \n-import React, { Component } from 'react';\n+import PropTypes from 'prop-types'\n+import React, { Component } from 'react'\n \n-export default class Welcome extends Component{\n- render(){\n-  return (\n-    <div>\n+export class index extends Component {\n+  static propTypes = {}\n \n-    </div>\n-  );\n- }\n+  render() {\n+    return (\n+      <div>index</div>\n+    )\n+  }\n }\n+\n+export default index\n"
+                },
+                {
+                    "date": 1735131505335,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+import React from 'react';\n+import { } from 'react-native';\n+\n+import React, { Component } from 'react'\n+\n+export default class index extends Component {\n+  render() {\n+    return (\n+      <div>index</div>\n+    )\n+  }\n+}\n+\n"
+                },
+                {
+                    "date": 1735131510412,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,4 @@\n+import React from 'react';\n+import { } from 'react-native';\n+\n+rc\n"
+                },
+                {
+                    "date": 1735131534808,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,34 +1,11 @@\n import React from 'react';\n import { } from 'react-native';\n \n-rc\n-import React from 'react';\n-import { } from 'react-native';\n-\n-import React, { Component } from 'react'\n-\n-export default class index extends Component {\n-  render() {\n-    return (\n-      <div>index</div>\n-    )\n-  }\n-}\n-\n-import React from 'react';\n-import { } from 'react-native';\n-\n-import PropTypes from 'prop-types'\n-import React, { Component } from 'react'\n-\n-export class index extends Component {\n-  static propTypes = {}\n-\n-  render() {\n-    return (\n-      <div>index</div>\n-    )\n-  }\n-}\n-\n-export default index\n+export default function App() {\n+  return (\n+    <View style={styles.container}>\n+      <Text>Open up App.js to start working on your app!</Text>\n+      <StatusBar style=\"auto\" />\n+    </View>\n+  );\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735131541900,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import React from 'react';\n import { } from 'react-native';\n \n-export default function App() {\n+export default function Welcome() {\n   return (\n     <View style={styles.container}>\n       <Text>Open up App.js to start working on your app!</Text>\n       <StatusBar style=\"auto\" />\n"
+                },
+                {
+                    "date": 1735131549742,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n export default function Welcome() {\n   return (\n     <View style={styles.container}>\n-      <Text>Open up App.js to start working on your app!</Text>\n+      <Text>Tela </Text>\n       <StatusBar style=\"auto\" />\n     </View>\n   );\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735131565215,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,20 @@\n+import React from 'react';\n+import { } from 'react-native';\n+\n+export default function Welcome() {\n+  return (\n+    <View style={styles.container}>\n+      <Text>Tela Welcome</Text>\n+      <StatusBar style=\"auto\" />\n+    </View>\n+  );\n+}\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    backgroundColor: '#fff',\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+});\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735131572635,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,20 @@\n+import React from 'react';\n+import { V } from 'react-native';\n+\n+export default function Welcome() {\n+  return (\n+    <View style={styles.container}>\n+      <Text>Tela Welcome</Text>\n+      <StatusBar style=\"auto\" />\n+    </View>\n+  );\n+}\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    backgroundColor: '#fff',\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+});\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735131581745,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,20 @@\n+import React from 'react';\n+import { View, Text, Stye } from 'react-native';\n+\n+export default function Welcome() {\n+  return (\n+    <View style={styles.container}>\n+      <Text>Tela Welcome</Text>\n+      <StatusBar style=\"auto\" />\n+    </View>\n+  );\n+}\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    backgroundColor: '#fff',\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+});\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735131590237,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,19 @@\n+import React from 'react';\n+import { View, Text, StyleSheet } from 'react-native';\n+\n+export default function Welcome() {\n+  return (\n+    <View style={styles.container}>\n+      <Text>Tela Welcome</Text>\n+    </View>\n+  );\n+}\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    backgroundColor: '#fff',\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+});\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735136013573,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n export default function Welcome() {\n   return (\n     <View style={styles.container}>\n       <Text>Tela Welcome</Text>\n+      \n     </View>\n   );\n }\n \n@@ -15,76 +16,5 @@\n     backgroundColor: '#fff',\n     alignItems: 'center',\n     justifyContent: 'center',\n   },\n-});\n-import React from 'react';\n-import { View, Text, Stye } from 'react-native';\n-\n-export default function Welcome() {\n-  return (\n-    <View style={styles.container}>\n-      <Text>Tela Welcome</Text>\n-      <StatusBar style=\"auto\" />\n-    </View>\n-  );\n-}\n-\n-const styles = StyleSheet.create({\n-  container: {\n-    flex: 1,\n-    backgroundColor: '#fff',\n-    alignItems: 'center',\n-    justifyContent: 'center',\n-  },\n-});\n-import React from 'react';\n-import { V } from 'react-native';\n-\n-export default function Welcome() {\n-  return (\n-    <View style={styles.container}>\n-      <Text>Tela Welcome</Text>\n-      <StatusBar style=\"auto\" />\n-    </View>\n-  );\n-}\n-\n-const styles = StyleSheet.create({\n-  container: {\n-    flex: 1,\n-    backgroundColor: '#fff',\n-    alignItems: 'center',\n-    justifyContent: 'center',\n-  },\n-});\n-import React from 'react';\n-import { } from 'react-native';\n-\n-export default function Welcome() {\n-  return (\n-    <View style={styles.container}>\n-      <Text>Tela Welcome</Text>\n-      <StatusBar style=\"auto\" />\n-    </View>\n-  );\n-}\n-\n-const styles = StyleSheet.create({\n-  container: {\n-    flex: 1,\n-    backgroundColor: '#fff',\n-    alignItems: 'center',\n-    justifyContent: 'center',\n-  },\n-});\n-import React from 'react';\n-import { } from 'react-native';\n-\n-export default function Welcome() {\n-  return (\n-    <View style={styles.container}>\n-      <Text>Tela </Text>\n-      <StatusBar style=\"auto\" />\n-    </View>\n-  );\n-}\n\\ No newline at end of file\n+});\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735136018633,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,21 @@\n+import { Button } from 'bootstrap';\n+import React from 'react';\n+import { View, Text, StyleSheet } from 'react-native';\n+\n+export default function Welcome() {\n+  return (\n+    <View style={styles.container}>\n+      <Text>Tela Welcome</Text>\n+      <Button\n+    </View>\n+  );\n+}\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    backgroundColor: '#fff',\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+});\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735136025071,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n export default function Welcome() {\n   return (\n     <View style={styles.container}>\n       <Text>Tela Welcome</Text>\n-      <Button/>\n+      <Button />\n     </View>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1735136036431,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,21 @@\n+import { Button } from 'bootstrap';\n+import React from 'react';\n+import { View, Text, StyleSheet } from 'react-native';\n+\n+export default function Welcome() {\n+  return (\n+    <View style={styles.container}>\n+      <Text>Tela Welcome</Text>\n+      <\n+    </View>\n+  );\n+}\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    backgroundColor: '#fff',\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+});\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1735131424279,
+            "name": "Commit-0",
+            "content": "import "
+        }
+    ]
+}

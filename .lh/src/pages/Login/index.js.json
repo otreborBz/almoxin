@@ -1,0 +1,42 @@
+{
+    "sourceFile": "src/pages/Login/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1735131637945,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1735131644849,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,19 @@\n+import React from 'react';\n+import { View, Text, StyleSheet } from 'react-native';\n+\n+export default function Login() {\n+  return (\n+    <View style={styles.container}>\n+      <Text>Tela Login</Text>\n+    </View>\n+  );\n+}\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    backgroundColor: '#fff',\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+});\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735136545388,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,11 @@\n export default function Login() {\n   return (\n     <View style={styles.container}>\n       <Text>Tela Login</Text>\n+      <TouchableOpacity style={styles.btn} onPress={abrirTelaLogin}>\n+              <Text style={styles.btnText}>Ir pagina Login</Text>\n+            </TouchableOpacity>\n     </View>\n   );\n }\n \n@@ -15,24 +18,5 @@\n     backgroundColor: '#fff',\n     alignItems: 'center',\n     justifyContent: 'center',\n   },\n-});\n-import React from 'react';\n-import { View, Text, StyleSheet } from 'react-native';\n-\n-export default function Login() {\n-  return (\n-    <View style={styles.container}>\n-      <Text>Tela Welcome</Text>\n-    </View>\n-  );\n-}\n-\n-const styles = StyleSheet.create({\n-  container: {\n-    flex: 1,\n-    backgroundColor: '#fff',\n-    alignItems: 'center',\n-    justifyContent: 'center',\n-  },\n });\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735136550567,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,10 +5,10 @@\n   return (\n     <View style={styles.container}>\n       <Text>Tela Login</Text>\n       <TouchableOpacity style={styles.btn} onPress={abrirTelaLogin}>\n-              <Text style={styles.btnText}>Ir pagina Login</Text>\n-            </TouchableOpacity>\n+        <Text style={styles.btnText}>Ir pagina Login</Text>\n+      </TouchableOpacity>\n     </View>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1735136557966,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,22 @@\n+import React from 'react';\n+import { View, Text, StyleSheet,  } from 'react-native';\n+\n+export default function Login() {\n+  return (\n+    <View style={styles.container}>\n+      <Text>Tela Login</Text>\n+      <TouchableOpacity style={styles.btn} onPress={abrirTelaLogin}>\n+        <Text style={styles.btnText}>Ir pagina Login</Text>\n+      </TouchableOpacity>\n+    </View>\n+  );\n+}\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    backgroundColor: '#fff',\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+});\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735136564853,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React from 'react';\n-import { View, Text, StyleSheet, Touch } from 'react-native';\n+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';\n \n export default function Login() {\n   return (\n     <View style={styles.container}>\n"
+                },
+                {
+                    "date": 1735136586228,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,22 @@\n+import React from 'react';\n+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';\n+\n+export default function Login() {\n+  return (\n+    <View style={styles.container}>\n+      <Text>Tela Login</Text>\n+      <TouchableOpacity style={styles.btn} onPress={abrirTela}>\n+        <Text style={styles.btnText}>Ir pagina Login</Text>\n+      </TouchableOpacity>\n+    </View>\n+  );\n+}\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    backgroundColor: '#fff',\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+});\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1735131637945,
+            "name": "Commit-0",
+            "content": "import React from 'react';\nimport { View, Text, StyleSheet } from 'react-native';\n\nexport default function Login() {\n  return (\n    <View style={styles.container}>\n      <Text>Tela Welcome</Text>\n    </View>\n  );\n}\n\nconst styles = StyleSheet.create({\n  container: {\n    flex: 1,\n    backgroundColor: '#fff',\n    alignItems: 'center',\n    justifyContent: 'center',\n  },\n});"
+        }
+    ]
+}

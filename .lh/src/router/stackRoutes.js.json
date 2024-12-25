@@ -1,0 +1,46 @@
+{
+    "sourceFile": "src/router/stackRoutes.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1735135621731,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1735135629259,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,2 @@\n-import Reac\n\\ No newline at end of file\n+import React from \"react\";\n+import \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735135639891,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,2 @@\n+import React from \"react\";\n+import { CreateNative}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735135646091,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,4 @@\n+import React from \"react\";\n+import { createNativeStackNavigator } from \"@react-navigation/native-stack\";\n+\n+import,\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735135662262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,5 @@\n+import React from \"react\";\n+import { createNativeStackNavigator } from \"@react-navigation/native-stack\";\n+\n+import Welcome from '../pages/Welcome';\n+import Login from '../pages/Login';\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735135668990,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+import React from \"react\";\n+import { createNativeStackNavigator } from \"@react-navigation/native-stack\";\n+\n+import Welcome from '../pages/Welcome';\n+import Login from '../pages/Login';\n+\n+const \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735135676461,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,5 +3,5 @@\n \n import Welcome from '../pages/Welcome';\n import Login from '../pages/Login';\n \n-const Stack = \n\\ No newline at end of file\n+const Stack = createNativeStackNavigator\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735135687538,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,8 @@\n+import React from \"react\";\n+import { createNativeStackNavigator } from \"@react-navigation/native-stack\";\n+\n+import Welcome from '../pages/Welcome';\n+import Login from '../pages/Login';\n+\n+const Stack = createNativeStackNavigator();\n+\n"
+                }
+            ],
+            "date": 1735135621731,
+            "name": "Commit-0",
+            "content": "import Reac"
+        }
+    ]
+}
