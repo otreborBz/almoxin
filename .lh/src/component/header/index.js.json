@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/component/header/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1735183155855,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1735183165264,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { View, Text, TouchableOpacity, TextInput, } from 'react-native';\n import styles from './style';\n import Icon from 'react-native-vector-icons/MaterialCommunityIcons';\n \n-export default function Home() {\n+export default function HEader() {\n   return (\n     <View style={styles.container}>\n       <View style={styles.contentHeader}>\n         <Text style={styles.textLogo}>Almox.in</Text>\n"
+                },
+                {
+                    "date": 1735186045769,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,25 +1,27 @@\n import React from 'react';\n-import { View, Text, TouchableOpacity, TextInput, } from 'react-native';\n+import { View, Text, TouchableOpacity, TextInput } from 'react-native';\n import styles from './style';\n import Icon from 'react-native-vector-icons/MaterialCommunityIcons';\n \n-export default function HEader() {\n+export default function Header() {\n   return (\n     <View style={styles.container}>\n+      {/* Header principal */}\n       <View style={styles.contentHeader}>\n         <Text style={styles.textLogo}>Almox.in</Text>\n-        <Text> Seja Bem-vindo Roberto</Text>\n+        <Text style={styles.welcomeText}>Seja Bem-vindo Roberto</Text>\n         <TouchableOpacity>\n-          <Icon name=\"logout\" size={35} color=\"#000000\" />\n+          <Icon name=\"logout\" size={30} color=\"#000000\" />\n         </TouchableOpacity>\n       </View>\n+\n+      {/* Barra de busca */}\n       <View style={styles.contentSearch}>\n-        <TextInput placeholder='Busque usuário' style={styles.input} />\n+        <TextInput placeholder=\"Busque usuário\" style={styles.input} />\n         <TouchableOpacity>\n-          <Icon name=\"account-search-outline\" size={35} color=\"#000000\" />\n+          <Icon name=\"account-search-outline\" size={30} color=\"#000000\" />\n         </TouchableOpacity>\n       </View>\n     </View>\n   );\n }\n-\n"
+                },
+                {
+                    "date": 1735187683320,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,8 @@\n \n export default function Header() {\n   return (\n     <View style={styles.container}>\n-      {/* Header principal */}\n       <View style={styles.contentHeader}>\n         <Text style={styles.textLogo}>Almox.in</Text>\n         <Text style={styles.welcomeText}>Seja Bem-vindo Roberto</Text>\n         <TouchableOpacity>\n"
+                }
+            ],
+            "date": 1735183155855,
+            "name": "Commit-0",
+            "content": "import React from 'react';\nimport { View, Text, TouchableOpacity, TextInput, } from 'react-native';\nimport styles from './style';\nimport Icon from 'react-native-vector-icons/MaterialCommunityIcons';\n\nexport default function Home() {\n  return (\n    <View style={styles.container}>\n      <View style={styles.contentHeader}>\n        <Text style={styles.textLogo}>Almox.in</Text>\n        <Text> Seja Bem-vindo Roberto</Text>\n        <TouchableOpacity>\n          <Icon name=\"logout\" size={35} color=\"#000000\" />\n        </TouchableOpacity>\n      </View>\n      <View style={styles.contentSearch}>\n        <TextInput placeholder='Busque usuário' style={styles.input} />\n        <TouchableOpacity>\n          <Icon name=\"account-search-outline\" size={35} color=\"#000000\" />\n        </TouchableOpacity>\n      </View>\n    </View>\n  );\n}\n\n"
+        }
+    ]
+}

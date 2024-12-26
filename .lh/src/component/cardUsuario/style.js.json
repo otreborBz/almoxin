@@ -1,0 +1,50 @@
+{
+    "sourceFile": "src/component/cardUsuario/style.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1735184917195,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1735184925078,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,1 @@\n+import { StyleSheet } from \"react-native\";\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735184932272,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,2 @@\n import { StyleSheet } from \"react-native\";\n-i\n\\ No newline at end of file\n+import colors from \"../../color\";\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735184949470,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,38 @@\n+import { StyleSheet } from \"react-native\";\n+import colors from '../../color'\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+  contentHeader: {\n+    width: '100%',\n+    flexDirection: 'row',\n+    alignItems: 'center',\n+    justifyContent: 'space-between',\n+    padding: 10,\n+  },\n+  textLogo: {\n+    fontSize: 24,\n+    fontWeight: 'bold',\n+  },\n+  contentSearch: {\n+    width: '100%',\n+    flexDirection: 'row',\n+    alignItems: 'center',\n+    justifyContent: 'space-evenly',\n+  },\n+  input: {\n+    width: '80%',\n+    height: 40,\n+    margin: 12,\n+    borderWidth: 1,\n+    borderRadius: 10,\n+    padding: 10,\n+  },\n+\n+});\n+\n+export default styles;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735184955803,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+import { StyleSheet } from \"react-native\";\n+import colors from '../../color'\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+\n+\n+});\n+\n+export default styles;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735184985930,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,50 +5,11 @@\n   container: {\n     flex: 1,\n     alignItems: 'center',\n     justifyContent: 'center',\n+    back\n   },\n \n \n });\n \n-export default styles;\n-import { StyleSheet } from \"react-native\";\n-import colors from '../../color'\n-\n-const styles = StyleSheet.create({\n-  container: {\n-    flex: 1,\n-    alignItems: 'center',\n-    justifyContent: 'center',\n-  },\n-  contentHeader: {\n-    width: '100%',\n-    flexDirection: 'row',\n-    alignItems: 'center',\n-    justifyContent: 'space-between',\n-    padding: 10,\n-  },\n-  textLogo: {\n-    fontSize: 24,\n-    fontWeight: 'bold',\n-  },\n-  contentSearch: {\n-    width: '100%',\n-    flexDirection: 'row',\n-    alignItems: 'center',\n-    justifyContent: 'space-evenly',\n-  },\n-  input: {\n-    width: '80%',\n-    height: 40,\n-    margin: 12,\n-    borderWidth: 1,\n-    borderRadius: 10,\n-    padding: 10,\n-  },\n-\n-});\n-\n-export default styles;\n-import { StyleSheet } from \"react-native\";\n\\ No newline at end of file\n-import colors from \"../../color\";\n+export default styles;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735184992838,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import { StyleSheet } from \"react-native\";\n+import colors from '../../color'\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+    backgroundColor: colors.\n+  },\n+\n+\n+});\n+\n+export default styles;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735184999481,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n   container: {\n     flex: 1,\n     alignItems: 'center',\n     justifyContent: 'center',\n-    backgroundColor: colors.buttonPrimary\n+    backgroundColor: colors.buttonPrimary,\n   },\n \n \n });\n"
+                },
+                {
+                    "date": 1735186784161,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n const styles = StyleSheet.create({\n   container: {\n     margin: 12,\n-    backgroundColor: \n+    backgroundColor: c\n   },\n \n \n });\n"
+                }
+            ],
+            "date": 1735184917195,
+            "name": "Commit-0",
+            "content": "i"
+        }
+    ]
+}

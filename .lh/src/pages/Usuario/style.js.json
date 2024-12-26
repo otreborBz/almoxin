@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/pages/Usuario/style.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1735181639933,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1735182248952,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     flex: 1,\n     alignItems: 'center',\n     justifyContent: 'center',\n   },\n+  c\n \n-\n });\n \n export default styles;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735182254840,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     flex: 1,\n     alignItems: 'center',\n     justifyContent: 'center',\n   },\n-  contentHEader\n+  contentHEade\n \n });\n \n export default styles;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735182261366,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+import { StyleSheet } from \"react-native\";\n+import colors from '../../color'\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+  contentHeader:{\n+    \n+  }\n+\n+});\n+\n+export default styles;\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1735181639933,
+            "name": "Commit-0",
+            "content": "import { StyleSheet } from \"react-native\";\nimport colors from '../../color'\n\nconst styles = StyleSheet.create({\n  container: {\n    flex: 1,\n    alignItems: 'center',\n    justifyContent: 'center',\n  },\n\n\n});\n\nexport default styles;"
+        }
+    ]
+}
