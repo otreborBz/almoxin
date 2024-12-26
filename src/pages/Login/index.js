@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-
+import { View, Text, Image, TouchableOpacity, TextInput, SafeAreaView } from 'react-native';
+import styles from './style'
 
 
 export default function Login() {
@@ -14,31 +14,30 @@ export default function Login() {
 
   return (
     <View style={styles.container}>
-      <Text>Tela Login</Text>
-      <TouchableOpacity style={styles.btn} onPress={abrirTelaUsuario}>
-        <Text style={styles.btnText}>Ir pagina Usuario</Text>
-      </TouchableOpacity>
+      <View style={styles.contentImage} >
+        <Image style={styles.image} source={require('../../image/logoAlmoxin.png')} />
+        <Text style={styles.text}>Login</Text>
+      </View>
+
+      <View style={styles.contentInput}>
+        <TextInput
+          style={styles.input}
+          placeholder='Email...'
+          inputMode='email'
+        />
+        <TextInput
+          style={styles.input}
+          placeholder='Senha...'
+        />
+        <TouchableOpacity style={styles.button} onPress={abrirTelaUsuario}>
+          <Text style={styles.buttonText}>Login</Text>
+        </TouchableOpacity>
+        <Text style={styles.textTermo}>Termos de Uso</Text>
+      </View>
+      
+        
+    
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  btn: {
-    width: 200,
-    height: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 10,
-    backgroundColor: '#ff0000',
-    borderRadius: 5,
-  },
-  btnText: {
-    color: '#fff'
-  }
-});

@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
-import colors from '../../color';
+import colors from "../../color"
+
 
 const styles = StyleSheet.create({
   container: {
@@ -16,7 +17,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
   },
   buttonEntrar:{
-    width: 260,
+    width: 300,
     height: 40,
     alignItems: 'center',
     justifyContent: 'center',
@@ -27,7 +28,8 @@ const styles = StyleSheet.create({
    color: colors.white,
    fontSize: 20,
    fontWeight: 'bold',
-  }
+  },
+  
   
 
 });
