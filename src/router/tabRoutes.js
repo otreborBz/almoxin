@@ -32,7 +32,7 @@ export default function Routes() {
           name='Peca'
           component={Peca}
           options={{
-            tabBarIcon: ({ color, size }) => { return <Feather name='tool' color={color} size={size} /> }
+            tabBarIcon: ({ color, size }) => { return <Feather name='file-text' color={color} size={size} /> }
           }} />
 
 

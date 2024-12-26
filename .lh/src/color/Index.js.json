@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/color/Index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1735175999961,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1735176007661,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,3 @@\n+const colors ={\n+  \n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735176015251,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,3 @@\n const colors ={\n-  bu\n\\ No newline at end of file\n+  button\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735176020543,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,3 @@\n+const colors ={\n+  buttonPromary\n+}\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1735175999961,
+            "name": "Commit-0",
+            "content": "const "
+        }
+    ]
+}

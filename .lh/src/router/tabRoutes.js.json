@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/router/tabRoutes.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1735174933238,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1735174938385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n         <Tab.Screen\r\n           name='Usuario'\r\n           component={Usuario}\r\n           options={{\r\n-            tabBarIcon: ({ color, size }) => { return <Feather name='file-text' color={color} size={size} /> }\r\n+            tabBarIcon: ({ color, size }) => { return <Feather name='users' color={color} size={size} /> }\r\n           }} />\r\n \r\n         <Tab.Screen\r\n           name='Peca'\r\n"
+                },
+                {
+                    "date": 1735174945194,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n         <Tab.Screen\r\n           name='Peca'\r\n           component={Peca}\r\n           options={{\r\n-            tabBarIcon: ({ color, size }) => { return <Feather name='tool' color={color} size={size} /> }\r\n+            tabBarIcon: ({ color, size }) => { return <Feather name='file-Text' color={color} size={size} /> }\r\n           }} />\r\n \r\n \r\n       </Tab.Navigator>\r\n"
+                },
+                {
+                    "date": 1735174959080,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n         <Tab.Screen\r\n           name='Peca'\r\n           component={Peca}\r\n           options={{\r\n-            tabBarIcon: ({ color, size }) => { return <Feather name='file-Text' color={color} size={size} /> }\r\n+            tabBarIcon: ({ color, size }) => { return <Feather name='file-text' color={color} size={size} /> }\r\n           }} />\r\n \r\n \r\n       </Tab.Navigator>\r\n"
+                }
+            ],
+            "date": 1735174933238,
+            "name": "Commit-0",
+            "content": "import React from 'react';\r\n\r\nimport { createBottomTabNavigator } from '@react-navigation/bottom-tabs';// importa o tipo da nevagecao do react native\r\n\r\n//Paginas\r\nimport Usuario from '../pages/Usuario';\r\nimport Peca from '../pages/Peca';\r\n\r\n//Icones\r\nimport Feather from 'react-native-vector-icons/Feather'\r\n\r\nconst Tab = createBottomTabNavigator();\r\n\r\nexport default function Routes() {\r\n  return (\r\n      <Tab.Navigator\r\n        screenOptions={{\r\n          headerShown: false,\r\n          tabBarHideOnKeyboard: true,\r\n          tabBarShowLabel: false,\r\n        }}\r\n      >\r\n\r\n        <Tab.Screen\r\n          name='Usuario'\r\n          component={Usuario}\r\n          options={{\r\n            tabBarIcon: ({ color, size }) => { return <Feather name='file-text' color={color} size={size} /> }\r\n          }} />\r\n\r\n        <Tab.Screen\r\n          name='Peca'\r\n          component={Peca}\r\n          options={{\r\n            tabBarIcon: ({ color, size }) => { return <Feather name='tool' color={color} size={size} /> }\r\n          }} />\r\n\r\n\r\n      </Tab.Navigator>\r\n  );\r\n}\r\n\r\n\r\n"
+        }
+    ]
+}

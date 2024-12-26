@@ -1,0 +1,94 @@
+{
+    "sourceFile": "src/pages/Welcome/style.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 19,
+            "patches": [
+                {
+                    "date": 1735175055026,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1735175070592,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,22 @@\n+import {}\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    backgroundColor: '#fff',\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+  btn: {\n+    width: 200,\n+    height: 40,\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+    marginTop: 10,\n+    backgroundColor: '#ff0000',\n+    borderRadius: 5,\n+  },\n+  btnText: {\n+    color: '#fff'\n+  }\n+});\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735175078276,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,22 @@\n+import { StyleSheet } from \"react-native\";\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    backgroundColor: '#fff',\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+  btn: {\n+    width: 200,\n+    height: 40,\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+    marginTop: 10,\n+    backgroundColor: '#ff0000',\n+    borderRadius: 5,\n+  },\n+  btnText: {\n+    color: '#fff'\n+  }\n+});\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735175089453,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,48 +19,6 @@\n   btnText: {\n     color: '#fff'\n   }\n });\n-import {}\n \n-const styles = StyleSheet.create({\n-  container: {\n-    flex: 1,\n-    backgroundColor: '#fff',\n-    alignItems: 'center',\n-    justifyContent: 'center',\n-  },\n-  btn: {\n-    width: 200,\n-    height: 40,\n-    alignItems: 'center',\n-    justifyContent: 'center',\n-    marginTop: 10,\n-    backgroundColor: '#ff0000',\n-    borderRadius: 5,\n-  },\n-  btnText: {\n-    color: '#fff'\n-  }\n-});\n-\n-\n-const styles = StyleSheet.create({\n-  container: {\n-    flex: 1,\n-    backgroundColor: '#fff',\n-    alignItems: 'center',\n-    justifyContent: 'center',\n-  },\n-  btn: {\n-    width: 200,\n-    height: 40,\n-    alignItems: 'center',\n-    justifyContent: 'center',\n-    marginTop: 10,\n-    backgroundColor: '#ff0000',\n-    borderRadius: 5,\n-  },\n-  btnText: {\n-    color: '#fff'\n-  }\n-});\n\\ No newline at end of file\n+export default \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735175443859,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+import { StyleSheet } from \"react-native\";\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    backgroundColor: '#fff',\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+\n+});\n+\n+export default styles;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735175449027,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+import { StyleSheet } from \"react-native\";\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    backgroundColor: '#fff',\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+  \n+});\n+\n+export default styles;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735175456796,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+import { StyleSheet } from \"react-native\";\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    backgroundColor: '#fff',\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+  image:{}\n+  \n+});\n+\n+export default styles;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735175462697,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+import { StyleSheet } from \"react-native\";\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    backgroundColor: '#fff',\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+  image:{\n+    \n+  }\n+\n+});\n+\n+export default styles;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735175469000,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+import { StyleSheet } from \"react-native\";\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    backgroundColor: '#fff',\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+  image:{\n+    width: \n+  }\n+\n+});\n+\n+export default styles;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735175479615,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,90 +7,10 @@\n     alignItems: 'center',\n     justifyContent: 'center',\n   },\n   image:{\n-    width: \n+    width: '80%',\n   }\n \n });\n \n-export default styles;\n-import { StyleSheet } from \"react-native\";\n-\n-const styles = StyleSheet.create({\n-  container: {\n-    flex: 1,\n-    backgroundColor: '#fff',\n-    alignItems: 'center',\n-    justifyContent: 'center',\n-  },\n-  image:{\n-    \n-  }\n-\n-});\n-\n-export default styles;\n-import { StyleSheet } from \"react-native\";\n-\n-const styles = StyleSheet.create({\n-  container: {\n-    flex: 1,\n-    backgroundColor: '#fff',\n-    alignItems: 'center',\n-    justifyContent: 'center',\n-  },\n-  image:{}\n-  \n-});\n-\n-export default styles;\n-import { StyleSheet } from \"react-native\";\n-\n-const styles = StyleSheet.create({\n-  container: {\n-    flex: 1,\n-    backgroundColor: '#fff',\n-    alignItems: 'center',\n-    justifyContent: 'center',\n-  },\n-  \n-});\n-\n-export default styles;\n-import { StyleSheet } from \"react-native\";\n-\n-const styles = StyleSheet.create({\n-  container: {\n-    flex: 1,\n-    backgroundColor: '#fff',\n-    alignItems: 'center',\n-    justifyContent: 'center',\n-  },\n-\n-});\n-\n-export default styles;\n-import { StyleSheet } from \"react-native\";\n-\n-const styles = StyleSheet.create({\n-  container: {\n-    flex: 1,\n-    backgroundColor: '#fff',\n-    alignItems: 'center',\n-    justifyContent: 'center',\n-  },\n-  btn: {\n-    width: 200,\n-    height: 40,\n-    alignItems: 'center',\n-    justifyContent: 'center',\n-    marginTop: 10,\n-    backgroundColor: '#ff0000',\n-    borderRadius: 5,\n-  },\n-  btnText: {\n-    color: '#fff'\n-  }\n-});\n-\n\\ No newline at end of file\n-export default \n+export default styles;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735175487525,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+import { StyleSheet } from \"react-native\";\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    backgroundColor: '#fff',\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+  image:{\n+    width: '60%',\n+  }\n+\n+});\n+\n+export default styles;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735175496618,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     alignItems: 'center',\n     justifyContent: 'center',\n   },\n   image:{\n-    width: '60%',\n+    width: 300,\n   }\n \n });\n \n"
+                },
+                {
+                    "date": 1735175502696,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,17 @@\n+import { StyleSheet } from \"react-native\";\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    backgroundColor: '#fff',\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+  image:{\n+    width: 300,\n+    height: 300,\n+  }\n+\n+});\n+\n+export default styles;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735175701249,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import { StyleSheet } from \"react-native\";\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    backgroundColor: '#fff',\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+  \n+  image:{\n+    width: 300,\n+    height: 300,\n+  }\n+\n+});\n+\n+export default styles;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735175707543,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import { StyleSheet } from \"react-native\";\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    backgroundColor: '#fff',\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+  contentIcon\n+  image:{\n+    width: 300,\n+    height: 300,\n+  }\n+\n+});\n+\n+export default styles;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735175714594,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,20 @@\n+import { StyleSheet } from \"react-native\";\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    backgroundColor: '#fff',\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+  contentIcon:{\n+\n+  },\n+  image:{\n+    width: 300,\n+    height: 300,\n+  }\n+\n+});\n+\n+export default styles;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735175721126,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,20 @@\n+import { StyleSheet } from \"react-native\";\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    backgroundColor: '#fff',\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+  contentIcon:{\n+    flex\n+  },\n+  image:{\n+    width: 300,\n+    height: 300,\n+  }\n+\n+});\n+\n+export default styles;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735175734663,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,119 +7,14 @@\n     alignItems: 'center',\n     justifyContent: 'center',\n   },\n   contentIcon:{\n-    flex\n+    flex:2\n   },\n   image:{\n     width: 300,\n     height: 300,\n   }\n \n });\n \n-export default styles;\n-import { StyleSheet } from \"react-native\";\n-\n-const styles = StyleSheet.create({\n-  container: {\n-    flex: 1,\n-    backgroundColor: '#fff',\n-    alignItems: 'center',\n-    justifyContent: 'center',\n-  },\n-  contentIcon:{\n-\n-  },\n-  image:{\n-    width: 300,\n-    height: 300,\n-  }\n-\n-});\n-\n-export default styles;\n-import { StyleSheet } from \"react-native\";\n-\n-const styles = StyleSheet.create({\n-  container: {\n-    flex: 1,\n-    backgroundColor: '#fff',\n-    alignItems: 'center',\n-    justifyContent: 'center',\n-  },\n-  contentIcon\n-  image:{\n-    width: 300,\n-    height: 300,\n-  }\n-\n-});\n-\n-export default styles;\n-import { StyleSheet } from \"react-native\";\n-\n-const styles = StyleSheet.create({\n-  container: {\n-    flex: 1,\n-    backgroundColor: '#fff',\n-    alignItems: 'center',\n-    justifyContent: 'center',\n-  },\n-  \n-  image:{\n-    width: 300,\n-    height: 300,\n-  }\n-\n-});\n-\n-export default styles;\n-import { StyleSheet } from \"react-native\";\n-\n-const styles = StyleSheet.create({\n-  container: {\n-    flex: 1,\n-    backgroundColor: '#fff',\n-    alignItems: 'center',\n-    justifyContent: 'center',\n-  },\n-  image:{\n-    width: 300,\n-    height: 300,\n-  }\n-\n-});\n-\n-export default styles;\n-import { StyleSheet } from \"react-native\";\n-\n-const styles = StyleSheet.create({\n-  container: {\n-    flex: 1,\n-    backgroundColor: '#fff',\n-    alignItems: 'center',\n-    justifyContent: 'center',\n-  },\n-  image:{\n-    width: 300,\n-  }\n-\n-});\n-\n-export default styles;\n-import { StyleSheet } from \"react-native\";\n-\n-const styles = StyleSheet.create({\n-  container: {\n-    flex: 1,\n-    backgroundColor: '#fff',\n-    alignItems: 'center',\n-    justifyContent: 'center',\n-  },\n-  image:{\n-    width: '80%',\n-  }\n-\n-});\n-\n export default styles;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735175764051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,5 +17,5 @@\n   }\n \n });\n \n-export default st\n\\ No newline at end of file\n+export default styles;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735175771936,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,22 @@\n+import { StyleSheet } from \"react-native\";\n+\n+const styles = StyleSheet.create({\n+  container: {\n+    flex: 1,\n+    backgroundColor: '#fff',\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+  contentIcon:{\n+    flex:2,\n+    alignItems: 'center',\n+    \n+  },\n+  image:{\n+    width: 300,\n+    height: 300,\n+  }\n+\n+});\n+\n+export default styles;\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1735175055026,
+            "name": "Commit-0",
+            "content": "\n\nconst styles = StyleSheet.create({\n  container: {\n    flex: 1,\n    backgroundColor: '#fff',\n    alignItems: 'center',\n    justifyContent: 'center',\n  },\n  btn: {\n    width: 200,\n    height: 40,\n    alignItems: 'center',\n    justifyContent: 'center',\n    marginTop: 10,\n    backgroundColor: '#ff0000',\n    borderRadius: 5,\n  },\n  btnText: {\n    color: '#fff'\n  }\n});"
+        }
+    ]
+}
