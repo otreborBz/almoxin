@@ -12,7 +12,7 @@ import data from '../../service/tool'
 export default function Tool() {
   return (
     <SafeAreaView style={styles.container}>
-      <Header placeHolder="peças" />
+      <Header placeHolder="peças" icon="addfile" />
       <FlatList
         data={data}
         keyExtractor={(item) => item.id}

@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 15,
-    marginTop: 10, 
+    marginTop: 10,
   },
   areaSearch:{
     width: '80%',
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginRight: 10,
     borderColor: colors.border,
-    backgroundColor: colors.white, 
+    backgroundColor: colors.white,
   },
   areaAdd:{
     width: '10%',

@@ -12,7 +12,7 @@ import Data from '../../service/usuario'
 export default function User() {
   return (
       <SafeAreaView style={styles.container}>
-        <Header placeHolder="usuário"/>
+        <Header placeHolder="usuario" icon="adduser"/>
           <FlatList
             data={Data}
             keyExtractor={(item) => item.id}

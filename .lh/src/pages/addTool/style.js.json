@@ -1,0 +1,54 @@
+{
+    "sourceFile": "src/pages/addTool/style.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1735364553883,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1735364560010,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,2 @@\n-import \n\\ No newline at end of file\n+import { StyleSheet } from \"react-native\";\n+\n"
+                },
+                {
+                    "date": 1735364565727,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,3 @@\n import { StyleSheet } from \"react-native\";\n \n+export const styles = StyleSheet\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735364571909,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,3 @@\n+import { StyleSheet } from \"react-native\";\n+\n+export const styles = StyleSheet.create()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735364830856,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,5 @@\n+import { StyleSheet } from \"react-native\";\n+\n+export const styles = StyleSheet.create({\n+  content\n+})\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735364836778,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,5 @@\n+import { StyleSheet } from \"react-native\";\n+\n+export const styles = StyleSheet.create({\n+  contentHeader:{}\n+})\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735364842162,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,8 @@\n+import { StyleSheet } from \"react-native\";\n+\n+export const styles = StyleSheet.create({\n+  \n+  contentHeader:{\n+\n+  }\n+})\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735364847540,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,8 @@\n+import { StyleSheet } from \"react-native\";\n+\n+export const styles = StyleSheet.create({\n+  containr:{}\n+  contentHeader:{\n+\n+  }\n+})\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735364852612,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n import { StyleSheet } from \"react-native\";\n \n export const styles = StyleSheet.create({\n   containr:{\n-    \n-  }\n+\n+  },\n   contentHeader:{\n \n   }\n })\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735364886763,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,12 @@\n+import { StyleSheet } from \"react-native\";\n+\n+export const styles = StyleSheet.create({\n+  container:{\n+    flex: 1,\n+    alignItems: 'center',\n+    justifyContent: 'center',\n+  },\n+  contentHeader:{\n+\n+  }\n+})\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1735364553883,
+            "name": "Commit-0",
+            "content": "import "
+        }
+    ]
+}

@@ -8,7 +8,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import ButtonFloat from '../../component/buttonFloat';
 
-export default function Header({placeHolder}) {
+export default function Header({placeHolder, icon}) {
 
   const navigation = useNavigation();
 
@@ -25,6 +25,14 @@ function exit(){
       } 
     },
   ]);
+}
+
+function openPage(){
+  if (icon === 'addfile'){
+    navigation.navigate('AddTool');
+    return;
+  }
+  alert("adicionando usuarios")
 }
 
   return (
@@ -45,10 +53,10 @@ function exit(){
           </TouchableOpacity>
         </View>
         <View style={styles.areaAdd}>
-          <TouchableOpacity style={styles.button}>
-            <ButtonFloat />
+          <TouchableOpacity style={styles.button} onPress={openPage}>
+            <ButtonFloat icon={icon}/>
           </TouchableOpacity>
-        </View>  
+        </View>
       </View>
      
     </View>
