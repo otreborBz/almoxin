@@ -3,7 +3,12 @@ import colors from '../../color'
 
 const styles = StyleSheet.create({
 
-
+  container: {
+    flex: 1, 
+  },
+  listContent: {
+    paddingBottom: 16,
+  },
 
 });
 

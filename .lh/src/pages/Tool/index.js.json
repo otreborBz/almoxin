@@ -1,0 +1,50 @@
+{
+    "sourceFile": "src/pages/Tool/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1735353370132,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1735353375402,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n \r\n import Data from '../../service/usuario'\r\n \r\n \r\n-export default function Usuario() {\r\n+export default function Tool() {\r\n   return (\r\n     <SafeAreaView style={styles.container}>\r\n       <Header />\r\n       <FlatList\r\n"
+                },
+                {
+                    "date": 1735353388268,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n \r\n import Header from '../../component/header'\r\n import CardUser from '../../component/cardUser';\r\n \r\n-import Data from '../../service/usuario'\r\n+import Data from '../../service/to'\r\n \r\n \r\n export default function Tool() {\r\n   return (\r\n"
+                },
+                {
+                    "date": 1735353399930,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,25 @@\n+import React from 'react';\r\n+import { FlatList, View } from 'react-native';\r\n+import { SafeAreaView } from 'react-native';\r\n+import styles from './style';\r\n+\r\n+import Header from '../../component/header'\r\n+import CardUser from '../../component/cardUser';\r\n+\r\n+import Data from '../../'\r\n+\r\n+\r\n+export default function Tool() {\r\n+  return (\r\n+    <SafeAreaView style={styles.container}>\r\n+      <Header />\r\n+      <FlatList\r\n+        data={Data}\r\n+        keyExtractor={(item) => item.id}\r\n+        renderItem={({ item }) => <CardUser {...item} />}\r\n+        style={styles.listContent}\r\n+      />\r\n+    </SafeAreaView>\r\n+  );\r\n+}\r\n+\r\n"
+                },
+                {
+                    "date": 1735353409439,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,25 @@\n+import React from 'react';\r\n+import { FlatList, View } from 'react-native';\r\n+import { SafeAreaView } from 'react-native';\r\n+import styles from './style';\r\n+\r\n+import Header from '../../component/header'\r\n+import CardUser from '../../component/cardUser';\r\n+\r\n+import Data from '../../service/'\r\n+\r\n+\r\n+export default function Tool() {\r\n+  return (\r\n+    <SafeAreaView style={styles.container}>\r\n+      <Header />\r\n+      <FlatList\r\n+        data={Data}\r\n+        keyExtractor={(item) => item.id}\r\n+        renderItem={({ item }) => <CardUser {...item} />}\r\n+        style={styles.listContent}\r\n+      />\r\n+    </SafeAreaView>\r\n+  );\r\n+}\r\n+\r\n"
+                },
+                {
+                    "date": 1735353426050,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n \r\n import Header from '../../component/header'\r\n import CardUser from '../../component/cardUser';\r\n \r\n-import Data from '../../service/'\r\n+import Data from '../../service/tool'\r\n \r\n \r\n export default function Tool() {\r\n   return (\r\n@@ -22,54 +22,4 @@\n     </SafeAreaView>\r\n   );\r\n }\r\n \r\n-import React from 'react';\r\n-import { FlatList, View } from 'react-native';\r\n-import { SafeAreaView } from 'react-native';\r\n-import styles from './style';\r\n-\r\n-import Header from '../../component/header'\r\n-import CardUser from '../../component/cardUser';\r\n-\r\n-import Data from '../../'\r\n-\r\n-\r\n-export default function Tool() {\r\n-  return (\r\n-    <SafeAreaView style={styles.container}>\r\n-      <Header />\r\n-      <FlatList\r\n-        data={Data}\r\n-        keyExtractor={(item) => item.id}\r\n-        renderItem={({ item }) => <CardUser {...item} />}\r\n-        style={styles.listContent}\r\n-      />\r\n-    </SafeAreaView>\r\n-  );\r\n-}\r\n-\r\n-import React from 'react';\r\n-import { FlatList, View } from 'react-native';\r\n-import { SafeAreaView } from 'react-native';\r\n-import styles from './style';\r\n-\r\n-import Header from '../../component/header'\r\n-import CardUser from '../../component/cardUser';\r\n-\r\n-import Data from '../../service/to'\r\n-\r\n-\r\n-export default function Tool() {\r\n-  return (\r\n-    <SafeAreaView style={styles.container}>\r\n-      <Header />\r\n-      <FlatList\r\n-        data={Data}\r\n-        keyExtractor={(item) => item.id}\r\n-        renderItem={({ item }) => <CardUser {...item} />}\r\n-        style={styles.listContent}\r\n-      />\r\n-    </SafeAreaView>\r\n-  );\r\n-}\r\n-\r\n"
+                },
+                {
+                    "date": 1735353436953,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import { SafeAreaView } from 'react-native';\r\n import styles from './style';\r\n \r\n import Header from '../../component/header'\r\n-import CardUser from '../../component/cardUser';\r\n+import Card from '../../component/cardUser';\r\n \r\n import Data from '../../service/tool'\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1735353447323,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import { SafeAreaView } from 'react-native';\r\n import styles from './style';\r\n \r\n import Header from '../../component/header'\r\n-import CardTool from '../../component/cardUser';\r\n+import CardTool from '../../component/cardTool';\r\n \r\n import Data from '../../service/tool'\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1735353459307,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,25 @@\n+import React from 'react';\r\n+import { FlatList, View } from 'react-native';\r\n+import { SafeAreaView } from 'react-native';\r\n+import styles from './style';\r\n+\r\n+import Header from '../../component/header'\r\n+import CardTool from '../../component/cardTool';\r\n+\r\n+import Data from '../../service/tool'\r\n+\r\n+\r\n+export default function Tool() {\r\n+  return (\r\n+    <SafeAreaView style={styles.container}>\r\n+      <Header />\r\n+      <FlatList\r\n+        data={Data}\r\n+        keyExtractor={(item) => item.id}\r\n+        renderItem={({ item }) => <CardTool {...item} />}\r\n+        style={styles.listContent}\r\n+      />\r\n+    </SafeAreaView>\r\n+  );\r\n+}\r\n+\r\n"
+                }
+            ],
+            "date": 1735353370132,
+            "name": "Commit-0",
+            "content": "import React from 'react';\r\nimport { FlatList, View } from 'react-native';\r\nimport { SafeAreaView } from 'react-native';\r\nimport styles from './style';\r\n\r\nimport Header from '../../component/header'\r\nimport CardUser from '../../component/cardUser';\r\n\r\nimport Data from '../../service/usuario'\r\n\r\n\r\nexport default function Usuario() {\r\n  return (\r\n    <SafeAreaView style={styles.container}>\r\n      <Header />\r\n      <FlatList\r\n        data={Data}\r\n        keyExtractor={(item) => item.id}\r\n        renderItem={({ item }) => <CardUser {...item} />}\r\n        style={styles.listContent}\r\n      />\r\n    </SafeAreaView>\r\n  );\r\n}\r\n\r\n"
+        }
+    ]
+}

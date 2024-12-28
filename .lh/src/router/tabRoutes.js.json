@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 5,
             "patches": [
                 {
                     "date": 1735174933238,
@@ -20,6 +20,14 @@
                 {
                     "date": 1735174959080,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n         <Tab.Screen\r\n           name='Peca'\r\n           component={Peca}\r\n           options={{\r\n-            tabBarIcon: ({ color, size }) => { return <Feather name='file-Text' color={color} size={size} /> }\r\n+            tabBarIcon: ({ color, size }) => { return <Feather name='file-text' color={color} size={size} /> }\r\n           }} />\r\n \r\n \r\n       </Tab.Navigator>\r\n"
+                },
+                {
+                    "date": 1735353901308,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \r\n import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';// importa o tipo da nevagecao do react native\r\n \r\n //Paginas\r\n-import Usuario from '../pages/Usuario';\r\n+import Usuario from '../pages/User';\r\n import Peca from '../pages/Peca';\r\n \r\n //Icones\r\n import Feather from 'react-native-vector-icons/Feather'\r\n"
+                },
+                {
+                    "date": 1735353909473,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,43 @@\n+import React from 'react';\r\n+\r\n+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';// importa o tipo da nevagecao do react native\r\n+\r\n+//Paginas\r\n+import Usuario from '../pages/User';\r\n+import Peca from '../pages/Tool';\r\n+\r\n+//Icones\r\n+import Feather from 'react-native-vector-icons/Feather'\r\n+\r\n+const Tab = createBottomTabNavigator();\r\n+\r\n+export default function Routes() {\r\n+  return (\r\n+      <Tab.Navigator\r\n+        screenOptions={{\r\n+          headerShown: false,\r\n+          tabBarHideOnKeyboard: true,\r\n+          tabBarShowLabel: false,\r\n+        }}\r\n+      >\r\n+\r\n+        <Tab.Screen\r\n+          name='Usuario'\r\n+          component={Usuario}\r\n+          options={{\r\n+            tabBarIcon: ({ color, size }) => { return <Feather name='users' color={color} size={size} /> }\r\n+          }} />\r\n+\r\n+        <Tab.Screen\r\n+          name='Peca'\r\n+          component={Peca}\r\n+          options={{\r\n+            tabBarIcon: ({ color, size }) => { return <Feather name='file-text' color={color} size={size} /> }\r\n+          }} />\r\n+\r\n+\r\n+      </Tab.Navigator>\r\n+  );\r\n+}\r\n+\r\n+\r\n"
                 }
             ],
             "date": 1735174933238,

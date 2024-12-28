@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/component/cardUser/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1735353566125,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1735353566125,
+            "name": "Commit-0",
+            "content": "import React from 'react';\r\nimport { View, Text, SafeAreaView,} from 'react-native';\r\nimport styles from './style';\r\n\r\n\r\n\r\nexport default function CardUser({id, nome, email}) {\r\n  return (\r\n    <SafeAreaView style={styles.container}>\r\n      <View style={styles.content}>\r\n        <Text style={styles.text}>ID:</Text>\r\n        <Text style={styles.text}>{id}</Text>\r\n      </View>\r\n\r\n      <View style={styles.content}>\r\n        <Text style={styles.text}>NOME:</Text>\r\n        <Text style={styles.text}>{nome}</Text>\r\n      </View>\r\n\r\n      <View style={styles.content}>\r\n        <Text style={styles.text}>EMAIL:</Text>\r\n        <Text style={styles.text}>{email}</Text>\r\n      </View>\r\n    </SafeAreaView>\r\n  );\r\n}"
+        }
+    ]
+}

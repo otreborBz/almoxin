@@ -1,0 +1,42 @@
+{
+    "sourceFile": "src/component/cardTool/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1735353649197,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1735353663022,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,26 @@\n+import React from 'react';\r\n+import { View, Text, SafeAreaView,} from 'react-native';\r\n+import styles from './style';\r\n+\r\n+\r\n+\r\n+export default function CardTool({id, nome, }) {\r\n+  return (\r\n+    <SafeAreaView style={styles.container}>\r\n+      <View style={styles.content}>\r\n+        <Text style={styles.text}>ID:</Text>\r\n+        <Text style={styles.text}>{id}</Text>\r\n+      </View>\r\n+\r\n+      <View style={styles.content}>\r\n+        <Text style={styles.text}>NOME:</Text>\r\n+        <Text style={styles.text}>{nome}</Text>\r\n+      </View>\r\n+\r\n+      <View style={styles.content}>\r\n+        <Text style={styles.text}>EMAIL:</Text>\r\n+        <Text style={styles.text}>{email}</Text>\r\n+      </View>\r\n+    </SafeAreaView>\r\n+  );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735353668930,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,26 @@\n+import React from 'react';\r\n+import { View, Text, SafeAreaView,} from 'react-native';\r\n+import styles from './style';\r\n+\r\n+\r\n+\r\n+export default function CardTool({id, nome, maquina, }) {\r\n+  return (\r\n+    <SafeAreaView style={styles.container}>\r\n+      <View style={styles.content}>\r\n+        <Text style={styles.text}>ID:</Text>\r\n+        <Text style={styles.text}>{id}</Text>\r\n+      </View>\r\n+\r\n+      <View style={styles.content}>\r\n+        <Text style={styles.text}>NOME:</Text>\r\n+        <Text style={styles.text}>{nome}</Text>\r\n+      </View>\r\n+\r\n+      <View style={styles.content}>\r\n+        <Text style={styles.text}>EMAIL:</Text>\r\n+        <Text style={styles.text}>{email}</Text>\r\n+      </View>\r\n+    </SafeAreaView>\r\n+  );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735353675259,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,26 @@\n+import React from 'react';\r\n+import { View, Text, SafeAreaView,} from 'react-native';\r\n+import styles from './style';\r\n+\r\n+\r\n+\r\n+export default function CardTool({id, nome, maquina, descricao, }) {\r\n+  return (\r\n+    <SafeAreaView style={styles.container}>\r\n+      <View style={styles.content}>\r\n+        <Text style={styles.text}>ID:</Text>\r\n+        <Text style={styles.text}>{id}</Text>\r\n+      </View>\r\n+\r\n+      <View style={styles.content}>\r\n+        <Text style={styles.text}>NOME:</Text>\r\n+        <Text style={styles.text}>{nome}</Text>\r\n+      </View>\r\n+\r\n+      <View style={styles.content}>\r\n+        <Text style={styles.text}>EMAIL:</Text>\r\n+        <Text style={styles.text}>{email}</Text>\r\n+      </View>\r\n+    </SafeAreaView>\r\n+  );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735353682470,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,26 @@\n+import React from 'react';\r\n+import { View, Text, SafeAreaView,} from 'react-native';\r\n+import styles from './style';\r\n+\r\n+\r\n+\r\n+export default function CardTool({id, nome, maquina, descricao, fabricante, }) {\r\n+  return (\r\n+    <SafeAreaView style={styles.container}>\r\n+      <View style={styles.content}>\r\n+        <Text style={styles.text}>ID:</Text>\r\n+        <Text style={styles.text}>{id}</Text>\r\n+      </View>\r\n+\r\n+      <View style={styles.content}>\r\n+        <Text style={styles.text}>NOME:</Text>\r\n+        <Text style={styles.text}>{nome}</Text>\r\n+      </View>\r\n+\r\n+      <View style={styles.content}>\r\n+        <Text style={styles.text}>EMAIL:</Text>\r\n+        <Text style={styles.text}>{email}</Text>\r\n+      </View>\r\n+    </SafeAreaView>\r\n+  );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735353692277,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import styles from './style';\r\n \r\n \r\n \r\n-export default function CardTool({id, nome, maquina, descricao, fabricante, codCompra, }) {\r\n+export default function CardTool({id, nome, maquina, descricao, fabricante, codCompra, localizacao}) {\r\n   return (\r\n     <SafeAreaView style={styles.container}>\r\n       <View style={styles.content}>\r\n         <Text style={styles.text}>ID:</Text>\r\n"
+                },
+                {
+                    "date": 1735353716610,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,27 @@\n+import React from 'react';\r\n+import { View, Text, SafeAreaView,} from 'react-native';\r\n+import styles from './style';\r\n+\r\n+\r\n+\r\n+export default function CardTool({id, nome, maquina, descricao, fabricante, codCompra, localizacao}) {\r\n+  return (\r\n+    <SafeAreaView style={styles.container}>\r\n+      <View style={styles.content}>\r\n+        <Text style={styles.text}>ID:</Text>\r\n+        <Text style={styles.text}>{id}</Text>\r\n+      </View>\r\n+\r\n+      <View style={styles.content}>\r\n+        <Text style={styles.text}>NOME:</Text>\r\n+        <Text style={styles.text}>{nome}</Text>\r\n+      </View>\r\n+\r\n+      <View style={styles.content}>\r\n+        <Text style={styles.text}>EMAIL:</Text>\r\n+        <Text style={styles.text}>{email}</Text>\r\n+      </View>\r\n+      \r\n+    </SafeAreaView>\r\n+  );\r\n+}\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1735353649197,
+            "name": "Commit-0",
+            "content": "import React from 'react';\r\nimport { View, Text, SafeAreaView,} from 'react-native';\r\nimport styles from './style';\r\n\r\n\r\n\r\nexport default function CardTool({id, nome, email}) {\r\n  return (\r\n    <SafeAreaView style={styles.container}>\r\n      <View style={styles.content}>\r\n        <Text style={styles.text}>ID:</Text>\r\n        <Text style={styles.text}>{id}</Text>\r\n      </View>\r\n\r\n      <View style={styles.content}>\r\n        <Text style={styles.text}>NOME:</Text>\r\n        <Text style={styles.text}>{nome}</Text>\r\n      </View>\r\n\r\n      <View style={styles.content}>\r\n        <Text style={styles.text}>EMAIL:</Text>\r\n        <Text style={styles.text}>{email}</Text>\r\n      </View>\r\n    </SafeAreaView>\r\n  );\r\n}"
+        }
+    ]
+}

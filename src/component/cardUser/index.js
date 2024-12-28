@@ -4,7 +4,7 @@ import styles from './style';
 
 
 
-export default function CardUsuario({id, nome, email}) {
+export default function CardUser({id, nome, email}) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
