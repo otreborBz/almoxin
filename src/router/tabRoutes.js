@@ -3,8 +3,8 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';// importa o tipo da nevagecao do react native
 
 //Paginas
-import Usuario from '../pages/User';
-import Peca from '../pages/Tool';
+import User from '../pages/User';
+import Tool from '../pages/Tool';
 
 //Icones
 import Feather from 'react-native-vector-icons/Feather'
@@ -22,15 +22,15 @@ export default function Routes() {
       >
 
         <Tab.Screen
-          name='Usuario'
-          component={Usuario}
+          name='User'
+          component={User}
           options={{
             tabBarIcon: ({ color, size }) => { return <Feather name='users' color={color} size={size} /> }
           }} />
 
         <Tab.Screen
-          name='Peca'
-          component={Peca}
+          name='Tool'
+          component={Tool}
           options={{
             tabBarIcon: ({ color, size }) => { return <Feather name='file-text' color={color} size={size} /> }
           }} />

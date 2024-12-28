@@ -1,10 +1,10 @@
 import React from 'react';
-import { FlatList, View} from 'react-native';
-import { SafeAreaView} from 'react-native';
+import { FlatList, SafeAreaView, TouchableOpacity,Text} from 'react-native';
 import styles from './style';
 
 import Header from '../../component/header'
 import CardUser from '../../component/cardUser';
+
 
 import Data from '../../service/usuario'
 
@@ -19,6 +19,7 @@ export default function User() {
             renderItem={({ item }) => <CardUser {...item} />}
             style={styles.listContent}
           />
+      
       </SafeAreaView>
   );
 }

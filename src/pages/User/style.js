@@ -1,14 +1,24 @@
-import { FlatList, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import colors from '../../color'
 
 const styles = StyleSheet.create({
 
   container: {
-    flex: 1, 
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center', 
+  },
+  button:{
+    flex: 1,
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#ff0000'
   },
   listContent: {
     paddingBottom: 16,
   },
+ 
 
 });
 

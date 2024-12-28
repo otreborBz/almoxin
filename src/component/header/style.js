@@ -32,8 +32,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     marginTop: 10, 
   },
+  areaSearch:{
+    width: '80%',
+    height: 40,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   input: {
-    flex: 1,
+    width: '90%',
     height: 40,
     borderWidth: 1,
     borderRadius: 10,
@@ -42,6 +48,12 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     backgroundColor: colors.white, 
   },
-});
+  areaAdd:{
+    width: '10%',
+    height: 40,
+    alignItems: 'flex-end',
+    justifyContent: 'center'
+  },
+});styles
 
 export default styles;
