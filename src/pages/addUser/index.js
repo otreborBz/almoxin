@@ -3,13 +3,15 @@ import {SafeAreaView, TextInput, View, Text, TouchableOpacity} from 'react-nativ
 import { styles } from "./style";
 import { useNavigation } from "@react-navigation/native";
 
-export default function AddTool(){
+export default function AddUser(){
 
   const navigation = useNavigation();
 
   function backPage(){
     navigation.goBack();
   }
+
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.contentHeader}>
@@ -18,34 +20,21 @@ export default function AddTool(){
       </View>
       <View style={styles.contentInput}>
         <Text style={styles.textInput}>Nome</Text>
-        <TextInput
-        style={styles.input} />
+        <TextInput style={styles.input} />
       </View>
       <View style={styles.contentInput}>
-        <Text style={styles.textInput}>Máquina</Text>
-        <TextInput
-          style={styles.input} />
+        <Text style={styles.textInput}>Email</Text>
+        <TextInput style={styles.input} />
       </View>
+
       <View style={styles.contentInput}>
-        <Text style={styles.textInput}>Descrição</Text>
-        <TextInput
-          style={styles.input} />
+        <TouchableOpacity style={styles.buttonSenha}>
+          <Text style={styles.buttonText}>Gerar Senha</Text>
+        </TouchableOpacity>
+        <Text style={styles.textInput}>Senha ( clique para gerar a senha )</Text>
+        <TextInput style={styles.input} />
       </View>
-      <View style={styles.contentInput}>
-        <Text style={styles.textInput}>Numero do fabricante</Text>
-        <TextInput
-          style={styles.input} />
-      </View>
-      <View style={styles.contentInput}>
-        <Text style={styles.textInput}>Código da compra</Text>
-        <TextInput
-          style={styles.input} />
-      </View>
-      <View style={styles.contentInput}>
-        <Text style={styles.textInput}>Localização</Text>
-        <TextInput
-          style={styles.input} />
-      </View>
+
       <View style={styles.contentButton}>
         <TouchableOpacity style={styles.button} onPress={backPage}>
           <Text style={styles.buttonText}>Salvar</Text>
@@ -55,7 +44,7 @@ export default function AddTool(){
           <Text style={styles.buttonText}>cancelar</Text>
         </TouchableOpacity>
       </View>
-  
+
     </SafeAreaView>
   )
 }

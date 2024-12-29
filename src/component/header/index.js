@@ -32,7 +32,7 @@ function openPage(){
     navigation.navigate('AddTool');
     return;
   }
-  alert("adicionando usuarios")
+  navigation.navigate('AddUser');
 }
 
   return (
