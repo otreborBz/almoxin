@@ -1,0 +1,18 @@
+{
+    "sourceFile": "README.md",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1735483311823,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1735483311823,
+            "name": "Commit-0",
+            "content": "# almox.in\n\n# Projeto Almox.in\n\n## Visão Geral\nO Almox.in é uma aplicação desenvolvida para gerenciar o estoque de peças e os usuários de um sistema de almoxarifado. Ele permite o cadastro, consulta, edição e exclusão de peças, bem como o gerenciamento de usuários com diferentes níveis de permissão.\n\n## Funcionalidades\n\n### Para Administradores:\n- Gerenciar usuários:\n  - Adicionar, editar e excluir usuários.\n  - Listar todos os usuários cadastrados.\n  \n- Gerenciar peças:\n  - Adicionar, editar e excluir peças.\n  - Consultar e listar peças.\n\n### Para Usuários:\n- Visualizar e listar peças cadastradas no sistema.\n- Realizar buscas de peças por filtros específicos.\n\n## Regras de Negócio\n\n- **Admin:**\n  - Pode gerenciar todos os usuários e peças.\n  - Todos os campos são obrigatórios para criação de novos usuários.\n\n- **Usuários comuns:**\n  - Podem apenas consultar e listar peças.\n\n- **Peças:**\n  - Campos obrigatórios: Nome, máquina e localização.\n  - Campos opcionais: Descrição, número do fabricante e código de compra.\n\n## Tecnologias Utilizadas\n- **Frontend:** React Native.\n- **Backend:** Firebase.\n\n## Estrutura de Telas\n\n### Tela de Login:\n- Campo para email e senha.\n- Botão de login.\n- Link para termos de uso.\n\n### Tela de Administração:\n#### Usuários:\n- Lista de usuários cadastrados.\n- Campo de busca para localizar usuários.\n- Botão para adicionar novos usuários.\n- Ao clicar em um usuário, abre a tela de edição.\n\n#### Peças:\n- Lista de peças cadastradas.\n- Campo de busca para localizar peças.\n- Botão para adicionar novas peças.\n- Ao clicar em uma peça, abre a tela de edição.\n\n### Tela de Criação/Edição:\n#### Usuários:\n- Campos para nome, email e senha.\n- Botão para salvar ou cancelar.\n\n#### Peças:\n- Campos para nome, máquina, descrição, número do fabricante, código de compra e localização.\n- Botão para salvar ou cancelar.\n\n## Como Rodar o Projeto\n\n1. Clone este repositório:\n   ```bash\n   git clone https://github.com/seu-usuario/seu-repositorio.git\n   ```\n\n2. Instale as dependências:\n   ```bash\n   npm install\n   ```\n\n3. Inicie o projeto:\n   ```bash\n   npx expo start\n   ```\n\n4. Escaneie o código QR no Expo Go para rodar no dispositivo móvel.\n\n## Contribuição\nFique à vontade para contribuir com melhorias ou correções! Basta abrir um Pull Request com as alterações propostas.\n\n## Licença\nEste projeto está licenciado sob a [Licença MIT](LICENSE).\n\n---\n\nProjeto desenvolvido por **CodeBr | Roberto Carvalho**.\n\n"
+        }
+    ]
+}
