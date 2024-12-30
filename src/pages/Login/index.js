@@ -29,11 +29,13 @@ export default function Login() {
 
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
-        navigation.navigate('TabRoutes');
+        const role = email === 'admin@admin.com' ? 'admin' : 'user';
+        navigation.navigate('TabRoutes', { role });
       })
       .catch((error) => {
         Alert.alert('Erro', 'Não foi possível fazer login. Verifique suas credenciais.');
       });
+
   }
   return (
     <SafeAreaView style={styles.container}>

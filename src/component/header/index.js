@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, TextInput, Alert } from 'react-native';
 import styles from './style';
+
+import IconFeather from '../iconFeather';
 import Feather from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import { useNavigation } from '@react-navigation/native';
-
-import ButtonFloat from '../iconFeather';
 
 import { signOut } from 'firebase/auth';
 import {auth} from '../../service/firebaseConnection';
@@ -63,11 +63,14 @@ export default function Header({placeHolder, icon, user}) {
             <Feather name="search" size={25} color="#000000" />
           </TouchableOpacity>
         </View>
-        <View style={styles.areaAdd}>
-          <TouchableOpacity style={styles.button} onPress={openPage}>
-            <ButtonFloat icon={icon}/>
-          </TouchableOpacity>
-        </View>
+        { user === 'Admin' && (
+          <View style={styles.areaAdd}>
+            <TouchableOpacity style={styles.button} onPress={openPage}>
+              <IconFeather icon={icon} />
+            </TouchableOpacity>
+          </View>
+        )}
+        
       </View>
      
     </View>

@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   input: {
-    width: '90%',
+    width: '100%',
     height: 40,
     borderWidth: 1,
     borderRadius: 10,
