@@ -4,17 +4,17 @@ import styles from './style';
 
 
 
-export default function CardTool({id, nome, maquina, descricao, numeroFabricante, codigoCompra, localizacao}) {
+export default function CardTool({id, name, maquina, descricao, numeroFabricante, codigoCompra, localizacao}) {
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.content}>
+      {/* <View style={styles.content}>
         <Text style={styles.text}>ID:</Text>
         <Text style={styles.text}>{id}</Text>
-      </View>
+      </View> */}
 
       <View style={styles.content}>
         <Text style={styles.text}>NOME:</Text>
-        <Text style={styles.text}>{nome}</Text>
+        <Text style={styles.text}>{name}</Text>
       </View>
 
       <View style={styles.content}>

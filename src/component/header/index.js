@@ -16,14 +16,14 @@ export default function Header({placeHolder, icon, user}) {
   const navigation = useNavigation();
 
   function exit() {
-    Alert.alert('Desconectar Usuário', 'Deseja realmente Sair?', [
+    Alert.alert('Logout', 'Deseja realmente Sair?', [
       {
-        text: 'Cancelar',
+        text: 'Não',
         onPress: () => console.log('Cancel Pressionado'),
         style: 'cancel',
       },
       {
-        text: 'OK',
+        text: 'Sim',
         onPress: async () => {
           try {
             await signOut(auth);

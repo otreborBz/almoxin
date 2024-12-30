@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/pages/userTool/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1735538769841,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1735538769841,
+            "name": "Commit-0",
+            "content": "import React, { useState, useEffect } from 'react';\r\nimport { FlatList, SafeAreaView, Alert } from 'react-native';\r\nimport styles from './style';\r\n\r\nimport Header from '../../component/header';\r\nimport CardUser from '../../component/cardUser';\r\nimport Loading from '../../component/loading';\r\n\r\nimport { auth, db } from '../../service/firebaseConnection';\r\nimport { collection, doc, getDoc, onSnapshot } from 'firebase/firestore';\r\n\r\nexport default function UserTool() {\r\n  const [isLoading, setIsLoading] = useState(true);\r\n  const [listUsers, setListUsers] = useState([]);\r\n  const [userAuth, setUserAuth] = useState(null);\r\n\r\n  useEffect(() => {\r\n    // Obter o usuário autenticado\r\n    const fetchUserAuth = async () => {\r\n      const user = auth.currentUser;\r\n      if (user) {\r\n        try {\r\n          const userDocRef = doc(db, 'users', user.uid);\r\n          const userDoc = await getDoc(userDocRef);\r\n\r\n          if (userDoc.exists()) {\r\n            const userData = userDoc.data();\r\n            setUserAuth(userData.name);\r\n          } else {\r\n            console.warn('Usuário não encontrado no Firestore.');\r\n          }\r\n        } catch (error) {\r\n          console.error('Erro ao buscar usuário autenticado:', error);\r\n          Alert.alert('Erro', 'Não foi possível carregar o usuário autenticado.');\r\n        }\r\n      } else {\r\n        console.warn('Nenhum usuário autenticado.');\r\n        setUserAuth('Usuário desconhecido');\r\n      }\r\n    };\r\n\r\n    fetchUserAuth();\r\n\r\n    const userRef = collection(db, 'users');\r\n    const unsubscribe = onSnapshot(\r\n      userRef,\r\n      (snapshot) => {\r\n        const users = snapshot.docs.map((doc) => ({\r\n          id: doc.id,\r\n          ...doc.data(),\r\n        }));\r\n        setListUsers(users);\r\n        setIsLoading(false);\r\n      },\r\n      (err) => {\r\n        console.error('Erro ao carregar usuários:', err);\r\n        Alert.alert('Erro', 'Não foi possível carregar a lista de usuários.');\r\n        setIsLoading(false);\r\n      }\r\n    );\r\n\r\n    return () => unsubscribe();\r\n  }, []);\r\n\r\n  return (\r\n    <SafeAreaView style={styles.container}>\r\n      <Header\r\n        placeHolder=\"usuário\"\r\n        icon=\"adduser\"\r\n        user={userAuth || 'Carregando...'}\r\n      />\r\n      {isLoading ? (\r\n        <Loading />\r\n      ) : (\r\n        <FlatList\r\n          data={listUsers}\r\n          keyExtractor={(item) => item.id}\r\n          renderItem={({ item }) => <CardUser {...item} />}\r\n          style={styles.listContent}\r\n        />\r\n      )}\r\n    </SafeAreaView>\r\n  );\r\n}\r\n"
+        }
+    ]
+}

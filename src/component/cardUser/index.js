@@ -4,17 +4,17 @@ import styles from './style';
 
 
 
-export default function CardUser({id, nome, email,senha}) {
+export default function CardUser({id, name, email,password}) {
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.content}>
+      {/* <View style={styles.content}>
         <Text style={styles.text}>ID:</Text>
         <Text style={styles.text}>{id}</Text>
-      </View>
+      </View> */}
 
       <View style={styles.content}>
         <Text style={styles.text}>NOME:</Text>
-        <Text style={styles.text}>{nome}</Text>
+        <Text style={styles.text}>{name}</Text>
       </View>
 
       <View style={styles.content}>
@@ -24,7 +24,7 @@ export default function CardUser({id, nome, email,senha}) {
 
       <View style={styles.content}>
         <Text style={styles.text}>SENHA:</Text>
-        <Text style={styles.text}>{senha}</Text>
+        <Text style={styles.text}>{password}</Text>
       </View>
     </SafeAreaView>
   );

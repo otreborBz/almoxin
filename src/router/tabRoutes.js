@@ -3,8 +3,8 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';// importa o tipo da nevagecao do react native
 
 //Paginas
-import User from '../pages/User';
-import Tool from '../pages/Tool';
+import User from '../pages/user';
+import Tool from '../pages/tool';
 
 //Icones
 import Feather from 'react-native-vector-icons/Feather'

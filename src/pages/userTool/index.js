@@ -9,7 +9,7 @@ import Loading from '../../component/loading';
 import { auth, db } from '../../service/firebaseConnection';
 import { collection, doc, getDoc, onSnapshot } from 'firebase/firestore';
 
-export default function User() {
+export default function UserTool() {
   const [isLoading, setIsLoading] = useState(true);
   const [listUsers, setListUsers] = useState([]);
   const [userAuth, setUserAuth] = useState(null);

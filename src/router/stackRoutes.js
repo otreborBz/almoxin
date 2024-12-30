@@ -1,11 +1,13 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import Welcome from '../pages/Welcome';
-import Login from '../pages/Login';
+import Welcome from '../pages/welcome';
+import Login from '../pages/login';
+import UserTool from '../pages/userTool';
 import AddTool from '../pages/addTool';
 import AddUser from "../pages/addUser"
 import TabRoutes from '../router/tabRoutes';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +22,7 @@ export default function StackRoutes(){
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="AddTool" component={AddTool} />
       <Stack.Screen name="AddUser" component={AddUser} />
+      <Stack.Screen name="UserTool" component={UserTool} />
 
       <Stack.Screen
         name="TabRoutes"
