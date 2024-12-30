@@ -3,11 +3,31 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 5,
             "patches": [
                 {
                     "date": 1735483311823,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1735483505760,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n   - Campos opcionais: Descrição, número do fabricante e código de compra.\n \n ## Tecnologias Utilizadas\n - **Frontend:** React Native.\n-- **Backend:** Firebase.\n+- **Ba:** Firebase.\n \n ## Estrutura de Telas\n \n ### Tela de Login:\n"
+                },
+                {
+                    "date": 1735483519717,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,10 +33,10 @@\n   - Campos obrigatórios: Nome, máquina e localização.\n   - Campos opcionais: Descrição, número do fabricante e código de compra.\n \n ## Tecnologias Utilizadas\n-- **Frontend:** React Native.\n-- **Ba:** Firebase.\n+- **Frontend/ :** React Native.\n+- **Banco de dados:** Firebase.\n \n ## Estrutura de Telas\n \n ### Tela de Login:\n"
+                },
+                {
+                    "date": 1735483527406,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n   - Campos obrigatórios: Nome, máquina e localização.\n   - Campos opcionais: Descrição, número do fabricante e código de compra.\n \n ## Tecnologias Utilizadas\n-- **Frontend/ :** React Native.\n+- **Frontend / BackEnd:** React Native.\n - **Banco de dados:** Firebase.\n \n ## Estrutura de Telas\n \n"
+                },
+                {
+                    "date": 1735483589063,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -69,9 +69,9 @@\n ## Como Rodar o Projeto\n \n 1. Clone este repositório:\n    ```bash\n-   git clone https://github.com/seu-usuario/seu-repositorio.git\n+   git clone https://github.com/otreborBz/almox.in.git\n    ```\n \n 2. Instale as dependências:\n    ```bash\n"
+                },
+                {
+                    "date": 1735483607365,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,9 +74,9 @@\n    ```\n \n 2. Instale as dependências:\n    ```bash\n-   npm install\n+   npm install expo\n    ```\n \n 3. Inicie o projeto:\n    ```bash\n"
                 }
             ],
             "date": 1735483311823,

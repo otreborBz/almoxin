@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
   welcomeText: {
     fontSize: 16,
     color: colors.text,
+    fontWeight: 'bold',
   },
   contentSearch: {
     width: '100%',

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/component/iconFeather/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1735484403654,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1735484403654,
+            "name": "Commit-0",
+            "content": "import React from 'react';\r\nimport Feather from 'react-native-vector-icons/AntDesign'\r\n\r\nexport default function IconF({icon}) {\r\n  return (\r\n      <Feather name={icon} color={'#000'} size={25}/>\r\n  );\r\n}\r\n\r\n"
+        }
+    ]
+}

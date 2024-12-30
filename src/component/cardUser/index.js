@@ -4,7 +4,7 @@ import styles from './style';
 
 
 
-export default function CardUser({id, nome, email}) {
+export default function CardUser({id, nome, email,senha}) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
@@ -20,6 +20,11 @@ export default function CardUser({id, nome, email}) {
       <View style={styles.content}>
         <Text style={styles.text}>EMAIL:</Text>
         <Text style={styles.text}>{email}</Text>
+      </View>
+
+      <View style={styles.content}>
+        <Text style={styles.text}>SENHA:</Text>
+        <Text style={styles.text}>{senha}</Text>
       </View>
     </SafeAreaView>
   );

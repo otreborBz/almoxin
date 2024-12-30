@@ -17,7 +17,7 @@ export default function Welcome() {
   return (
     <View style={styles.container}>
       <Animatable.View delay={200} animation='flipInY' >
-        <Image style={styles.image} source={require('../../image/logoAlmoxin.png')} />
+        <Image style={styles.image} source={require('../../assets/logoAlmoxin.png')} />
       </Animatable.View>
       <Animatable.View delay={200} animation='rubberBand'>
         <Text style={styles.textIcon}>Procurou? Achou!</Text>
@@ -28,7 +28,7 @@ export default function Welcome() {
         </TouchableOpacity>
       </Animatable.View>
       
-        <Text>CodeBr | Roberto Carvalho</Text>
+      <Text>CodeBr | Roberto Carvalho</Text>
     </View>
   );
 }

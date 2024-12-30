@@ -6,43 +6,54 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import { useNavigation } from '@react-navigation/native';
 
-import ButtonFloat from '../../component/buttonFloat';
+import ButtonFloat from '../iconFeather';
 
-export default function Header({placeHolder, icon}) {
+import { signOut } from 'firebase/auth';
+import {auth} from '../../service/firebaseConnection';
+
+export default function Header({placeHolder, icon, user}) {
 
   const navigation = useNavigation();
 
-function exit(){
-  Alert.alert('Desconectar Usuário', 'Deseja realmente Sair', [
-    {
-      text: 'Cancel',
-      onPress: () => console.log('Cancel Pressionado'),
-      style: 'cancel',
-    },
-    { 
-      text: 'OK', onPress: () => {
-        navigation.navigate('Welcome');
-      } 
-    },
-  ]);
-}
-
-function openPage(){
-  if (icon === 'addfile'){
-    navigation.navigate('AddTool');
-    return;
+  function exit() {
+    Alert.alert('Desconectar Usuário', 'Deseja realmente Sair?', [
+      {
+        text: 'Cancelar',
+        onPress: () => console.log('Cancel Pressionado'),
+        style: 'cancel',
+      },
+      {
+        text: 'OK',
+        onPress: async () => {
+          try {
+            await signOut(auth);
+            navigation.navigate('Welcome');
+          } catch (error) {
+            console.log('Erro ao deslogar:', error);
+          }
+        }
+      },
+    ]);
   }
-  navigation.navigate('AddUser');
-}
+
+  function openPage(){
+    if (icon === 'addfile'){
+      navigation.navigate('AddTool');
+      return;
+    }
+    navigation.navigate('AddUser');
+  }
 
   return (
     <View style={styles.container}>
       <View style={styles.contentHeader}>
         <Text style={styles.textLogo}>Almox.in</Text>
-        <Text style={styles.welcomeText}>Bem-vindo Roberto</Text>
         <TouchableOpacity onPress={exit}>
           <Ionicons name="exit" size={30} color="#000000" />
         </TouchableOpacity>
+      </View>
+      <View style={styles.contentHeader}>
+        <Text style={styles.welcomeText}>Bem-vindo {user}</Text>
       </View>
 
       <View style={styles.contentSearch}>

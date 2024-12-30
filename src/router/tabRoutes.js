@@ -18,6 +18,8 @@ export default function Routes() {
           headerShown: false,
           tabBarHideOnKeyboard: true,
           tabBarShowLabel: false,
+          tabBarActiveTintColor: '#000000',
+          tabBarInactiveTintColor: '#666666',
         }}
       >
 

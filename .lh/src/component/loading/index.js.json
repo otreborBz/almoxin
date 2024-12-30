@@ -1,0 +1,70 @@
+{
+    "sourceFile": "src/component/loading/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 13,
+            "patches": [
+                {
+                    "date": 1735505419220,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1735505427029,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +0,0 @@\n-React\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735505436968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,2 @@\n+import react from \"react\";\n+import { }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735505445624,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,2 @@\n import react from \"react\";\n-import { }\n\\ No newline at end of file\n+import { View, Text} from \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735505451665,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,2 @@\n import react from \"react\";\n-import { View, Text} from \n\\ No newline at end of file\n+import { View, Text} from 'react-native'\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735505459753,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,2 @@\n+import react from \"react\";\n+import { View, Text, aci} from 'react-native';\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735505468399,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n import react from \"react\";\n-import { View, Text, aci} from 'react-native';\n-import react from \"react\";\n-import { View, Text} from 'react-native'\n\\ No newline at end of file\n+import { View, Text, ActivityIndicator} from 'react-native';\n+\n+ex\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735505479002,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,4 @@\n+import react from \"react\";\n+import { View, Text, ActivityIndicator} from 'react-native';\n+\n+export default \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735505486270,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,4 @@\n+import react from \"react\";\n+import { View, Text, ActivityIndicator} from 'react-native';\n+\n+export default function Loa\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735505495907,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,6 @@\n+import react from \"react\";\n+import { View, Text, ActivityIndicator} from 'react-native';\n+\n+export default function Loading(){\n+  return\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735505503179,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,8 @@\n+import react from \"react\";\n+import { View, Text, ActivityIndicator} from 'react-native';\n+\n+export default function Loading(){\n+  return(\n+    <View\n+  )\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735505525909,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+import react from \"react\";\n+import { View, Text, ActivityIndicator} from 'react-native';\n+\n+export default function Loading(){\n+  return(\n+    <View style={styles.loading}>\n+      <ActivityIndicator size=\"large\" color=\"#000\" />\n+    </View>\n+  )\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735505822670,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+import react from \"react\";\n+import { View, ActivityIndicator} from 'react-native';\n+\n+export default function Loading(){\n+  return(\n+    <View style={styles.loading}>\n+      <ActivityIndicator size=\"large\" color=\"#000\" />\n+    </View>\n+  )\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735505829952,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,46 +1,11 @@\n import react from \"react\";\n import { View, ActivityIndicator} from 'react-native';\n+import \n \n export default function Loading(){\n   return(\n     <View style={styles.loading}>\n       <ActivityIndicator size=\"large\" color=\"#000\" />\n     </View>\n   )\n-}\n-import react from \"react\";\n-import { View, Text, ActivityIndicator} from 'react-native';\n-\n-export default function Loading(){\n-  return(\n-    <View style={styles.loading}>\n-      <ActivityIndicator size=\"large\" color=\"#000\" />\n-    </View>\n-  )\n-}\n-import react from \"react\";\n-import { View, Text, ActivityIndicator} from 'react-native';\n-\n-export default function Loading(){\n-  return(\n-    <View\n-  )\n-}\n-import react from \"react\";\n-import { View, Text, ActivityIndicator} from 'react-native';\n-\n-export default function Loading(){\n-  return\n-}\n-import react from \"react\";\n-import { View, Text, ActivityIndicator} from 'react-native';\n-\n-export default function Loa\n-import react from \"react\";\n-import { View, Text, ActivityIndicator} from 'react-native';\n-\n-export default \n-import react from \"react\";\n-import { View, Text, ActivityIndicator} from 'react-native';\n-\n\\ No newline at end of file\n-ex\n+}\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1735505419220,
+            "name": "Commit-0",
+            "content": "React"
+        }
+    ]
+}

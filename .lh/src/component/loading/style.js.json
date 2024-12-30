@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/component/loading/style.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1735505552708,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1735505559298,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,15 +2,10 @@\n import colors from '../../color'\n \n const styles = StyleSheet.create({\n \n-  container: {\n-    flex: 1,\n-  },\n-  listContent: {\n-    paddingBottom: 16,\n-  },\n \n \n+\n });\n \n export default styles;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735505573304,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,14 @@\n import colors from '../../color'\n \n const styles = StyleSheet.create({\n \n+  loading: {\n+    flex: 1,\n+    justifyContent: 'center',\n+    alignContent: 'center',\n+  }\n \n \n-\n });\n \n export default styles;\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1735505552708,
+            "name": "Commit-0",
+            "content": "import { FlatList, StyleSheet } from \"react-native\";\nimport colors from '../../color'\n\nconst styles = StyleSheet.create({\n\n  container: {\n    flex: 1,\n  },\n  listContent: {\n    paddingBottom: 16,\n  },\n\n\n});\n\nexport default styles;"
+        }
+    ]
+}

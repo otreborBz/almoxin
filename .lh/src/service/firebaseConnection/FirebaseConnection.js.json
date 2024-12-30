@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/service/firebaseConnection/FirebaseConnection.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1735508322491,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1735508474506,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,8 @@\n \n // Inicializa o Firestore\n const db = getFirestore(app);\n \n-// Inicializa a autenticação com persistência para React Native\n const auth = initializeAuth(app, {\n   persistence: getReactNativePersistence(AsyncStorage),\n });\n \n"
+                },
+                {
+                    "date": 1735508479896,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,24 @@\n+import { initializeApp } from \"firebase/app\";\n+import { getFirestore } from \"firebase/firestore\";\n+import { initializeAuth, getReactNativePersistence } from \"firebase/auth/react-native\";\n+import AsyncStorage from \"@react-native-async-storage/async-storage\";\n+\n+// Configuração do Firebase\n+const firebaseConfig = {\n+  apiKey: \"AIzaSyDIz0RCGV-WVWu6vZIXNz4boejDZfsFkHo\",\n+  authDomain: \"app-almoxin.firebaseapp.com\",\n+  projectId: \"app-almoxin\",\n+  storageBucket: \"app-almoxin.firebasestorage.app\",\n+  messagingSenderId: \"156374043758\",\n+  appId: \"1:156374043758:web:b23d781ef0972bf9ffea7f\",\n+};\n+\n+const app = initializeApp(firebaseConfig);\n+\n+const db = getFirestore(app);\n+\n+const auth = initializeAuth(app, {\n+  persistence: getReactNativePersistence(AsyncStorage),\n+});\n+\n+export { db, auth };\n"
+                },
+                {
+                    "date": 1735508486104,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,23 @@\n+import { initializeApp } from \"firebase/app\";\n+import { getFirestore } from \"firebase/firestore\";\n+import { initializeAuth, getReactNativePersistence } from \"firebase/auth/react-native\";\n+import AsyncStorage from \"@react-native-async-storage/async-storage\";\n+\n+const firebaseConfig = {\n+  apiKey: \"AIzaSyDIz0RCGV-WVWu6vZIXNz4boejDZfsFkHo\",\n+  authDomain: \"app-almoxin.firebaseapp.com\",\n+  projectId: \"app-almoxin\",\n+  storageBucket: \"app-almoxin.firebasestorage.app\",\n+  messagingSenderId: \"156374043758\",\n+  appId: \"1:156374043758:web:b23d781ef0972bf9ffea7f\",\n+};\n+\n+const app = initializeApp(firebaseConfig);\n+\n+const db = getFirestore(app);\n+\n+const auth = initializeAuth(app, {\n+  persistence: getReactNativePersistence(AsyncStorage),\n+});\n+\n+export { db, auth };\n"
+                }
+            ],
+            "date": 1735508322491,
+            "name": "Commit-0",
+            "content": "import { initializeApp } from \"firebase/app\";\nimport { getFirestore } from \"firebase/firestore\";\nimport { initializeAuth, getReactNativePersistence } from \"firebase/auth/react-native\";\nimport AsyncStorage from \"@react-native-async-storage/async-storage\";\n\n// Configuração do Firebase\nconst firebaseConfig = {\n  apiKey: \"AIzaSyDIz0RCGV-WVWu6vZIXNz4boejDZfsFkHo\",\n  authDomain: \"app-almoxin.firebaseapp.com\",\n  projectId: \"app-almoxin\",\n  storageBucket: \"app-almoxin.firebasestorage.app\",\n  messagingSenderId: \"156374043758\",\n  appId: \"1:156374043758:web:b23d781ef0972bf9ffea7f\",\n};\n\n// Inicializa o Firebase\nconst app = initializeApp(firebaseConfig);\n\n// Inicializa o Firestore\nconst db = getFirestore(app);\n\n// Inicializa a autenticação com persistência para React Native\nconst auth = initializeAuth(app, {\n  persistence: getReactNativePersistence(AsyncStorage),\n});\n\nexport { db, auth };\n"
+        }
+    ]
+}

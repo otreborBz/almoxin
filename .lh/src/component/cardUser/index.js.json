@@ -3,11 +3,31 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 5,
             "patches": [
                 {
                     "date": 1735353566125,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1735518340313,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,7 +20,8 @@\n       <View style={styles.content}>\r\n         <Text style={styles.text}>EMAIL:</Text>\r\n         <Text style={styles.text}>{email}</Text>\r\n       </View>\r\n+      \r\n     </SafeAreaView>\r\n   );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735518347071,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import styles from './style';\r\n \r\n \r\n \r\n-export default function CardUser({id, nome, email}) {\r\n+export default function CardUser({id, nome, email,senha}) {\r\n   return (\r\n     <SafeAreaView style={styles.container}>\r\n       <View style={styles.content}>\r\n         <Text style={styles.text}>ID:</Text>\r\n"
+                },
+                {
+                    "date": 1735518353945,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,31 @@\n+import React from 'react';\r\n+import { View, Text, SafeAreaView,} from 'react-native';\r\n+import styles from './style';\r\n+\r\n+\r\n+\r\n+export default function CardUser({id, nome, email,senha}) {\r\n+  return (\r\n+    <SafeAreaView style={styles.container}>\r\n+      <View style={styles.content}>\r\n+        <Text style={styles.text}>ID:</Text>\r\n+        <Text style={styles.text}>{id}</Text>\r\n+      </View>\r\n+\r\n+      <View style={styles.content}>\r\n+        <Text style={styles.text}>NOME:</Text>\r\n+        <Text style={styles.text}>{nome}</Text>\r\n+      </View>\r\n+\r\n+      <View style={styles.content}>\r\n+        <Text style={styles.text}>EMAIL:</Text>\r\n+        <Text style={styles.text}>{email}</Text>\r\n+      </View>\r\n+\r\n+      <View style={styles.content}>\r\n+        <Text style={styles.text}>SENHA:</Text>\r\n+        <Text style={styles.text}>{nome}</Text>\r\n+      </View>\r\n+    </SafeAreaView>\r\n+  );\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735518359010,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n       </View>\r\n \r\n       <View style={styles.content}>\r\n         <Text style={styles.text}>SENHA:</Text>\r\n-        <Text style={styles.text}>{nome}</Text>\r\n+        <Text style={styles.text}>{SENHA}</Text>\r\n       </View>\r\n     </SafeAreaView>\r\n   );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735518364197,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,31 @@\n+import React from 'react';\r\n+import { View, Text, SafeAreaView,} from 'react-native';\r\n+import styles from './style';\r\n+\r\n+\r\n+\r\n+export default function CardUser({id, nome, email,senha}) {\r\n+  return (\r\n+    <SafeAreaView style={styles.container}>\r\n+      <View style={styles.content}>\r\n+        <Text style={styles.text}>ID:</Text>\r\n+        <Text style={styles.text}>{id}</Text>\r\n+      </View>\r\n+\r\n+      <View style={styles.content}>\r\n+        <Text style={styles.text}>NOME:</Text>\r\n+        <Text style={styles.text}>{nome}</Text>\r\n+      </View>\r\n+\r\n+      <View style={styles.content}>\r\n+        <Text style={styles.text}>EMAIL:</Text>\r\n+        <Text style={styles.text}>{email}</Text>\r\n+      </View>\r\n+\r\n+      <View style={styles.content}>\r\n+        <Text style={styles.text}>SENHA:</Text>\r\n+        <Text style={styles.text}>{senha}</Text>\r\n+      </View>\r\n+    </SafeAreaView>\r\n+  );\r\n+}\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1735353566125,

@@ -34,8 +34,8 @@ O Almox.in é uma aplicação desenvolvida para gerenciar o estoque de peças e 
   - Campos opcionais: Descrição, número do fabricante e código de compra.
 
 ## Tecnologias Utilizadas
-- **Frontend:** React Native.
-- **Backend:** Firebase.
+- **Frontend / BackEnd:** React Native.
+- **Banco de dados:** Firebase.
 
 ## Estrutura de Telas
 
@@ -70,12 +70,12 @@ O Almox.in é uma aplicação desenvolvida para gerenciar o estoque de peças e 
 
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
+   git clone https://github.com/otreborBz/almox.in.git
    ```
 
 2. Instale as dependências:
    ```bash
-   npm install
+   npm install expo
    ```
 
 3. Inicie o projeto:

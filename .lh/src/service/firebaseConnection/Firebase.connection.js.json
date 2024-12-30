@@ -1,0 +1,70 @@
+{
+    "sourceFile": "src/service/firebaseConnection/Firebase.connection.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 13,
+            "patches": [
+                {
+                    "date": 1735487215265,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1735487224468,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n-// Import the functions you need from the SDKs you need\n+\n import { initializeApp } from \"firebase/app\";\n // TODO: Add SDKs for Firebase products that you want to use\n-// https://firebase.google.com/docs/web/setup#available-libraries\n \n // Your web app's Firebase configuration\n const firebaseConfig = {\n   apiKey: \"AIzaSyDIz0RCGV-WVWu6vZIXNz4boejDZfsFkHo\",\n"
+                },
+                {
+                    "date": 1735487466491,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n-\n+// Import the functions you need from the SDKs you need\n import { initializeApp } from \"firebase/app\";\n // TODO: Add SDKs for Firebase products that you want to use\n+// https://firebase.google.com/docs/web/setup#available-libraries\n \n // Your web app's Firebase configuration\n const firebaseConfig = {\n   apiKey: \"AIzaSyDIz0RCGV-WVWu6vZIXNz4boejDZfsFkHo\",\n"
+                },
+                {
+                    "date": 1735487473441,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,8 @@\n-// Import the functions you need from the SDKs you need\n+\n import { initializeApp } from \"firebase/app\";\n // TODO: Add SDKs for Firebase products that you want to use\n-// https://firebase.google.com/docs/web/setup#available-libraries\n \n-// Your web app's Firebase configuration\n const firebaseConfig = {\n   apiKey: \"AIzaSyDIz0RCGV-WVWu6vZIXNz4boejDZfsFkHo\",\n   authDomain: \"app-almoxin.firebaseapp.com\",\n   projectId: \"app-almoxin\",\n"
+                },
+                {
+                    "date": 1735487533294,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+\n+import { initializeApp } from \"firebase/app\";\n+import \n+\n+const firebaseConfig = {\n+  apiKey: \"AIzaSyDIz0RCGV-WVWu6vZIXNz4boejDZfsFkHo\",\n+  authDomain: \"app-almoxin.firebaseapp.com\",\n+  projectId: \"app-almoxin\",\n+  storageBucket: \"app-almoxin.firebasestorage.app\",\n+  messagingSenderId: \"156374043758\",\n+  appId: \"1:156374043758:web:b23d781ef0972bf9ffea7f\"\n+};\n+\n+const app = initializeApp(firebaseConfig);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735487540899,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+\n+import { initializeApp } from \"firebase/app\";\n+import { } \n+\n+const firebaseConfig = {\n+  apiKey: \"AIzaSyDIz0RCGV-WVWu6vZIXNz4boejDZfsFkHo\",\n+  authDomain: \"app-almoxin.firebaseapp.com\",\n+  projectId: \"app-almoxin\",\n+  storageBucket: \"app-almoxin.firebasestorage.app\",\n+  messagingSenderId: \"156374043758\",\n+  appId: \"1:156374043758:web:b23d781ef0972bf9ffea7f\"\n+};\n+\n+const app = initializeApp(firebaseConfig);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735487547483,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+\n+import { initializeApp } from \"firebase/app\";\n+import { } from \"firebase/\n+\n+const firebaseConfig = {\n+  apiKey: \"AIzaSyDIz0RCGV-WVWu6vZIXNz4boejDZfsFkHo\",\n+  authDomain: \"app-almoxin.firebaseapp.com\",\n+  projectId: \"app-almoxin\",\n+  storageBucket: \"app-almoxin.firebasestorage.app\",\n+  messagingSenderId: \"156374043758\",\n+  appId: \"1:156374043758:web:b23d781ef0972bf9ffea7f\"\n+};\n+\n+const app = initializeApp(firebaseConfig);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735487562998,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+\n+import { initializeApp } from \"firebase/app\";\n+import { get} from \"firebase/firestore\";\n+\n+const firebaseConfig = {\n+  apiKey: \"AIzaSyDIz0RCGV-WVWu6vZIXNz4boejDZfsFkHo\",\n+  authDomain: \"app-almoxin.firebaseapp.com\",\n+  projectId: \"app-almoxin\",\n+  storageBucket: \"app-almoxin.firebasestorage.app\",\n+  messagingSenderId: \"156374043758\",\n+  appId: \"1:156374043758:web:b23d781ef0972bf9ffea7f\"\n+};\n+\n+const app = initializeApp(firebaseConfig);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735487576608,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+\n+import { initializeApp } from \"firebase/app\";\n+import { getFirestore} from \"firebase/firestore\";\n+\n+const firebaseConfig = {\n+  apiKey: \"AIzaSyDIz0RCGV-WVWu6vZIXNz4boejDZfsFkHo\",\n+  authDomain: \"app-almoxin.firebaseapp.com\",\n+  projectId: \"app-almoxin\",\n+  storageBucket: \"app-almoxin.firebasestorage.app\",\n+  messagingSenderId: \"156374043758\",\n+  appId: \"1:156374043758:web:b23d781ef0972bf9ffea7f\"\n+};\n+\n+const app = initializeApp(firebaseConfig);\n+\n+const \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735487584050,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,76 +12,5 @@\n };\n \n const app = initializeApp(firebaseConfig);\n \n-const \n-\n-import { initializeApp } from \"firebase/app\";\n-import { get} from \"firebase/firestore\";\n-\n-const firebaseConfig = {\n-  apiKey: \"AIzaSyDIz0RCGV-WVWu6vZIXNz4boejDZfsFkHo\",\n-  authDomain: \"app-almoxin.firebaseapp.com\",\n-  projectId: \"app-almoxin\",\n-  storageBucket: \"app-almoxin.firebasestorage.app\",\n-  messagingSenderId: \"156374043758\",\n-  appId: \"1:156374043758:web:b23d781ef0972bf9ffea7f\"\n-};\n-\n-const app = initializeApp(firebaseConfig);\n-\n-import { initializeApp } from \"firebase/app\";\n-import { } from \"firebase/\n-\n-const firebaseConfig = {\n-  apiKey: \"AIzaSyDIz0RCGV-WVWu6vZIXNz4boejDZfsFkHo\",\n-  authDomain: \"app-almoxin.firebaseapp.com\",\n-  projectId: \"app-almoxin\",\n-  storageBucket: \"app-almoxin.firebasestorage.app\",\n-  messagingSenderId: \"156374043758\",\n-  appId: \"1:156374043758:web:b23d781ef0972bf9ffea7f\"\n-};\n-\n-const app = initializeApp(firebaseConfig);\n-\n-import { initializeApp } from \"firebase/app\";\n-import { } \n-\n-const firebaseConfig = {\n-  apiKey: \"AIzaSyDIz0RCGV-WVWu6vZIXNz4boejDZfsFkHo\",\n-  authDomain: \"app-almoxin.firebaseapp.com\",\n-  projectId: \"app-almoxin\",\n-  storageBucket: \"app-almoxin.firebasestorage.app\",\n-  messagingSenderId: \"156374043758\",\n-  appId: \"1:156374043758:web:b23d781ef0972bf9ffea7f\"\n-};\n-\n-const app = initializeApp(firebaseConfig);\n-\n-import { initializeApp } from \"firebase/app\";\n-import \n-\n-const firebaseConfig = {\n-  apiKey: \"AIzaSyDIz0RCGV-WVWu6vZIXNz4boejDZfsFkHo\",\n-  authDomain: \"app-almoxin.firebaseapp.com\",\n-  projectId: \"app-almoxin\",\n-  storageBucket: \"app-almoxin.firebasestorage.app\",\n-  messagingSenderId: \"156374043758\",\n-  appId: \"1:156374043758:web:b23d781ef0972bf9ffea7f\"\n-};\n-\n-const app = initializeApp(firebaseConfig);\n-\n-import { initializeApp } from \"firebase/app\";\n-// TODO: Add SDKs for Firebase products that you want to use\n-\n-const firebaseConfig = {\n-  apiKey: \"AIzaSyDIz0RCGV-WVWu6vZIXNz4boejDZfsFkHo\",\n-  authDomain: \"app-almoxin.firebaseapp.com\",\n-  projectId: \"app-almoxin\",\n-  storageBucket: \"app-almoxin.firebasestorage.app\",\n-  messagingSenderId: \"156374043758\",\n-  appId: \"1:156374043758:web:b23d781ef0972bf9ffea7f\"\n-};\n-\n-// Initialize Firebase\n-const app = initializeApp(firebaseConfig);\n\\ No newline at end of file\n+const db = ge\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735487598202,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+\n+import { initializeApp } from \"firebase/app\";\n+import { getFirestore} from \"firebase/firestore\";\n+\n+const firebaseConfig = {\n+  apiKey: \"AIzaSyDIz0RCGV-WVWu6vZIXNz4boejDZfsFkHo\",\n+  authDomain: \"app-almoxin.firebaseapp.com\",\n+  projectId: \"app-almoxin\",\n+  storageBucket: \"app-almoxin.firebasestorage.app\",\n+  messagingSenderId: \"156374043758\",\n+  appId: \"1:156374043758:web:b23d781ef0972bf9ffea7f\"\n+};\n+\n+const app = initializeApp(firebaseConfig);\n+\n+const db = getFirestore(app);\n+\n+export \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735487603559,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+\n+import { initializeApp } from \"firebase/app\";\n+import { getFirestore} from \"firebase/firestore\";\n+\n+const firebaseConfig = {\n+  apiKey: \"AIzaSyDIz0RCGV-WVWu6vZIXNz4boejDZfsFkHo\",\n+  authDomain: \"app-almoxin.firebaseapp.com\",\n+  projectId: \"app-almoxin\",\n+  storageBucket: \"app-almoxin.firebasestorage.app\",\n+  messagingSenderId: \"156374043758\",\n+  appId: \"1:156374043758:web:b23d781ef0972bf9ffea7f\"\n+};\n+\n+const app = initializeApp(firebaseConfig);\n+\n+const db = getFirestore(app);\n+\n+export { db}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735487609925,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,5 +14,5 @@\n const app = initializeApp(firebaseConfig);\n \n const db = getFirestore(app);\n \n-export { db }\n\\ No newline at end of file\n+export { db };\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1735506632086,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n \n import { initializeApp } from \"firebase/app\";\n import { getFirestore} from \"firebase/firestore\";\n-import { initializeAuth, per } from \"firebase/auth\";\n+import { initializeAuth, pers } from \"firebase/auth\";\n \n const firebaseConfig = {\n   apiKey: \"AIzaSyDIz0RCGV-WVWu6vZIXNz4boejDZfsFkHo\",\n   authDomain: \"app-almoxin.firebaseapp.com\",\n"
+                }
+            ],
+            "date": 1735487215265,
+            "name": "Commit-0",
+            "content": "// Import the functions you need from the SDKs you need\nimport { initializeApp } from \"firebase/app\";\n// TODO: Add SDKs for Firebase products that you want to use\n// https://firebase.google.com/docs/web/setup#available-libraries\n\n// Your web app's Firebase configuration\nconst firebaseConfig = {\n  apiKey: \"AIzaSyDIz0RCGV-WVWu6vZIXNz4boejDZfsFkHo\",\n  authDomain: \"app-almoxin.firebaseapp.com\",\n  projectId: \"app-almoxin\",\n  storageBucket: \"app-almoxin.firebasestorage.app\",\n  messagingSenderId: \"156374043758\",\n  appId: \"1:156374043758:web:b23d781ef0972bf9ffea7f\"\n};\n\n// Initialize Firebase\nconst app = initializeApp(firebaseConfig);"
+        }
+    ]
+}
