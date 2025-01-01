@@ -11,7 +11,7 @@ import { collection, onSnapshot, doc, getDoc } from 'firebase/firestore';
 
 export default function Tool({ route }) {
   const { role } = route.params;
-  const { searchResults } = route.params; // Recebe os resultados da busca a partir da navegação
+  const { searchResults } = route.params;
 
   console.log('tool:', role);
 
@@ -80,7 +80,7 @@ export default function Tool({ route }) {
         <Loading />
       ) : (
         <FlatList
-          data={searchResults || listTools}  // Exibe os resultados da busca ou todos
+          data={searchResults || listTools}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => <CardTool {...item} role={role} />}
           style={styles.listContent}

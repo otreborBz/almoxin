@@ -61,14 +61,14 @@ export default function Header({ placeHolder, icon, user }) {
 
     const descriptionQuery = query(
       toolsCollection,
-      where('description', '>=', textSearch),
-      where('description', '<=', textSearch + '\uf8ff')
+      where('descricao', '>=', textSearch),
+      where('descricao', '<=', textSearch + '\uf8ff')
     );
 
     const machineQuery = query(
       toolsCollection,
-      where('machine', '>=', textSearch),
-      where('machine', '<=', textSearch + '\uf8ff')
+      where('maquina', '>=', textSearch),
+      where('maquina', '<=', textSearch + '\uf8ff')
     );
 
     Promise.all([getDocs(nameQuery), getDocs(descriptionQuery), getDocs(machineQuery)])
@@ -89,7 +89,6 @@ export default function Header({ placeHolder, icon, user }) {
           .map(id => results.find(a => a.id === id));
 
         if (uniqueResults.length > 0) {
-          // Passa os resultados da busca para a tela "Tool"
           navigation.navigate('Tool', { searchResults: uniqueResults });
         } else {
           Alert.alert('Nenhum resultado encontrado', 'Nenhum item corresponde ao seu termo de busca.');
