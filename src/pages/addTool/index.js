@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   SafeAreaView,
   TextInput,
@@ -11,13 +11,14 @@ import {
   ScrollView,
 } from "react-native";
 import { styles } from "./style";
-
 import { useNavigation } from "@react-navigation/native";
-
 import { db } from "../../service/firebaseConnection";
-import { addDoc, collection } from "firebase/firestore";
+import { doc, updateDoc, addDoc, collection } from "firebase/firestore";
 
-export default function AddTool() {
+export default function AddTool({ route }) {
+  const { toolData } = route.params || {}; // Dados enviados via navegação
+  const navigation = useNavigation();
+
   const [name, setName] = useState("");
   const [codigoCompra, setCodigoCompra] = useState("");
   const [descricao, setDescricao] = useState("");
@@ -25,42 +26,55 @@ export default function AddTool() {
   const [maquina, setMaquina] = useState("");
   const [numeroFabricante, setNumeroFabricante] = useState("");
 
-  const navigation = useNavigation();
+  // Popula os estados com os dados recebidos (se houver)
+  useEffect(() => {
+    if (toolData) {
+      setName(toolData.name || "");
+      setCodigoCompra(toolData.codigoCompra || "");
+      setDescricao(toolData.descricao || "");
+      setLocalizacao(toolData.localizacao || "");
+      setMaquina(toolData.maquina || "");
+      setNumeroFabricante(toolData.numeroFabricante || "");
+    }
+  }, [toolData]);
 
-  async function createTool() {
+  // Função para salvar ou editar a ferramenta
+  async function handleSave() {
     try {
       if (!name || !maquina || !localizacao) {
         Alert.alert("Erro", "Por favor, preencha os campos obrigatórios");
         return;
       }
 
-      await addDoc(collection(db, "tools"), {
-        name: name,
-        codigoCompra: codigoCompra || "",
-        descricao: descricao || "",
-        localizacao: localizacao,
-        maquina: maquina,
-        numeroFabricante: numeroFabricante || "",
-      });
+      if (toolData?.id) {
+        // Atualizar documento existente
+        await updateDoc(doc(db, "tools", toolData.id), {
+          name,
+          codigoCompra,
+          descricao,
+          localizacao,
+          maquina,
+          numeroFabricante,
+        });
+        Alert.alert("Sucesso", "Peça atualizada com sucesso!");
+      } else {
+        // Criar novo documento
+        await addDoc(collection(db, "tools"), {
+          name,
+          codigoCompra,
+          descricao,
+          localizacao,
+          maquina,
+          numeroFabricante,
+        });
+        Alert.alert("Sucesso", "Peça cadastrada com sucesso!");
+      }
 
-      Alert.alert("Sucesso", "Peça cadastrada com sucesso!");
-
-      setName("");
-      setCodigoCompra("");
-      setDescricao("");
-      setLocalizacao("");
-      setMaquina("");
-      setNumeroFabricante("");
-
-      backPage();
-    } catch (err) {
-      console.log("Erro ao criar peça:", err);
-      Alert.alert("Erro", "Não foi possível cadastrar a peça. Tente novamente.");
+      navigation.goBack(); // Retorna para a tela anterior
+    } catch (error) {
+      console.error("Erro ao salvar dados:", error);
+      Alert.alert("Erro", "Não foi possível salvar os dados.");
     }
-  }
-
-  function backPage() {
-    navigation.goBack();
   }
 
   return (
@@ -75,16 +89,14 @@ export default function AddTool() {
         <SafeAreaView style={styles.container}>
           <View style={styles.contentHeader}>
             <Text style={styles.textName}>Almox.in</Text>
-            <Text style={styles.textDescription}>adicione peças</Text>
+            <Text style={styles.textDescription}>
+              {toolData ? "Editar Peça" : "Adicionar Peça"}
+            </Text>
           </View>
 
           <View style={styles.contentInput}>
             <Text style={styles.textInput}>Nome</Text>
-            <TextInput
-              style={styles.input}
-              value={name}
-              onChangeText={(text) => setName(text)}
-            />
+            <TextInput style={styles.input} value={name} onChangeText={setName} />
           </View>
 
           <View style={styles.contentInput}>
@@ -92,7 +104,7 @@ export default function AddTool() {
             <TextInput
               style={styles.input}
               value={maquina}
-              onChangeText={(text) => setMaquina(text)}
+              onChangeText={setMaquina}
             />
           </View>
 
@@ -101,7 +113,7 @@ export default function AddTool() {
             <TextInput
               style={styles.input}
               value={descricao}
-              onChangeText={(text) => setDescricao(text)}
+              onChangeText={setDescricao}
             />
           </View>
 
@@ -110,7 +122,7 @@ export default function AddTool() {
             <TextInput
               style={styles.input}
               value={numeroFabricante}
-              onChangeText={(text) => setNumeroFabricante(text)}
+              onChangeText={setNumeroFabricante}
             />
           </View>
 
@@ -119,7 +131,7 @@ export default function AddTool() {
             <TextInput
               style={styles.input}
               value={codigoCompra}
-              onChangeText={(text) => setCodigoCompra(text)}
+              onChangeText={setCodigoCompra}
             />
           </View>
 
@@ -128,16 +140,18 @@ export default function AddTool() {
             <TextInput
               style={styles.input}
               value={localizacao}
-              onChangeText={(text) => setLocalizacao(text)}
+              onChangeText={setLocalizacao}
             />
           </View>
 
           <View style={styles.contentButton}>
-            <TouchableOpacity style={styles.button} onPress={createTool}>
-              <Text style={styles.buttonText}>Salvar</Text>
+            <TouchableOpacity style={styles.button} onPress={handleSave}>
+              <Text style={styles.buttonText}>
+                {toolData ? "Atualizar" : "Salvar"}
+              </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.button} onPress={backPage}>
+            <TouchableOpacity style={styles.button} onPress={navigation.goBack}>
               <Text style={styles.buttonText}>Cancelar</Text>
             </TouchableOpacity>
           </View>

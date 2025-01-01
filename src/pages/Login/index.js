@@ -15,11 +15,15 @@ export default function Login() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        navigation.navigate('TabRoutes'); 
+        const isAdmin = user.email === 'admin@admin.com';
+        const role = isAdmin ? 'admin' : 'user';
+
+        navigation.navigate('TabRoutes', { role });
       }
     });
     return () => unsubscribe();
   }, []);
+
 
   function handleLogin() {
     if (!email || !password) {
