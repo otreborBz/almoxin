@@ -23,7 +23,6 @@ export default function Login() {
     return () => unsubscribe();
   }, []);
 
-
   function handleLogin() {
     if (!email || !password) {
       Alert.alert('Erro', 'Por favor, preencha todos os campos.');
@@ -38,8 +37,8 @@ export default function Login() {
       .catch((error) => {
         Alert.alert('Erro', 'Não foi possível fazer login. Verifique suas credenciais.');
       });
-
   }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.contentImage}>
@@ -49,14 +48,14 @@ export default function Login() {
       <View style={styles.contentInput}>
         <TextInput
           style={styles.input}
-          placeholder="Email..."
-          inputMode="email"
+          placeholder="Email"
+          keyboardType="email-address"
           value={email}
           onChangeText={setEmail}
         />
         <TextInput
           style={styles.input}
-          placeholder="Senha..."
+          placeholder="Senha"
           secureTextEntry
           value={password}
           onChangeText={setPassword}

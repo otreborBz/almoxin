@@ -1,39 +1,44 @@
 import { StyleSheet } from "react-native";
-import colors from '../../color'
+import colors from '../../color';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    backgroundColor: colors.background,
     justifyContent: 'center',
+    paddingHorizontal: 20,
   },
-  contentImage:{
-    flex: 1,
+  contentImage: {
     alignItems: 'center',
-    justifyContent: 'center',
+    marginBottom: 30,
   },
-  image:{
-    width: 200,
-    height: 200,
+  image: {
+    width: 150,
+    height: 150,
+    marginBottom: 20,
   },
-  contentInput:{
-    flex: 1,
+  text: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: colors.primary,
+  },
+  contentInput: {
+    width: '100%',
     alignItems: 'center',
-  },
-  text:{
-    fontSize: 20,
   },
   input: {
-    width: 300,
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
+    width: '100%',
+    height: 50,
+    borderBottomWidth: 1,
     borderRadius: 10,
-    padding: 10,
+    backgroundColor: colors.inputBackground,
+    marginBottom: 15,
+    paddingLeft: 15,
+    fontSize: 16,
   },
-  button:{
-    width: 300,
-    height: 40,
+  button: {
+    width: '100%',
+    height: 50,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 10,
@@ -42,14 +47,15 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: colors.white,
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold',
   },
   textTermo: {
-    fontSize: 16,
+    fontSize: 14,
+    color: colors.textSecondary,
     marginTop: 15,
+    textDecorationLine: 'underline',
   },
-
 });
 
 export default styles;

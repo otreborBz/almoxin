@@ -13,7 +13,7 @@ export default function AddUser() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const [role, setRole] = useState("user"); 
+  const [role, setRole] = useState("user");
 
   async function createUser() {
     if (!email || !password || !name) {
@@ -29,20 +29,19 @@ export default function AddUser() {
         name,
         email,
         password,
-        role, 
+        role,
       });
 
       Alert.alert(
         'Sucesso',
         'Usuário criado com sucesso!',
-        [{ text: 'OK', onPress: () =>{} }]
+        [{ text: 'OK', onPress: () => { } }]
       );
     } catch (error) {
       console.error('Erro ao criar usuário:', error);
       Alert.alert('Erro', 'Não foi possível criar o usuário. Verifique os dados e tente novamente.');
     }
   }
-
 
   function generateRandomPassword() {
     const newPassword = Math.random().toString(36).substring(2, 8);
@@ -79,9 +78,6 @@ export default function AddUser() {
       </View>
 
       <View style={styles.contentInput}>
-        <TouchableOpacity style={styles.buttonSenha} onPress={generateRandomPassword}>
-          <Text style={styles.buttonText}>Gerar Senha</Text>
-        </TouchableOpacity>
         <Text style={styles.textInput}>Senha (clique para gerar a senha)</Text>
         <TextInput
           style={styles.input}
@@ -89,6 +85,11 @@ export default function AddUser() {
           onChangeText={(text) => setPassword(text)}
           placeholder="Sua senha aparecerá aqui"
         />
+        <TouchableOpacity style={styles.buttonSenhaAction} onPress={generateRandomPassword}>
+          <Text style={styles.buttonText}>Gerar Senha</Text>
+        </TouchableOpacity>
+        
+        
       </View>
 
       <View style={styles.contentInput}>

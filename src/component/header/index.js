@@ -9,19 +9,16 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 
 import { signOut } from 'firebase/auth';
-import { collection, query, where, getDocs } from 'firebase/firestore';
-import { auth, db } from '../../service/firebaseConnection';
+import { auth } from '../../service/firebaseConnection';
 
-export default function Header({ placeHolder, icon, user }) {
-
+export default function Header({ placeHolder, icon, user, onUpdate, onSearch }) {
   const [textSearch, setTextSearch] = useState('');
   const navigation = useNavigation();
 
   function exit() {
-    Alert.alert('Logout', 'Deseja realmente Sair?', [
+    Alert.alert('Logout', 'Deseja realmente sair?', [
       {
         text: 'Não',
-        onPress: () => console.log('Cancel Pressionado'),
         style: 'cancel',
       },
       {
@@ -33,71 +30,13 @@ export default function Header({ placeHolder, icon, user }) {
           } catch (error) {
             console.log('Erro ao deslogar:', error);
           }
-        }
+        },
       },
     ]);
   }
 
   function openPage() {
-    if (icon === 'addfile') {
-      navigation.navigate('AddTool');
-      return;
-    }
-    navigation.navigate('AddUser');
-  }
-
-  function searchTool() {
-    if (!textSearch) {
-      Alert.alert('Erro', 'Por favor, insira uma palavra para buscar.');
-      return;
-    }
-
-    const toolsCollection = collection(db, 'tools');
-    const nameQuery = query(
-      toolsCollection,
-      where('name', '>=', textSearch),
-      where('name', '<=', textSearch + '\uf8ff')
-    );
-
-    const descriptionQuery = query(
-      toolsCollection,
-      where('descricao', '>=', textSearch),
-      where('descricao', '<=', textSearch + '\uf8ff')
-    );
-
-    const machineQuery = query(
-      toolsCollection,
-      where('maquina', '>=', textSearch),
-      where('maquina', '<=', textSearch + '\uf8ff')
-    );
-
-    Promise.all([getDocs(nameQuery), getDocs(descriptionQuery), getDocs(machineQuery)])
-      .then(([nameSnapshot, descriptionSnapshot, machineSnapshot]) => {
-        const results = [];
-
-        nameSnapshot.forEach((doc) => {
-          results.push({ id: doc.id, ...doc.data() });
-        });
-        descriptionSnapshot.forEach((doc) => {
-          results.push({ id: doc.id, ...doc.data() });
-        });
-        machineSnapshot.forEach((doc) => {
-          results.push({ id: doc.id, ...doc.data() });
-        });
-
-        const uniqueResults = Array.from(new Set(results.map(a => a.id)))
-          .map(id => results.find(a => a.id === id));
-
-        if (uniqueResults.length > 0) {
-          navigation.navigate('Tool', { searchResults: uniqueResults });
-        } else {
-          Alert.alert('Nenhum resultado encontrado', 'Nenhum item corresponde ao seu termo de busca.');
-        }
-      })
-      .catch((error) => {
-        console.log('Erro na busca:', error);
-        Alert.alert('Erro', 'Ocorreu um erro na busca.');
-      });
+    navigation.navigate(icon === 'addfile' ? 'AddTool' : 'AddUser');
   }
 
   return (
@@ -114,24 +53,28 @@ export default function Header({ placeHolder, icon, user }) {
 
       <View style={styles.contentSearch}>
         <View style={styles.areaSearch}>
-          <TextInput
-            placeholder={"Busque por " + placeHolder}
-            style={styles.input}
-            value={textSearch}
-            onChangeText={(text) => { setTextSearch(text) }}
-          />
-          <TouchableOpacity onPress={searchTool}>
-            <Feather name="search" size={25} color="#000000" />
-          </TouchableOpacity>
-        </View>
-
-        {user === 'Admin' && (
-          <View style={styles.areaAdd}>
-            <TouchableOpacity style={styles.button} onPress={openPage}>
-              <IconFeather icon={icon} />
+          <View style={styles.areaSearchInput}>
+            <TextInput
+              placeholder={`Busque por ${placeHolder}`}
+              style={styles.input}
+              value={textSearch}
+              onChangeText={(text) => setTextSearch(text)}
+            />
+            <TouchableOpacity style={{marginLeft: 10}} onPress={() => onSearch(textSearch)}>
+              <Feather name="search" size={25} color="#000000" />
             </TouchableOpacity>
           </View>
-        )}
+          <View style={styles.areaSearchButton}>
+            <TouchableOpacity onPress={onUpdate}>
+              <Feather name="repeat" size={25} color="#000000" />
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={styles.areaAddButton}>
+          <TouchableOpacity style={styles.button} onPress={openPage}>
+            <IconFeather icon={icon} />
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );

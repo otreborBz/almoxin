@@ -13,7 +13,6 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#ff0000'
   },
   listContent: {
     paddingBottom: 16,

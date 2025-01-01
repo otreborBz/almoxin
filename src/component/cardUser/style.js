@@ -1,25 +1,25 @@
 import { StyleSheet } from "react-native";
-import colors from '../../color'
+import colors from '../../color';
 
 const styles = StyleSheet.create({
   container: {
-    margin: 3,
+    margin: 5,
     backgroundColor: colors.buttonPrimary,
-    borderRadius: 5,
-    padding: 3,
+    borderRadius: 8,
+    padding: 10,
+    marginBottom: 10,
   },
-  content:{
+  content: {
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 2,
-  }, 
-  text:{
+    paddingVertical: 5,
+  },
+  text: {
     color: colors.white,
-  }
-
-
+    fontSize: 14,
+  },
 });
 
 export default styles;

@@ -1,27 +1,22 @@
 import { StyleSheet } from "react-native";
-import colors from '../../color'
+import colors from '../../color';
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center', 
+    justifyContent: 'center',
   },
-  button:{
+  button: {
     flex: 1,
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#ff0000'
   },
   listContent: {
     paddingBottom: 16,
   },
- 
-
- 
-
 });
 
 export default styles;
+ 

@@ -1,82 +1,95 @@
 import { StyleSheet } from "react-native";
-import Colors from '../../color'
-
+import Colors from '../../color';
 
 export const styles = StyleSheet.create({
-  container:{
+  container: {
     flex: 1,
     alignItems: 'center',
-    paddingTop: 40,
-    paddingBottom: 20,
+    justifyContent: 'flex-start',
+    paddingTop: 20, 
+    paddingBottom: 10, 
+    backgroundColor: Colors.background,
   },
-  contentHeader:{
+  contentHeader: {
     width: '100%',
-    height: '10%',
+    height: '12%', 
     justifyContent: 'center',
     alignItems: 'center',
-  }, 
-  textName:{
-    fontSize: 24,
+    marginBottom: 20,
+  },
+  textName: {
+    fontSize: 26,
     fontWeight: 'bold',
+    color: Colors.primary,
+    letterSpacing: 2,
   },
-  textDescription:{
-    fontSize: 18,
-    fontStyle: 'italic',
-  }, 
-  contentInput:{ 
-   width: '100%',
-   padding: 10,
-  },
-  textInput:{
+  textDescription: {
     fontSize: 16,
-    marginLeft: 12,
+    fontStyle: 'italic',
+    color: Colors.secondary,
+    marginTop: 5,
   },
-  input:{
+  contentInput: {
     width: '90%',
-    height: 40,
-    marginLeft: 12,
-    marginRight: 12,
-    borderWidth: 1,
-    borderRadius: 10,
-    padding: 10,
+    paddingBottom: 15,
   },
-  contentButton:{
+  textInput: {
+    fontSize: 16,
+    color: Colors.text,
+    marginBottom: 6,
+  },
+  input: {
     width: '100%',
-    height: 40,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-around',
+    height: 45, 
+    borderWidth: 1,
+    borderColor: Colors.border,
+    borderRadius: 10,
+    paddingHorizontal: 15,
+    fontSize: 16,
+    backgroundColor: Colors.white,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 5,
   },
-  button:{
-    width: '40%',
-    height: 40,
+  contentButton: {
+    width: '90%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 20,
+  },
+  button: {
+    width: '48%',
+    height: 45, 
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
     backgroundColor: Colors.buttonPrimary,
-    marginTop: '15%',
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 5,
   },
-  buttonText:{
+  buttonText: {
     color: '#fff',
     fontSize: 16,
+    fontWeight: '600',
   },
-  buttonSenha:{
-    width: '100%',
+  buttonSenhaContainer: {
+    width: '90%', 
     justifyContent: 'center',
-    alignItems: 'flex-start'
+    alignItems: 'center',
+    marginTop: 10,
   },
-  buttonSenha:{
-    width: '40%',
-    height: 40,
+  buttonSenhaAction: {
+    width: '48%', 
+    height: 45,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
     backgroundColor: Colors.buttonPrimary,
-    marginLeft: 12,
-    marginBottom: 5, 
-  }
-
-
-
-
-})
+    marginTop: 10,
+  },
+});
