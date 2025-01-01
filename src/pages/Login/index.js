@@ -17,7 +17,6 @@ export default function Login() {
       if (user) {
         const isAdmin = user.email === 'admin@admin.com';
         const role = isAdmin ? 'admin' : 'user';
-
         navigation.navigate('TabRoutes', { role });
       }
     });
@@ -34,7 +33,7 @@ export default function Login() {
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
         const role = email === 'admin@admin.com' ? 'admin' : 'user';
-        navigation.navigate('TabRoutes', { role });
+        navigation.replace('TabRoutes', { role });
       })
       .catch((error) => {
         Alert.alert('Erro', 'Não foi possível fazer login. Verifique suas credenciais.');

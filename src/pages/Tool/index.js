@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FlatList, SafeAreaView, Alert, TouchableOpacity } from 'react-native';
+import { FlatList, SafeAreaView, Alert } from 'react-native';
 import styles from './style';
 
 import Header from '../../component/header';
@@ -9,14 +9,15 @@ import Loading from '../../component/loading';
 import { auth, db } from '../../service/firebaseConnection';
 import { collection, onSnapshot, doc, getDoc } from 'firebase/firestore';
 
-export default function Tool({route}) {
+export default function Tool({ route }) {
   const { role } = route.params;
+  const { searchResults } = route.params; // Recebe os resultados da busca a partir da navegação
+
   console.log('tool:', role);
 
   const [isLoading, setIsLoading] = useState(true);
   const [listTools, setListTools] = useState([]);
   const [userAuth, setUserAuth] = useState(null);
-
 
   useEffect(() => {
     const userAuth = async () => {
@@ -68,7 +69,6 @@ export default function Tool({route}) {
     return () => unsubscribeTools();
   }, []);
 
-
   return (
     <SafeAreaView style={styles.container}>
       <Header
@@ -79,13 +79,12 @@ export default function Tool({route}) {
       {isLoading ? (
         <Loading />
       ) : (
-          <FlatList
-            data={listTools}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => <CardTool {...item} role={role} />}
-            style={styles.listContent}
-          />
-      
+        <FlatList
+          data={searchResults || listTools}  // Exibe os resultados da busca ou todos
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => <CardTool {...item} role={role} />}
+          style={styles.listContent}
+        />
       )}
     </SafeAreaView>
   );
