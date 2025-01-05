@@ -1,0 +1,18 @@
+{
+    "sourceFile": "app.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1735760517997,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1735760517997,
+            "name": "Commit-0",
+            "content": "{\r\n  \"expo\": {\r\n    \"name\": \"almox.in\",\r\n    \"slug\": \"almoxin\",\r\n    \"version\": \"1.0.0\",\r\n    \"orientation\": \"portrait\",\r\n    \"icon\": \"./assets/icon.png\",\r\n    \"userInterfaceStyle\": \"light\",\r\n    \"newArchEnabled\": true,\r\n    \"splash\": {\r\n      \"image\": \"./assets/splash-icon.png\",\r\n      \"resizeMode\": \"contain\",\r\n      \"backgroundColor\": \"#ffffff\"\r\n    },\r\n    \"ios\": {\r\n      \"supportsTablet\": true\r\n    },\r\n    \"android\": {\r\n      \"adaptiveIcon\": {\r\n        \"foregroundImage\": \"./assets/adaptive-icon.png\",\r\n        \"backgroundColor\": \"#ffffff\"\r\n      }\r\n    },\r\n    \"web\": {\r\n      \"favicon\": \"./assets/favicon.png\"\r\n    }\r\n  }\r\n}\r\n"
+        }
+    ]
+}

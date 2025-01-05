@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, SafeAreaView } from 'react-native';
 import styles from './style';
 
-export default function CardUser({ id, name, email, password }) {
+export default function CardUser({name, email, password }) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
