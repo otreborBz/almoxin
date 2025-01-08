@@ -3,15 +3,13 @@ import colors from '../../color'
 
 const styles = StyleSheet.create({
   container: {
-    margin: 5,
-    backgroundColor: colors.buttonPrimary,
-    borderRadius: 10,
+    margin: 10,
+  },
+  touch:{
     padding: 10,
-    elevation: 5,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
+    borderWidth: 1,
+    borderRadius: 5, 
+    backgroundColor: '#fff'
   },
   content: {
     width: '100%',
@@ -21,14 +19,20 @@ const styles = StyleSheet.create({
     marginBottom: 8, 
   },
   text: {
-    color: colors.white,
+    color: '#000000',
     fontSize: 14,
   },
-  labelText: {
-    fontSize: 14,
-    color: colors.white,
-    opacity: 0.7,
+  button:{
+    width: '100%',
+    height: '50',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    gap: 50,
   },
+  share:{
+
+  }
 });
 
 export default styles;

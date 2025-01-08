@@ -35,43 +35,41 @@ export default function Header({ placeHolder, icon, user, onUpdate, onSearch }) 
     ]);
   }
 
-  function openPage() {
+  function handleAddTool() {
     navigation.navigate(icon === 'addfile' ? 'AddTool' : 'AddUser');
   }
 
   return (
     <View style={styles.container}>
-      <View style={styles.contentHeader}>
-        <Text style={styles.textLogo}>Almox.in</Text>
-        <TouchableOpacity onPress={exit}>
+      <View style={styles.content}>
+        <Text style={styles.title}>Almox.in</Text>
+        <Text style={styles.welcome}>Seja Bem-vindo {user}</Text>
+        <TouchableOpacity style={styles.exitButton} onPress={exit}>
           <Ionicons name="exit" size={30} color="#000000" />
         </TouchableOpacity>
       </View>
-      <View style={styles.contentHeader}>
-        <Text style={styles.welcomeText}>Bem-vindo {user}</Text>
-      </View>
 
       <View style={styles.contentSearch}>
-        <View style={styles.areaSearch}>
-          <View style={styles.areaSearchInput}>
-            <TextInput
-              placeholder={`Busque por ${placeHolder}`}
-              style={styles.input}
-              value={textSearch}
-              onChangeText={(text) => setTextSearch(text)}
-            />
-            <TouchableOpacity style={{marginLeft: 10}} onPress={() => onSearch(textSearch)}>
-              <Feather name="search" size={25} color="#000000" />
-            </TouchableOpacity>
-          </View>
-          <View style={styles.areaSearchButton}>
-            <TouchableOpacity onPress={onUpdate}>
-              <Feather name="repeat" size={25} color="#000000" />
-            </TouchableOpacity>
-          </View>
+        <View style={styles.searchWrapper}>
+          <TextInput
+            style={styles.buttonSearch}
+            placeholder={`Busque por ${placeHolder}`}
+            value={textSearch}
+            onChangeText={(text) => setTextSearch(text)}
+          />
+          <TouchableOpacity onPress={() => onSearch(textSearch)}>
+            <Feather name="search" size={25} color="#000000" />
+          </TouchableOpacity>
         </View>
-        <View style={styles.areaAddButton}>
-          <TouchableOpacity style={styles.button} onPress={openPage}>
+
+        <View style={styles.actionButtonWrapper}>
+          <TouchableOpacity onPress={onUpdate}>
+            <Feather name="repeat" size={25} color="#000000" />
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.actionButtonWrapper}>
+          <TouchableOpacity onPress={handleAddTool}>
             <IconFeather icon={icon} />
           </TouchableOpacity>
         </View>

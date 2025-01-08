@@ -3,11 +3,27 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1735760517997,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1736127554412,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n {\r\n   \"expo\": {\r\n-    \"name\": \"almox.in\",\r\n-    \"slug\": \"almoxin\",\r\n+    \"name\": \"almoxin\",\r\n+    \"slug\": \"Almox.in\",\r\n     \"version\": \"1.0.0\",\r\n     \"orientation\": \"portrait\",\r\n     \"icon\": \"./assets/icon.png\",\r\n     \"userInterfaceStyle\": \"light\",\r\n@@ -18,11 +18,17 @@\n     \"android\": {\r\n       \"adaptiveIcon\": {\r\n         \"foregroundImage\": \"./assets/adaptive-icon.png\",\r\n         \"backgroundColor\": \"#ffffff\"\r\n-      }\r\n+      },\r\n+      \"package\": \"com.codebr.almoxin\"\r\n     },\r\n     \"web\": {\r\n       \"favicon\": \"./assets/favicon.png\"\r\n+    },\r\n+    \"extra\": {\r\n+      \"eas\": {\r\n+        \"projectId\": \"0a81307e-6f00-4c94-90a7-2a27714fc78e\"\r\n+      }\r\n     }\r\n   }\r\n }\r\n"
+                },
+                {
+                    "date": 1736127593343,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n     \"name\": \"almoxin\",\r\n     \"slug\": \"Almox.in\",\r\n     \"version\": \"1.0.0\",\r\n     \"orientation\": \"portrait\",\r\n-    \"icon\": \"./assets/icon.png\",\r\n+    \"icon\": \"./\",\r\n     \"userInterfaceStyle\": \"light\",\r\n     \"newArchEnabled\": true,\r\n     \"splash\": {\r\n       \"image\": \"./assets/splash-icon.png\",\r\n"
+                },
+                {
+                    "date": 1736127598472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n     \"name\": \"almoxin\",\r\n     \"slug\": \"Almox.in\",\r\n     \"version\": \"1.0.0\",\r\n     \"orientation\": \"portrait\",\r\n-    \"icon\": \"./\",\r\n+    \"icon\": \"./src/\",\r\n     \"userInterfaceStyle\": \"light\",\r\n     \"newArchEnabled\": true,\r\n     \"splash\": {\r\n       \"image\": \"./assets/splash-icon.png\",\r\n"
+                },
+                {
+                    "date": 1736127678952,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,11 @@\n {\r\n   \"expo\": {\r\n     \"name\": \"almoxin\",\r\n-    \"slug\": \"Almox.in\",\r\n+    \"slug\": \"almoxin\",\r\n     \"version\": \"1.0.0\",\r\n     \"orientation\": \"portrait\",\r\n-    \"icon\": \"./src/\",\r\n+    \"icon\": \"./assets/icon.png\",\r\n     \"userInterfaceStyle\": \"light\",\r\n     \"newArchEnabled\": true,\r\n     \"splash\": {\r\n       \"image\": \"./assets/splash-icon.png\",\r\n"
                 }
             ],
             "date": 1735760517997,

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, SafeAreaView, TouchableOpacity, Alert} from 'react-native';
 import styles from './style';
+import Feather from 'react-native-vector-icons/Feather';
 
 import { db } from '../../service/firebaseConnection'
 import { deleteDoc, doc, getDoc } from 'firebase/firestore';
@@ -73,10 +74,30 @@ export default function CardTool({ id, name, maquina, descricao, numeroFabricant
     }
   }
 
+  function handleShare(){
+    Alert.alert("Share", "Deseja realmente compartilhar?", [
+      {
+        text: "Não",
+        style: "cancel",
+      },
+      {
+        text: "Sim",
+        onPress: async () => {
+          try {
+          } catch (error) {
+            console.log("Erro ao excluir:", error);
+            Alert.alert("Erro", "teste");
+          }
+        },
+      },
+    ]);
+  }
+
 
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableOpacity onLongPress={handleDeleteTool} onPress={handleEditTool} >
+      <View style={styles.touch}>
+
         <View style={styles.content}>
           <Text style={styles.text}>NOME:</Text>
           <Text style={styles.text}>{name}</Text>
@@ -105,7 +126,22 @@ export default function CardTool({ id, name, maquina, descricao, numeroFabricant
           <Text style={styles.text}>LOCALIZACAO:</Text>
           <Text style={styles.text}>{localizacao}</Text>
         </View>
-      </TouchableOpacity>
+
+        <View style={styles.button}>
+
+          <TouchableOpacity style={styles.share} onPress={handleDeleteTool}>
+            <Feather name='trash-2' size={25} color={'#808080'} />
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.share} onPress={handleEditTool}>
+            <Feather name='edit' size={25} color={'#808080'} />
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.share} onPress={handleShare}>
+            <Feather name='send' size={25} color={'#808080'} />
+          </TouchableOpacity>
+        </View>
+      </View>
     </SafeAreaView>
   );
 }

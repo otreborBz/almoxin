@@ -15,7 +15,6 @@ export default function User() {
   const [userAuth, setUserAuth] = useState(null);
 
   useEffect(() => {
-    // Obter o usuário autenticado
     const fetchUserAuth = async () => {
       const user = auth.currentUser;
       if (user) {
@@ -64,11 +63,7 @@ export default function User() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header
-        placeHolder="usuário"
-        icon="adduser"
-        user={userAuth || 'Carregando...'}
-      />
+      <Header placeHolder="usuário" icon="adduser" user={ userAuth || 'Carregando...'}/>
       {isLoading ? (
         <Loading />
       ) : (
