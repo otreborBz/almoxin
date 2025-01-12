@@ -3,23 +3,33 @@ import colors from '../../color';
 
 const styles = StyleSheet.create({
   container: {
-    margin: 5,
-    backgroundColor: colors.buttonPrimary,
+    width: '100%',
+    margin: 10,
     borderRadius: 8,
     padding: 10,
-    marginBottom: 10,
+    borderWidth: 1,
+    backgroundColor: '#fff'
   },
   content: {
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: 5,
   },
   text: {
-    color: colors.white,
+    color: '#000000',
     fontSize: 14,
   },
+  contentPassword:{
+    width: '100%',
+    alignItems: 'flex-end',
+  },
+  buttonPassword:{
+    backgroundColor: '#000000',
+    padding: 5,
+    borderRadius: 5,
+  }, 
+
 });
 
 export default styles;
