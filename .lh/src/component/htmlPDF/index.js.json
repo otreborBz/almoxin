@@ -1,0 +1,70 @@
+{
+    "sourceFile": "src/component/htmlPDF/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 13,
+            "patches": [
+                {
+                    "date": 1736706948783,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1736706956385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n- expo\n\\ No newline at end of file\n+ export default function \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1736706962790,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,1 @@\n+ export default function Html\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1736706975289,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,3 @@\n+ export default function HtmlPDF(){\n+  return\n+ }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1736706988885,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,5 @@\n+ export default function HtmlPDF(){\n+  return{\n+    <View\n+  }\n+ }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1736706999972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,5 @@\n+ export default function HtmlPDF(){\n+  return{\n+    <View>\n+  }\n+ }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1736707005362,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,5 @@\n  export default function HtmlPDF(){\n   return{\n     <View>\n   }\n- }\n- export default function HtmlPDF(){\n-  return{\n-    <View\n-  }\n- }\n- export default function HtmlPDF(){\n-  return\n- }\n- export default function Html\n- export default function \n\\ No newline at end of file\n+ }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1736707011046,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,6 @@\n+ \n+ \n  export default function HtmlPDF(){\n   return{\n     <View>\n   }\n"
+                },
+                {
+                    "date": 1736707016585,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n+ import \n  \n- \n  export default function HtmlPDF(){\n   return{\n     <View>\n   }\n"
+                },
+                {
+                    "date": 1736707024468,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n+ import React from \"react\"\n  import \n  \n  export default function HtmlPDF(){\n   return{\n"
+                },
+                {
+                    "date": 1736707030050,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,8 @@\n+ import React from \"react\"\n+ import {} from \n+ \n+ export default function HtmlPDF(){\n+  return{\n+    <View>\n+  }\n+ }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1736707035202,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,8 @@\n+ import React from \"react\"\n+ import {} from 'react-native'\n+ \n+ export default function HtmlPDF(){\n+  return{\n+    <View>\n+  }\n+ }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1736707042815,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,8 @@\n+ import React from \"react\"\n+ import {} from 'react-native'\n+ \n+ export default function HtmlPDF(){\n+  return{\n+    <View\n+  }\n+ }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1736707255880,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,32 +1,84 @@\n- import React from \"react\"\n- import {} from 'react-native'\n- \n- export default function HtmlPDF(){\n-  return{\n-    <View\n-  }\n- }\n- import React from \"react\"\n- import {} from 'react-native'\n- \n- export default function HtmlPDF(){\n-  return{\n-    <View>\n-  }\n- }\n- import React from \"react\"\n- import {} from \n- \n- export default function HtmlPDF(){\n-  return{\n-    <View>\n-  }\n- }\n- import React from \"react\"\n- import \n- \n- export default function HtmlPDF(){\n-  return{\n-    <View>\n-  }\n- }\n\\ No newline at end of file\n+import React from 'react';\n+import { View, ScrollView } from 'react-native';\n+import HTML from 'react-native-render-html';\n+\n+export default function HtmlPDF({ name, maquina, descricao, numeroFabricante, codigoCompra, localizacao }) {\n+  const htmlContent = `\n+    <html>\n+      <head>\n+        <style>\n+          body {\n+            width: 100%;\n+            height: 100vh;\n+            margin: 0;\n+            padding: 0;\n+            background-color: #f4f7fc;\n+            color: #333;\n+            display: flex;\n+            justify-content: center;\n+            align-items: center;\n+          }\n+          .container {\n+            width: 70%;\n+            padding: 30px;\n+            background-color: #fff;\n+            border-radius: 8px;\n+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n+          }\n+          h1 {\n+            text-align: center;\n+            font-size: 28px;\n+            margin-bottom: 30px;\n+          }\n+          .content p {\n+            font-size: 16px;\n+            line-height: 1.6;\n+            margin-bottom: 10px;\n+          }\n+          .content {\n+            margin-top: 20px;\n+          }\n+          .content .section-title {\n+            font-size: 18px;\n+            font-weight: bold;\n+            color: #333;\n+            margin-bottom: 10px;\n+          }\n+          .footer {\n+            text-align: center;\n+            font-size: 12px;\n+            color: #888;\n+            margin-top: 30px;\n+            border-top: 1px solid #ddd;\n+            padding-top: 10px;\n+          }\n+        </style>\n+      </head>\n+      <body>\n+        <div class=\"container\">\n+          <h1>Almox.In | Detalhes</h1>\n+          <div class=\"content\">\n+            <p class=\"section-title\">Informações Básicas</p>\n+            <p><strong>Nome:</strong> ${name}</p>\n+            <p><strong>Máquina:</strong> ${maquina}</p>\n+            <p><strong>Descrição:</strong> ${descricao}</p>\n+            <p><strong>Número Fabricante:</strong> ${numeroFabricante}</p>\n+            <p><strong>Código Compra:</strong> ${codigoCompra}</p>\n+            <p><strong>Localização:</strong> ${localizacao}</p>\n+          </div>\n+          <div class=\"footer\">\n+            <p>© 2025 Roberto de Carvalho. Todos os direitos reservados.</p>\n+          </div>\n+        </div>\n+      </body>\n+    </html>\n+  `;\n+\n+  return (\n+    <ScrollView style={{ flex: 1 }}>\n+      <View style={{ padding: 20 }}>\n+        <HTML source={{ html: htmlContent }} />\n+      </View>\n+    </ScrollView>\n+  );\n+}\n"
+                }
+            ],
+            "date": 1736706948783,
+            "name": "Commit-0",
+            "content": " expo"
+        }
+    ]
+}
