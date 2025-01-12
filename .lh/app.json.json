@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 5,
+            "activePatchIndex": 10,
             "patches": [
                 {
                     "date": 1735760517997,
@@ -28,6 +28,26 @@
                 {
                     "date": 1736691769570,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,16 +12,21 @@\n       \"resizeMode\": \"contain\",\r\n       \"backgroundColor\": \"#ffffff\"\r\n     },\r\n     \"ios\": {\r\n-      \"supportsTablet\": true\r\n+      \"supportsTablet\": true,\r\n+      \"infoPlist\": {\r\n+        \"NSDocumentsFolderUsageDescription\": \"O aplicativo precisa acessar os documentos para salvar e compartilhar arquivos PDF.\",\r\n+        \"NSFileProviderUsageDescription\": \"O aplicativo precisa acessar arquivos para salvar e compartilhar PDFs.\"\r\n+      }\r\n     },\r\n     \"android\": {\r\n       \"adaptiveIcon\": {\r\n         \"foregroundImage\": \"./assets/adaptive-icon.png\",\r\n         \"backgroundColor\": \"#ffffff\"\r\n       },\r\n-      \"package\": \"com.codebr.almoxin\"\r\n+      \"package\": \"com.codebr.almoxin\",\r\n+      \"permissions\": [\"WRITE_EXTERNAL_STORAGE\", \"READ_EXTERNAL_STORAGE\"]\r\n     },\r\n     \"web\": {\r\n       \"favicon\": \"./assets/favicon.png\"\r\n     },\r\n"
+                },
+                {
+                    "date": 1736712997099,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n     \"name\": \"almoxin\",\r\n     \"slug\": \"almoxin\",\r\n     \"version\": \"1.0.0\",\r\n     \"orientation\": \"portrait\",\r\n-    \"icon\": \"./assets/icon.png\",\r\n+    \"icon\": \"./assets/\",\r\n     \"userInterfaceStyle\": \"light\",\r\n     \"newArchEnabled\": true,\r\n     \"splash\": {\r\n       \"image\": \"./assets/splash-icon.png\",\r\n"
+                },
+                {
+                    "date": 1736713002144,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n     \"name\": \"almoxin\",\r\n     \"slug\": \"almoxin\",\r\n     \"version\": \"1.0.0\",\r\n     \"orientation\": \"portrait\",\r\n-    \"icon\": \"./assets/\",\r\n+    \"icon\": \"./\",\r\n     \"userInterfaceStyle\": \"light\",\r\n     \"newArchEnabled\": true,\r\n     \"splash\": {\r\n       \"image\": \"./assets/splash-icon.png\",\r\n"
+                },
+                {
+                    "date": 1736713009958,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n     \"name\": \"almoxin\",\r\n     \"slug\": \"almoxin\",\r\n     \"version\": \"1.0.0\",\r\n     \"orientation\": \"portrait\",\r\n-    \"icon\": \"./\",\r\n+    \"icon\": \"./assets/\",\r\n     \"userInterfaceStyle\": \"light\",\r\n     \"newArchEnabled\": true,\r\n     \"splash\": {\r\n       \"image\": \"./assets/splash-icon.png\",\r\n"
+                },
+                {
+                    "date": 1736713020938,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n     \"name\": \"almoxin\",\r\n     \"slug\": \"almoxin\",\r\n     \"version\": \"1.0.0\",\r\n     \"orientation\": \"portrait\",\r\n-    \"icon\": \"./assets/\",\r\n+    \"icon\": \"./src/\",\r\n     \"userInterfaceStyle\": \"light\",\r\n     \"newArchEnabled\": true,\r\n     \"splash\": {\r\n       \"image\": \"./assets/splash-icon.png\",\r\n"
+                },
+                {
+                    "date": 1736713026233,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,39 @@\n+{\r\n+  \"expo\": {\r\n+    \"name\": \"almoxin\",\r\n+    \"slug\": \"almoxin\",\r\n+    \"version\": \"1.0.0\",\r\n+    \"orientation\": \"portrait\",\r\n+    \"icon\": \"./src/assets/\",\r\n+    \"userInterfaceStyle\": \"light\",\r\n+    \"newArchEnabled\": true,\r\n+    \"splash\": {\r\n+      \"image\": \"./assets/splash-icon.png\",\r\n+      \"resizeMode\": \"contain\",\r\n+      \"backgroundColor\": \"#ffffff\"\r\n+    },\r\n+    \"ios\": {\r\n+      \"supportsTablet\": true,\r\n+      \"infoPlist\": {\r\n+        \"NSDocumentsFolderUsageDescription\": \"O aplicativo precisa acessar os documentos para salvar e compartilhar arquivos PDF.\",\r\n+        \"NSFileProviderUsageDescription\": \"O aplicativo precisa acessar arquivos para salvar e compartilhar PDFs.\"\r\n+      }\r\n+    },\r\n+    \"android\": {\r\n+      \"adaptiveIcon\": {\r\n+        \"foregroundImage\": \"./assets/adaptive-icon.png\",\r\n+        \"backgroundColor\": \"#ffffff\"\r\n+      },\r\n+      \"package\": \"com.codebr.almoxin\",\r\n+      \"permissions\": [\"WRITE_EXTERNAL_STORAGE\", \"READ_EXTERNAL_STORAGE\"]\r\n+    },\r\n+    \"web\": {\r\n+      \"favicon\": \"./assets/favicon.png\"\r\n+    },\r\n+    \"extra\": {\r\n+      \"eas\": {\r\n+        \"projectId\": \"0a81307e-6f00-4c94-90a7-2a27714fc78e\"\r\n+      }\r\n+    }\r\n+  }\r\n+}\r\n"
                 }
             ],
             "date": 1735760517997,

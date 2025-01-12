@@ -15,8 +15,7 @@ export default function Tool({ route }) {
   const [isLoading, setIsLoading] = useState(true);
   const [listTools, setListTools] = useState([]);
   const [userAuth, setUserAuth] = useState(null);
-  const [isSearching, setIsSearching] = useState(false);  // Adicionando o estado para isSearching
-
+  const [isSearching, setIsSearching] = useState(false);
   useEffect(() => {
     const fetchUserAuth = async () => {
       const user = auth.currentUser;
@@ -120,7 +119,7 @@ export default function Tool({ route }) {
       machineSnapshot.forEach((doc) => results.push({ id: doc.id, ...doc.data() }));
       codCompraSnapshot.forEach((doc) => results.push({ id: doc.id, ...doc.data() }));
 
-      // Elimina resultados duplicados
+      
       const uniqueResults = Array.from(new Set(results.map((item) => item.id))).map((id) =>
         results.find((item) => item.id === id)
       );
@@ -128,7 +127,7 @@ export default function Tool({ route }) {
       if (uniqueResults.length > 0) {
         setListTools(uniqueResults);
       } else {
-        setListTools([]); // Setando a lista como vazia se não encontrar nenhum resultado
+        setListTools([]);
         Alert.alert('Nenhum resultado encontrado', 'Nenhum item corresponde ao termo de busca.');
       }
     } catch (error) {

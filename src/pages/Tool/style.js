@@ -13,12 +13,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 20,
   },
   emptyImage: {
-    width: 150,
-    height: 150,
-    marginBottom: 10,
+    width: 120,
+    height: 120,
   },
   emptyText: {
     fontSize: 18,

@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, SafeAreaView, TouchableOpacity, Alert } from 'react-native';
 import styles from './style';
 import Feather from 'react-native-vector-icons/Feather';
 import * as Sharing from 'expo-sharing';
-import * as Print from 'expo-print'; 
+import * as Print from 'expo-print';
 import { db } from '../../service/firebaseConnection';
 import { deleteDoc, doc, getDoc } from 'firebase/firestore';
 import { useNavigation } from '@react-navigation/native';
 
 export default function CardTool({ id, name, maquina, descricao, numeroFabricante, codigoCompra, localizacao, role }) {
+  const [isVisible, setIsVisible] = useState(false); // Estado para controlar a visibilidade do conteúdo
   const navigation = useNavigation();
 
   async function handleShare() {
@@ -81,7 +82,6 @@ export default function CardTool({ id, name, maquina, descricao, numeroFabricant
     </div>
   </body>
 </html>
-
       `;
 
       const { uri } = await Print.printToFileAsync({ html: htmlContent });
@@ -148,31 +148,38 @@ export default function CardTool({ id, name, maquina, descricao, numeroFabricant
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.touch}>
+      <TouchableOpacity style={styles.touch} onPress={() => setIsVisible(!isVisible)}>
+        {/* Sempre visíveis: nome e botões */}
         <View style={styles.content}>
           <Text style={styles.text}>NOME:</Text>
           <Text style={styles.text}>{name}</Text>
         </View>
-        <View style={styles.content}>
-          <Text style={styles.text}>MÁQUINA:</Text>
-          <Text style={styles.text}>{maquina}</Text>
-        </View>
-        <View style={styles.content}>
-          <Text style={styles.text}>DESCRIÇÃO:</Text>
-          <Text style={styles.text}>{descricao}</Text>
-        </View>
-        <View style={styles.content}>
-          <Text style={styles.text}>FABRICANTE:</Text>
-          <Text style={styles.text}>{numeroFabricante}</Text>
-        </View>
-        <View style={styles.content}>
-          <Text style={styles.text}>COD. COMPRA:</Text>
-          <Text style={styles.text}>{codigoCompra}</Text>
-        </View>
-        <View style={styles.content}>
-          <Text style={styles.text}>LOCALIZAÇÃO:</Text>
-          <Text style={styles.text}>{localizacao}</Text>
-        </View>
+
+        {isVisible && (
+          <>
+            {/* Somente visíveis quando o cartão é clicado */}
+            <View style={styles.content}>
+              <Text style={styles.text}>MÁQUINA:</Text>
+              <Text style={styles.text}>{maquina}</Text>
+            </View>
+            <View style={styles.content}>
+              <Text style={styles.text}>DESCRIÇÃO:</Text>
+              <Text style={styles.text}>{descricao}</Text>
+            </View>
+            <View style={styles.content}>
+              <Text style={styles.text}>FABRICANTE:</Text>
+              <Text style={styles.text}>{numeroFabricante}</Text>
+            </View>
+            <View style={styles.content}>
+              <Text style={styles.text}>COD. COMPRA:</Text>
+              <Text style={styles.text}>{codigoCompra}</Text>
+            </View>
+            <View style={styles.content}>
+              <Text style={styles.text}>LOCALIZAÇÃO:</Text>
+              <Text style={styles.text}>{localizacao}</Text>
+            </View>
+          </>
+        )}
 
         <View style={styles.button}>
           <TouchableOpacity style={styles.share} onPress={handleDeleteTool}>
@@ -185,7 +192,7 @@ export default function CardTool({ id, name, maquina, descricao, numeroFabricant
             <Feather name="send" size={25} color={'#808080'} />
           </TouchableOpacity>
         </View>
-      </View>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
