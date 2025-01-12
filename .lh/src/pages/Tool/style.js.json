@@ -1,13 +1,25 @@
 {
-    "sourceFile": "src/pages/Tool/style.js",
+    "sourceFile": "src/pages/tool/style.js",
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1735353497019,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1736712139168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n   },\r\n   listContent: {\r\n     paddingBottom: 16,\r\n   },\r\n+  \r\n \r\n \r\n });\r\n \r\n"
+                },
+                {
+                    "date": 1736712151699,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,32 @@\n+import { FlatList, StyleSheet } from \"react-native\";\r\n+import colors from '../../color'\r\n+\r\n+const styles = StyleSheet.create({\r\n+\r\n+  container: {\r\n+    flex: 1,\r\n+  },\r\n+  listContent: {\r\n+    paddingBottom: 16,\r\n+  },\r\n+  emptyContainer: {\r\n+    flex: 1,\r\n+    justifyContent: 'center',\r\n+    alignItems: 'center',\r\n+    marginTop: 20,\r\n+  },\r\n+  emptyImage: {\r\n+    width: 150,\r\n+    height: 150,\r\n+    marginBottom: 10,\r\n+  },\r\n+  emptyText: {\r\n+    fontSize: 18,\r\n+    textAlign: 'center',\r\n+    color: '#555',\r\n+\r\n+\r\n+\r\n+});\r\n+\r\n+export default styles;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1736712169862,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,32 @@\n+import { FlatList, StyleSheet } from \"react-native\";\r\n+import colors from '../../color'\r\n+\r\n+const styles = StyleSheet.create({\r\n+\r\n+  container: {\r\n+    flex: 1,\r\n+  },\r\n+  listContent: {\r\n+    paddingBottom: 16,\r\n+  },\r\n+  emptyContainer: {\r\n+    flex: 1,\r\n+    justifyContent: 'center',\r\n+    alignItems: 'center',\r\n+    marginTop: 20,\r\n+  },\r\n+  emptyImage: {\r\n+    width: 150,\r\n+    height: 150,\r\n+    marginBottom: 10,\r\n+  },\r\n+  emptyText: {\r\n+    fontSize: 18,\r\n+    textAlign: 'center',\r\n+    color: '#555',\r\n+  }\r\n+\r\n+\r\n+});\r\n+\r\n+export default styles;\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1735353497019,

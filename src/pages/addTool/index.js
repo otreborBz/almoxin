@@ -46,26 +46,34 @@ export default function AddTool({ route }) {
         return;
       }
 
+      // Padronizando para maiúsculas
+      const formattedName = name.toUpperCase();
+      const formattedMaquina = maquina.toUpperCase();
+      const formattedDescricao = descricao ? descricao.toUpperCase() : '';
+      const formattedCodigoCompra = codigoCompra ? codigoCompra.toUpperCase() : '';
+      const formattedLocalizacao = localizacao.toUpperCase();
+      const formattedNumeroFabricante = numeroFabricante ? numeroFabricante.toUpperCase() : '';
+
       if (toolData?.id) {
         // Atualizar documento existente
         await updateDoc(doc(db, "tools", toolData.id), {
-          name,
-          codigoCompra,
-          descricao,
-          localizacao,
-          maquina,
-          numeroFabricante,
+          name: formattedName,
+          codigoCompra: formattedCodigoCompra,
+          descricao: formattedDescricao,
+          localizacao: formattedLocalizacao,
+          maquina: formattedMaquina,
+          numeroFabricante: formattedNumeroFabricante,
         });
         Alert.alert("Sucesso", "Peça atualizada com sucesso!");
       } else {
         // Criar novo documento
         await addDoc(collection(db, "tools"), {
-          name,
-          codigoCompra,
-          descricao,
-          localizacao,
-          maquina,
-          numeroFabricante,
+          name: formattedName,
+          codigoCompra: formattedCodigoCompra,
+          descricao: formattedDescricao,
+          localizacao: formattedLocalizacao,
+          maquina: formattedMaquina,
+          numeroFabricante: formattedNumeroFabricante,
         });
         Alert.alert("Sucesso", "Peça cadastrada com sucesso!");
       }
@@ -76,6 +84,7 @@ export default function AddTool({ route }) {
       Alert.alert("Erro", "Não foi possível salvar os dados.");
     }
   }
+
 
   return (
     <KeyboardAvoidingView

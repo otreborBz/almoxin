@@ -3,7 +3,9 @@ import colors from '../../color'
 
 const styles = StyleSheet.create({
   container: {
-    margin: 10,
+    // margin: 10,
+    marginHorizontal: 10,
+    marginBottom: 8,
   },
   touch:{
     padding: 10,

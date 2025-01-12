@@ -15,7 +15,6 @@ export default function UserTool() {
   const [userAuth, setUserAuth] = useState(null);
 
   useEffect(() => {
-    // Obter o usuário autenticado
     const fetchUserAuth = async () => {
       const user = auth.currentUser;
       if (user) {

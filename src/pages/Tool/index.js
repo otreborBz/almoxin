@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FlatList, SafeAreaView, Alert } from 'react-native';
+import { FlatList, SafeAreaView, Alert, Keyboard, Text, View, Image } from 'react-native';
 import styles from './style';
 
 import Header from '../../component/header';
@@ -15,7 +15,7 @@ export default function Tool({ route }) {
   const [isLoading, setIsLoading] = useState(true);
   const [listTools, setListTools] = useState([]);
   const [userAuth, setUserAuth] = useState(null);
-  const [isSearching, setIsSearching] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);  // Adicionando o estado para isSearching
 
   useEffect(() => {
     const fetchUserAuth = async () => {
@@ -39,11 +39,10 @@ export default function Tool({ route }) {
     };
 
     fetchUserAuth();
-    fetchTools(); // Carrega as ferramentas ao montar o componente
+    fetchTools();
   }, []);
 
   function fetchTools() {
-    console.log('Atualizando lista de ferramentas...');
     setIsLoading(true);
     setIsSearching(false);
 
@@ -55,7 +54,7 @@ export default function Tool({ route }) {
           id: doc.id,
           ...doc.data(),
         }));
-        console.log('Ferramentas carregadas:', tools);
+
         setListTools(tools);
         setIsLoading(false);
       },
@@ -75,35 +74,43 @@ export default function Tool({ route }) {
       return;
     }
 
-    console.log('Pesquisando por:', searchText);
     setIsLoading(true);
     setIsSearching(true);
 
     try {
+      const formattedSearchText = searchText.toUpperCase();
+
       const toolsCollection = collection(db, 'tools');
 
       const nameQuery = query(
         toolsCollection,
-        where('name', '>=', searchText),
-        where('name', '<=', searchText + '\uf8ff')
+        where('name', '>=', formattedSearchText),
+        where('name', '<=', formattedSearchText + '\uf8ff')
       );
 
       const descriptionQuery = query(
         toolsCollection,
-        where('descricao', '>=', searchText),
-        where('descricao', '<=', searchText + '\uf8ff')
+        where('descricao', '>=', formattedSearchText),
+        where('descricao', '<=', formattedSearchText + '\uf8ff')
       );
 
       const machineQuery = query(
         toolsCollection,
-        where('maquina', '>=', searchText),
-        where('maquina', '<=', searchText + '\uf8ff')
+        where('maquina', '>=', formattedSearchText),
+        where('maquina', '<=', formattedSearchText + '\uf8ff')
       );
 
-      const [nameSnapshot, descriptionSnapshot, machineSnapshot] = await Promise.all([
+      const codCompraQuery = query(
+        toolsCollection,
+        where('codigoCompra', '>=', formattedSearchText),
+        where('codigoCompra', '<=', formattedSearchText + '\uf8ff')
+      );
+
+      const [nameSnapshot, descriptionSnapshot, machineSnapshot, codCompraSnapshot] = await Promise.all([
         getDocs(nameQuery),
         getDocs(descriptionQuery),
         getDocs(machineQuery),
+        getDocs(codCompraQuery),
       ]);
 
       const results = [];
@@ -111,23 +118,26 @@ export default function Tool({ route }) {
       nameSnapshot.forEach((doc) => results.push({ id: doc.id, ...doc.data() }));
       descriptionSnapshot.forEach((doc) => results.push({ id: doc.id, ...doc.data() }));
       machineSnapshot.forEach((doc) => results.push({ id: doc.id, ...doc.data() }));
+      codCompraSnapshot.forEach((doc) => results.push({ id: doc.id, ...doc.data() }));
 
+      // Elimina resultados duplicados
       const uniqueResults = Array.from(new Set(results.map((item) => item.id))).map((id) =>
         results.find((item) => item.id === id)
       );
 
       if (uniqueResults.length > 0) {
-        console.log('Resultados encontrados:', uniqueResults);
         setListTools(uniqueResults);
       } else {
+        setListTools([]); // Setando a lista como vazia se não encontrar nenhum resultado
         Alert.alert('Nenhum resultado encontrado', 'Nenhum item corresponde ao termo de busca.');
-        setIsSearching(false);
       }
     } catch (error) {
       console.error('Erro na pesquisa:', error);
       Alert.alert('Erro', 'Não foi possível realizar a pesquisa.');
     } finally {
       setIsLoading(false);
+      setIsSearching(false);
+      Keyboard.dismiss();
     }
   }
 
@@ -143,12 +153,21 @@ export default function Tool({ route }) {
       {isLoading ? (
         <Loading />
       ) : (
-        <FlatList
-          data={listTools}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <CardTool {...item} role={role} />}
-          style={styles.listContent}
-        />
+        <View style={{ flex: 1 }}>
+          {listTools.length > 0 ? (
+            <FlatList
+              data={listTools}
+              keyExtractor={(item) => item.id}
+              renderItem={({ item }) => <CardTool {...item} role={role} />}
+              style={styles.listContent}
+            />
+          ) : (
+            <View style={styles.emptyContainer}>
+              <Image source={require('../../assets/empty.png')} style={styles.emptyImage} />
+              <Text style={styles.emptyText}>Nenhuma ferramenta encontrada</Text>
+            </View>
+          )}
+        </View>
       )}
     </SafeAreaView>
   );
