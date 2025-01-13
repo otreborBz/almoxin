@@ -38,7 +38,7 @@ export default function AddTool({ route }) {
     }
   }, [toolData]);
 
-  // Função para salvar ou editar a ferramenta
+
   async function handleSave() {
     try {
       if (!name || !maquina || !localizacao) {
@@ -46,7 +46,6 @@ export default function AddTool({ route }) {
         return;
       }
 
-      // Padronizando para maiúsculas
       const formattedName = name.toUpperCase();
       const formattedMaquina = maquina.toUpperCase();
       const formattedDescricao = descricao ? descricao.toUpperCase() : '';
@@ -55,7 +54,7 @@ export default function AddTool({ route }) {
       const formattedNumeroFabricante = numeroFabricante ? numeroFabricante.toUpperCase() : '';
 
       if (toolData?.id) {
-        // Atualizar documento existente
+
         await updateDoc(doc(db, "tools", toolData.id), {
           name: formattedName,
           codigoCompra: formattedCodigoCompra,
@@ -66,7 +65,7 @@ export default function AddTool({ route }) {
         });
         Alert.alert("Sucesso", "Peça atualizada com sucesso!");
       } else {
-        // Criar novo documento
+
         await addDoc(collection(db, "tools"), {
           name: formattedName,
           codigoCompra: formattedCodigoCompra,
@@ -78,7 +77,7 @@ export default function AddTool({ route }) {
         Alert.alert("Sucesso", "Peça cadastrada com sucesso!");
       }
 
-      navigation.goBack(); // Retorna para a tela anterior
+      navigation.goBack(); 
     } catch (error) {
       console.error("Erro ao salvar dados:", error);
       Alert.alert("Erro", "Não foi possível salvar os dados.");
@@ -104,7 +103,7 @@ export default function AddTool({ route }) {
           </View>
 
           <View style={styles.contentInput}>
-            <Text style={styles.textInput}>Nome</Text>
+            <Text style={styles.textInput}>Linha</Text>
             <TextInput style={styles.input} value={name} onChangeText={setName} />
           </View>
 

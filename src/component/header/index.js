@@ -39,6 +39,10 @@ export default function Header({ placeHolder, icon, user, onUpdate, onSearch }) 
     navigation.navigate(icon === 'addfile' ? 'AddTool' : 'AddUser');
   }
 
+  function emptyInput(){
+    setTextSearch('');
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.content}>
@@ -64,7 +68,7 @@ export default function Header({ placeHolder, icon, user, onUpdate, onSearch }) 
         </View>
 
         <View style={styles.actionButtonWrapper}>
-          <TouchableOpacity onPress={onUpdate}>
+          <TouchableOpacity onPress={onUpdate} onPressOut={emptyInput}>
             <Feather name="repeat" size={25} color="#000000" />
           </TouchableOpacity>
         </View>

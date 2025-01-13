@@ -9,7 +9,7 @@ import { deleteDoc, doc, getDoc } from 'firebase/firestore';
 import { useNavigation } from '@react-navigation/native';
 
 export default function CardTool({ id, name, maquina, descricao, numeroFabricante, codigoCompra, localizacao, role }) {
-  const [isVisible, setIsVisible] = useState(false); // Estado para controlar a visibilidade do conteúdo
+  const [isVisible, setIsVisible] = useState(false);
   const navigation = useNavigation();
 
   async function handleShare() {
@@ -66,10 +66,10 @@ export default function CardTool({ id, name, maquina, descricao, numeroFabricant
   </head>
   <body>
     <div class="container">
-      <h1>Almox.In | Detalhes</h1>
+      <h1>Almox.In</h1>
       <div class="content">
         <p class="section-title">Informações Básicas</p>
-        <p><strong>Nome:</strong> ${name}</p>
+        <p><strong>Linha:</strong> ${name}</p>
         <p><strong>Máquina:</strong> ${maquina}</p>
         <p><strong>Descrição:</strong> ${descricao}</p>
         <p><strong>Número Fabricante:</strong> ${numeroFabricante}</p>
@@ -149,22 +149,20 @@ export default function CardTool({ id, name, maquina, descricao, numeroFabricant
   return (
     <SafeAreaView style={styles.container}>
       <TouchableOpacity style={styles.touch} onPress={() => setIsVisible(!isVisible)}>
-        {/* Sempre visíveis: nome e botões */}
         <View style={styles.content}>
-          <Text style={styles.text}>NOME:</Text>
+          <Text style={styles.text}>LINHA:</Text>
           <Text style={styles.text}>{name}</Text>
+        </View>
+        <View style={styles.content}>
+          <Text style={styles.text}>DESCRIÇÃO:</Text>
+          <Text style={styles.text}>{descricao}</Text>
         </View>
 
         {isVisible && (
           <>
-            {/* Somente visíveis quando o cartão é clicado */}
             <View style={styles.content}>
               <Text style={styles.text}>MÁQUINA:</Text>
               <Text style={styles.text}>{maquina}</Text>
-            </View>
-            <View style={styles.content}>
-              <Text style={styles.text}>DESCRIÇÃO:</Text>
-              <Text style={styles.text}>{descricao}</Text>
             </View>
             <View style={styles.content}>
               <Text style={styles.text}>FABRICANTE:</Text>

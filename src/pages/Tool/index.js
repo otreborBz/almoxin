@@ -16,6 +16,7 @@ export default function Tool({ route }) {
   const [listTools, setListTools] = useState([]);
   const [userAuth, setUserAuth] = useState(null);
   const [isSearching, setIsSearching] = useState(false);
+  
   useEffect(() => {
     const fetchUserAuth = async () => {
       const user = auth.currentUser;
@@ -149,11 +150,13 @@ export default function Tool({ route }) {
         onUpdate={fetchTools}
         onSearch={searchTools}
       />
+      <Text style={{margin: 10}}>Peças Encontradas: {listTools.length}</Text>
       {isLoading ? (
         <Loading />
       ) : (
         <View style={{ flex: 1 }}>
-          {listTools.length > 0 ? (
+          { listTools.length > 0 ? (
+            
             <FlatList
               data={listTools}
               keyExtractor={(item) => item.id}
