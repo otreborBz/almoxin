@@ -46,7 +46,7 @@ export default function Header({ placeHolder, icon, user, onUpdate, onSearch }) 
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <Text style={styles.title}>Almox.In</Text>
+        <Text style={styles.title}>Almoxin</Text>
         <Text style={styles.welcome}>Seja Bem-vindo <Text style={{ fontWeight: 'bold' }}>{user}</Text></Text>
 
         <TouchableOpacity style={styles.exitButton} onPress={exit}>
