@@ -13,94 +13,129 @@ export default function CardTool({ id, name, maquina, descricao, numeroFabricant
   const [isVisible, setIsVisible] = useState(false);
   const navigation = useNavigation();
 
-  async function handleShare() {
+  const now = new Date();
+  const dataFormatada = now.toLocaleDateString('pt-BR', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+  }) + ` às ${now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}`;
+
+  async function generatePDF() {
+    const htmlContent = `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <title>Detalhes da Ferramenta</title>
+          <style>
+            body {
+              font-family: 'Helvetica', sans-serif;
+              color: #333;
+              line-height: 1.6;
+              padding: 40px;
+            }
+            .header {
+              text-align: center;
+              margin-bottom: 30px;
+              border-bottom: 2px solid #1a73e8;
+              padding-bottom: 20px;
+            }
+            .title {
+              color: #1a73e8;
+              font-size: 24px;
+              margin: 0;
+            }
+            .date {
+              color: #666;
+              font-size: 14px;
+              margin-top: 10px;
+            }
+            .content {
+              margin-top: 30px;
+            }
+            .section {
+              margin-bottom: 20px;
+              padding: 15px;
+              background-color: #f8f9fa;
+              border-radius: 8px;
+            }
+            .label {
+              color: #1a73e8;
+              font-weight: bold;
+              font-size: 14px;
+              margin-bottom: 5px;
+            }
+            .value {
+              font-size: 16px;
+              margin: 0;
+            }
+            .footer {
+              margin-top: 40px;
+              text-align: center;
+              font-size: 12px;
+              color: #666;
+              border-top: 1px solid #ddd;
+              padding-top: 20px;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="header">
+            <h1 class="title">Detalhes da Ferramenta</h1>
+            <p class="date">Gerado em: ${dataFormatada}</p>
+          </div>
+
+          <div class="content">
+            <div class="section">
+              <div class="label">LINHA</div>
+              <p class="value">${name}</p>
+            </div>
+
+            <div class="section">
+              <div class="label">MÁQUINA</div>
+              <p class="value">${maquina}</p>
+            </div>
+
+            <div class="section">
+              <div class="label">DESCRIÇÃO</div>
+              <p class="value">${descricao}</p>
+            </div>
+
+            <div class="section">
+              <div class="label">NÚMERO DO FABRICANTE</div>
+              <p class="value">${numeroFabricante}</p>
+            </div>
+
+            <div class="section">
+              <div class="label">CÓDIGO DE COMPRA</div>
+              <p class="value">${codigoCompra}</p>
+            </div>
+
+            <div class="section">
+              <div class="label">LOCALIZAÇÃO</div>
+              <p class="value">${localizacao}</p>
+            </div>
+          </div>
+
+          <div class="footer">
+            <p>Este documento foi gerado automaticamente pelo sistema de gerenciamento de ferramentas.</p>
+            <p>ID do documento: ${id}</p>
+            <p>Almox.In - Sistema de Gerenciamento de Ferramentas</p>
+          </div>
+        </body>
+      </html>
+    `;
+
     try {
-      const htmlContent = `<html>
-  <head>
-      <style>
-    body {
-      width: 100%;
-      height: 100vh;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f7fc;
-      color: #333;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .container {
-      width: 70%;
-      padding: 30px;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    h1 {
-      text-align: center;
-      font-size: 28px;
-      margin-bottom: 30px;
-    }
-    .content p {
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 10px;
-    }
-    .content {
-      margin-top: 20px;
-    }
-    .content .section-title {
-      font-size: 18px;
-      font-weight: bold;
-      color: #333;
-      margin-bottom: 10px;
-    }
-    .footer {
-      text-align: center;
-      font-size: 12px;
-      color: #888;
-      margin-top: 30px;
-      border-top: 1px solid #ddd;
-      padding-top: 10px;
-    }
-  </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Almox.In</h1>
-      <div class="content">
-        <p class="section-title">Informações Básicas</p>
-        <p><strong>Linha:</strong> ${name}</p>
-        <p><strong>Máquina:</strong> ${maquina}</p>
-        <p><strong>Descrição:</strong> ${descricao}</p>
-        <p><strong>Número Fabricante:</strong> ${numeroFabricante}</p>
-        <p><strong>Código Compra:</strong> ${codigoCompra}</p>
-        <p><strong>Localização:</strong> ${localizacao}</p>
-      </div>
-      <div class="footer">
-        <p>© 2025 Roberto de Carvalho. Todos os direitos reservados.</p>
-      </div>
-    </div>
-  </body>
-</html>
-      `;
-
-      const { uri } = await Print.printToFileAsync({ html: htmlContent });
-
-      if (!(await Sharing.isAvailableAsync())) {
-        Alert.alert('Erro', 'Compartilhamento não disponível neste dispositivo.');
-        return;
-      }
-
-      await Sharing.shareAsync(uri, {
-        mimeType: 'application/pdf',
-        dialogTitle: 'Compartilhar detalhes da peça',
+      const file = await Print.printToFileAsync({
+        html: htmlContent,
+        base64: false,
       });
 
-      Alert.alert('Sucesso', 'PDF gerado e compartilhado com sucesso!');
+      await Sharing.shareAsync(file.uri);
     } catch (error) {
-      console.error('Erro ao compartilhar:', error);
-      Alert.alert('Erro', 'Não foi possível gerar e compartilhar o PDF.');
+      console.error('Erro ao gerar PDF:', error);
+      Alert.alert('Erro', 'Não foi possível gerar o PDF.');
     }
   }
 
@@ -187,7 +222,7 @@ export default function CardTool({ id, name, maquina, descricao, numeroFabricant
           <TouchableOpacity style={styles.share} onPress={handleEditTool}>
             <Feather name="edit" size={22} color={colors.primary} />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.share} onPress={handleShare}>
+          <TouchableOpacity style={styles.share} onPress={generatePDF}>
             <Feather name="share-2" size={22} color={colors.primary} />
           </TouchableOpacity>
         </View>

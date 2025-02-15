@@ -16,6 +16,8 @@ export default function Tool({ route }) {
   const [listTools, setListTools] = useState([]);
   const [userAuth, setUserAuth] = useState(null);
   const [isSearching, setIsSearching] = useState(false);
+  const [tools, setTools] = useState([]);
+  const [filteredTools, setFilteredTools] = useState([]);
   
   useEffect(() => {
     const fetchUserAuth = async () => {
@@ -56,6 +58,8 @@ export default function Tool({ route }) {
         }));
 
         setListTools(tools);
+        setTools(tools);
+        setFilteredTools(tools);
         setIsLoading(false);
       },
       (error) => {
@@ -68,77 +72,32 @@ export default function Tool({ route }) {
     return unsubscribe;
   }
 
-  async function searchTools(searchText) {
-    if (!searchText) {
-      Alert.alert('Erro', 'Por favor, insira um termo para buscar.');
+  function handleSearch(text) {
+    if (!text) {
+      setFilteredTools(tools);
       return;
     }
 
-    setIsLoading(true);
-    setIsSearching(true);
+    const searchTerm = text.toLowerCase().trim();
+    
+    const filtered = tools.filter(tool => {
+      // Campos a serem pesquisados
+      const searchableFields = [
+        tool.name,
+        tool.codigoCompra,
+        tool.descricao,
+        tool.maquina,
+        tool.numeroFabricante,
+        tool.localizacao
+      ];
 
-    try {
-      const formattedSearchText = searchText.toUpperCase();
-
-      const toolsCollection = collection(db, 'tools');
-
-      const nameQuery = query(
-        toolsCollection,
-        where('name', '>=', formattedSearchText),
-        where('name', '<=', formattedSearchText + '\uf8ff')
+      // Verifica se algum campo contém o termo pesquisado
+      return searchableFields.some(field => 
+        field?.toLowerCase().includes(searchTerm)
       );
+    });
 
-      const descriptionQuery = query(
-        toolsCollection,
-        where('descricao', '>=', formattedSearchText),
-        where('descricao', '<=', formattedSearchText + '\uf8ff')
-      );
-
-      const machineQuery = query(
-        toolsCollection,
-        where('maquina', '>=', formattedSearchText),
-        where('maquina', '<=', formattedSearchText + '\uf8ff')
-      );
-
-      const codCompraQuery = query(
-        toolsCollection,
-        where('codigoCompra', '>=', formattedSearchText),
-        where('codigoCompra', '<=', formattedSearchText + '\uf8ff')
-      );
-
-      const [nameSnapshot, descriptionSnapshot, machineSnapshot, codCompraSnapshot] = await Promise.all([
-        getDocs(nameQuery),
-        getDocs(descriptionQuery),
-        getDocs(machineQuery),
-        getDocs(codCompraQuery),
-      ]);
-
-      const results = [];
-
-      nameSnapshot.forEach((doc) => results.push({ id: doc.id, ...doc.data() }));
-      descriptionSnapshot.forEach((doc) => results.push({ id: doc.id, ...doc.data() }));
-      machineSnapshot.forEach((doc) => results.push({ id: doc.id, ...doc.data() }));
-      codCompraSnapshot.forEach((doc) => results.push({ id: doc.id, ...doc.data() }));
-
-      
-      const uniqueResults = Array.from(new Set(results.map((item) => item.id))).map((id) =>
-        results.find((item) => item.id === id)
-      );
-
-      if (uniqueResults.length > 0) {
-        setListTools(uniqueResults);
-      } else {
-        setListTools([]);
-        Alert.alert('Nenhum resultado encontrado', 'Nenhum item corresponde ao termo de busca.');
-      }
-    } catch (error) {
-      console.error('Erro na pesquisa:', error);
-      Alert.alert('Erro', 'Não foi possível realizar a pesquisa.');
-    } finally {
-      setIsLoading(false);
-      setIsSearching(false);
-      Keyboard.dismiss();
-    }
+    setFilteredTools(filtered);
   }
 
   return (
@@ -148,10 +107,10 @@ export default function Tool({ route }) {
         icon="addfile"
         user={userAuth || 'Carregando...'}
         onUpdate={fetchTools}
-        onSearch={searchTools}
+        onSearch={handleSearch}
       />
       <Text style={styles.countText}>
-        {listTools.length} {listTools.length === 1 ? 'peça encontrada' : 'peças encontradas'}
+        {filteredTools.length} {filteredTools.length === 1 ? 'peça encontrada' : 'peças encontradas'}
       </Text>
       {isLoading ? (
         <Loading />
@@ -159,7 +118,7 @@ export default function Tool({ route }) {
         <View style={{ flex: 1 }}>
           {listTools.length > 0 ? (
             <FlatList
-              data={listTools}
+              data={filteredTools}
               keyExtractor={(item) => item.id}
               renderItem={({ item }) => <CardTool {...item} role={role} />}
               style={styles.listContent}
