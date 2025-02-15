@@ -11,6 +11,7 @@ import colors from '../../color';
 
 export default function CardTool({ id, name, maquina, descricao, numeroFabricante, codigoCompra, localizacao, role }) {
   const [isVisible, setIsVisible] = useState(false);
+  const [showActions, setShowActions] = useState(false);
   const navigation = useNavigation();
 
   const now = new Date();
@@ -184,11 +185,28 @@ export default function CardTool({ id, name, maquina, descricao, numeroFabricant
 
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableOpacity style={styles.touch} onPress={() => setIsVisible(!isVisible)}>
-        <View style={styles.content}>
-          <Text style={styles.label}>LINHA:</Text>
-          <Text style={styles.text}>{name}</Text>
+      <TouchableOpacity 
+        style={styles.touch} 
+        onPress={() => setIsVisible(!isVisible)}
+        activeOpacity={0.7}
+      >
+        <View style={styles.contentHeader}>
+          <View style={styles.mainInfo}>
+            <Text style={styles.label}>LINHA:</Text>
+            <Text style={styles.text}>{name}</Text>
+          </View>
+          <TouchableOpacity 
+            style={styles.menuButton}
+            onPress={() => setShowActions(!showActions)}
+          >
+            <Feather 
+              name={showActions ? "x" : "more-vertical"} 
+              size={22} 
+              color={colors.primary} 
+            />
+          </TouchableOpacity>
         </View>
+
         <View style={styles.content}>
           <Text style={styles.label}>DESCRIÇÃO:</Text>
           <Text style={styles.text}>{descricao}</Text>
@@ -215,17 +233,34 @@ export default function CardTool({ id, name, maquina, descricao, numeroFabricant
           </>
         )}
 
-        <View style={styles.button}>
-          <TouchableOpacity style={styles.share} onPress={handleDeleteTool}>
-            <Feather name="trash-2" size={22} color={colors.primary} />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.share} onPress={handleEditTool}>
-            <Feather name="edit" size={22} color={colors.primary} />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.share} onPress={generatePDF}>
-            <Feather name="share-2" size={22} color={colors.primary} />
-          </TouchableOpacity>
-        </View>
+        {showActions && (
+          <View style={styles.actionButtons}>
+            {role === 'admin' && (
+              <>
+                <TouchableOpacity 
+                  style={styles.actionButton} 
+                  onPress={handleDeleteTool}
+                >
+                  <Feather name="trash-2" size={20} color={colors.danger} />
+                </TouchableOpacity>
+
+                <TouchableOpacity 
+                  style={styles.actionButton} 
+                  onPress={handleEditTool}
+                >
+                  <Feather name="edit" size={20} color={colors.primary} />
+                </TouchableOpacity>
+              </>
+            )}
+
+            <TouchableOpacity 
+              style={styles.actionButton} 
+              onPress={generatePDF}
+            >
+              <Feather name="share-2" size={20} color={colors.primary} />
+            </TouchableOpacity>
+          </View>
+        )}
       </TouchableOpacity>
     </SafeAreaView>
   );

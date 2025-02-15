@@ -21,21 +21,58 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
     elevation: 3,
   },
-  content: {
-    width: '100%',
+  contentHeader: {
     flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'space-between',
+    alignItems: 'center',
     marginBottom: 12,
   },
-  text: {
-    color: colors.text,
-    fontSize: 14,
+  mainInfo: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  menuButton: {
+    padding: 8,
+    marginLeft: 8,
+  },
+  content: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 8,
   },
   label: {
     color: colors.textSecondary,
     fontSize: 14,
     fontWeight: '500',
+    marginRight: 8,
+  },
+  text: {
+    color: colors.text,
+    fontSize: 14,
+    flex: 1,
+  },
+  actionButtons: {
+    marginTop: 16,
+    paddingTop: 16,
+    borderTopWidth: 1,
+    borderTopColor: colors.border,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    gap: 12,
+  },
+  actionButton: {
+    padding: 8,
+    borderRadius: 8,
+    backgroundColor: colors.background,
+  },
+  actionText: {
+    marginLeft: 8,
+    fontSize: 14,
+    color: colors.primary,
+  },
+  deleteText: {
+    color: colors.danger,
   },
   button: {
     width: '100%',
