@@ -1,30 +1,30 @@
 import React, { useState, useEffect } from "react";
 import {
-  SafeAreaView,
-  TextInput,
   View,
   Text,
+  TextInput,
   TouchableOpacity,
   Alert,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
 } from "react-native";
-import { styles } from "./style";
-import { useNavigation } from "@react-navigation/native";
+import styles from "./style";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { db } from "../../service/firebaseConnection";
 import { doc, updateDoc, addDoc, collection } from "firebase/firestore";
 
-export default function AddTool({ route }) {
-  const { toolData } = route.params || {}; // Dados enviados via navegação
+export default function AddTool() {
   const navigation = useNavigation();
+  const route = useRoute();
+  const toolData = route.params?.toolData;
 
-  const [name, setName] = useState("");
-  const [codigoCompra, setCodigoCompra] = useState("");
-  const [descricao, setDescricao] = useState("");
-  const [localizacao, setLocalizacao] = useState("");
-  const [maquina, setMaquina] = useState("");
-  const [numeroFabricante, setNumeroFabricante] = useState("");
+  const [name, setName] = useState(toolData?.name || "");
+  const [codigoCompra, setCodigoCompra] = useState(toolData?.codigoCompra || "");
+  const [descricao, setDescricao] = useState(toolData?.descricao || "");
+  const [localizacao, setLocalizacao] = useState(toolData?.localizacao || "");
+  const [maquina, setMaquina] = useState(toolData?.maquina || "");
+  const [numeroFabricante, setNumeroFabricante] = useState(toolData?.numeroFabricante || "");
 
   // Popula os estados com os dados recebidos (se houver)
   useEffect(() => {
@@ -38,133 +38,130 @@ export default function AddTool({ route }) {
     }
   }, [toolData]);
 
+  async function handleAdd() {
+    if (!name || !maquina || !descricao || !numeroFabricante || !codigoCompra || !localizacao) {
+      Alert.alert("Erro", "Por favor, preencha todos os campos.");
+      return;
+    }
 
-  async function handleSave() {
     try {
-      if (!name || !maquina || !localizacao) {
-        Alert.alert("Erro", "Por favor, preencha os campos obrigatórios");
-        return;
-      }
-
-      const formattedName = name.toUpperCase();
-      const formattedMaquina = maquina.toUpperCase();
-      const formattedDescricao = descricao ? descricao.toUpperCase() : '';
-      const formattedCodigoCompra = codigoCompra ? codigoCompra.toUpperCase() : '';
-      const formattedLocalizacao = localizacao.toUpperCase();
-      const formattedNumeroFabricante = numeroFabricante ? numeroFabricante.toUpperCase() : '';
-
-      if (toolData?.id) {
-
+      if (toolData) {
         await updateDoc(doc(db, "tools", toolData.id), {
-          name: formattedName,
-          codigoCompra: formattedCodigoCompra,
-          descricao: formattedDescricao,
-          localizacao: formattedLocalizacao,
-          maquina: formattedMaquina,
-          numeroFabricante: formattedNumeroFabricante,
+          name,
+          maquina,
+          descricao,
+          numeroFabricante,
+          codigoCompra,
+          localizacao,
         });
-        Alert.alert("Sucesso", "Peça atualizada com sucesso!");
+        Alert.alert("Sucesso", "Ferramenta atualizada com sucesso!");
       } else {
-
         await addDoc(collection(db, "tools"), {
-          name: formattedName,
-          codigoCompra: formattedCodigoCompra,
-          descricao: formattedDescricao,
-          localizacao: formattedLocalizacao,
-          maquina: formattedMaquina,
-          numeroFabricante: formattedNumeroFabricante,
+          name,
+          maquina,
+          descricao,
+          numeroFabricante,
+          codigoCompra,
+          localizacao,
+          created: new Date(),
         });
-        Alert.alert("Sucesso", "Peça cadastrada com sucesso!");
+        Alert.alert("Sucesso", "Ferramenta cadastrada com sucesso!");
       }
-
-      navigation.goBack(); 
+      navigation.goBack();
     } catch (error) {
-      console.error("Erro ao salvar dados:", error);
-      Alert.alert("Erro", "Não foi possível salvar os dados.");
+      console.error("Erro ao salvar:", error);
+      Alert.alert("Erro", "Não foi possível salvar a ferramenta.");
     }
   }
 
-
   return (
     <KeyboardAvoidingView
-      style={{ flex: 1 }}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.container}
     >
-      <ScrollView
-        contentContainerStyle={{ flexGrow: 1 }}
-        keyboardShouldPersistTaps="handled"
-      >
-        <SafeAreaView style={styles.container}>
-          <View style={styles.contentHeader}>
-            <Text style={styles.textName}>Almox.in</Text>
-            <Text style={styles.textDescription}>
-              {toolData ? "Editar Peça" : "Adicionar Peça"}
-            </Text>
-          </View>
+      <ScrollView style={styles.content}>
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>Nome da linha</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Digite o nome da linha"
+            value={name}
+            onChangeText={setName}
+          />
+        </View>
 
-          <View style={styles.contentInput}>
-            <Text style={styles.textInput}>Linha</Text>
-            <TextInput style={styles.input} value={name} onChangeText={setName} />
-          </View>
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>Máquina</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Digite o nome da máquina"
+            value={maquina}
+            onChangeText={setMaquina}
+          />
+        </View>
 
-          <View style={styles.contentInput}>
-            <Text style={styles.textInput}>Máquina</Text>
-            <TextInput
-              style={styles.input}
-              value={maquina}
-              onChangeText={setMaquina}
-            />
-          </View>
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>Descrição</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Digite a descrição"
+            value={descricao}
+            onChangeText={setDescricao}
+          />
+        </View>
 
-          <View style={styles.contentInput}>
-            <Text style={styles.textInput}>Descrição</Text>
-            <TextInput
-              style={styles.input}
-              value={descricao}
-              onChangeText={setDescricao}
-            />
-          </View>
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>Número do fabricante</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Digite o número do fabricante"
+            value={numeroFabricante}
+            onChangeText={setNumeroFabricante}
+          />
+        </View>
 
-          <View style={styles.contentInput}>
-            <Text style={styles.textInput}>Número do fabricante</Text>
-            <TextInput
-              style={styles.input}
-              value={numeroFabricante}
-              onChangeText={setNumeroFabricante}
-            />
-          </View>
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>Código de compra</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Digite o código de compra"
+            value={codigoCompra}
+            onChangeText={setCodigoCompra}
+          />
+        </View>
 
-          <View style={styles.contentInput}>
-            <Text style={styles.textInput}>Código da compra</Text>
-            <TextInput
-              style={styles.input}
-              value={codigoCompra}
-              onChangeText={setCodigoCompra}
-            />
-          </View>
-
-          <View style={styles.contentInput}>
-            <Text style={styles.textInput}>Localização</Text>
-            <TextInput
-              style={styles.input}
-              value={localizacao}
-              onChangeText={setLocalizacao}
-            />
-          </View>
-
-          <View style={styles.contentButton}>
-            <TouchableOpacity style={styles.button} onPress={handleSave}>
-              <Text style={styles.buttonText}>
-                {toolData ? "Atualizar" : "Salvar"}
-              </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.button} onPress={navigation.goBack}>
-              <Text style={styles.buttonText}>Cancelar</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>Localização</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Digite a localização"
+            value={localizacao}
+            onChangeText={setLocalizacao}
+          />
+        </View>
       </ScrollView>
+
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          style={[styles.button, styles.buttonCancel]}
+          onPress={() => navigation.goBack()}
+          activeOpacity={0.7}
+        >
+          <Text style={[styles.buttonText, styles.buttonTextCancel]}>
+            Cancelar
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.button}
+          onPress={handleAdd}
+          activeOpacity={0.7}
+        >
+          <Text style={styles.buttonText}>
+            {toolData ? "Atualizar" : "Cadastrar"}
+          </Text>
+        </TouchableOpacity>
+      </View>
     </KeyboardAvoidingView>
   );
 }

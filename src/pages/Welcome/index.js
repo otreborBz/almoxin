@@ -1,8 +1,10 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TouchableOpacity, StatusBar } from 'react-native';
 import styles from './style';
 import * as Animatable from 'react-native-animatable';
+import Feather from 'react-native-vector-icons/Feather';
+import Logo from '../../component/Logo';
 
 export default function Welcome() {
   const navigation = useNavigation();
@@ -13,18 +15,45 @@ export default function Welcome() {
 
   return (
     <View style={styles.container}>
-      <Animatable.View delay={200} animation='flipInY'>
-        <Image style={styles.image} source={require('../../assets/logoAlmoxin.png')} />
+      <StatusBar backgroundColor="#F9FAFB" barStyle="dark-content" />
+      
+      <Animatable.View 
+        animation="fadeIn" 
+        delay={500} 
+        style={styles.logoContainer}
+      >
+        <Logo size="large" />
+        <Animatable.Text 
+          animation="fadeInUp"
+          delay={1000}
+          style={styles.subtitle}
+        >
+          Procurou? Achou!
+        </Animatable.Text>
       </Animatable.View>
-      <Animatable.View delay={200} animation='fadeInUp'>
-        <Text style={styles.textIcon}>Procurou? Achou!</Text>
-      </Animatable.View>
-      <Animatable.View delay={200} animation='zoomIn'>
-        <TouchableOpacity style={styles.buttonEntrar} onPress={openScreenLogin}>
-          <Text style={styles.buttonEntrarText}>Acessar</Text>
+
+      <Animatable.View 
+        style={styles.footer} 
+        animation="fadeInUp"
+        delay={1200}
+      >
+        <Text style={styles.description}>
+          Gerencie seu inventário de forma{'\n'}simples e eficiente
+        </Text>
+
+        <TouchableOpacity 
+          style={styles.button} 
+          onPress={openScreenLogin}
+          activeOpacity={0.8}
+        >
+          <Text style={styles.buttonText}>Começar</Text>
+          <Feather name="arrow-right" size={20} color="#FFF" style={styles.buttonIcon} />
         </TouchableOpacity>
+
+        <Text style={styles.version}>
+          Desenvolvido por CodeBr • v1.0.0
+        </Text>
       </Animatable.View>
-      <Text style={styles.footerText}>CodeBr | Roberto Carvalho</Text>
     </View>
   );
 }

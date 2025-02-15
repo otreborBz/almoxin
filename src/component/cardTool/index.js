@@ -7,6 +7,7 @@ import * as Print from 'expo-print';
 import { db } from '../../service/firebaseConnection';
 import { deleteDoc, doc, getDoc } from 'firebase/firestore';
 import { useNavigation } from '@react-navigation/native';
+import colors from '../../color';
 
 export default function CardTool({ id, name, maquina, descricao, numeroFabricante, codigoCompra, localizacao, role }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -150,30 +151,30 @@ export default function CardTool({ id, name, maquina, descricao, numeroFabricant
     <SafeAreaView style={styles.container}>
       <TouchableOpacity style={styles.touch} onPress={() => setIsVisible(!isVisible)}>
         <View style={styles.content}>
-          <Text style={styles.text}>LINHA:</Text>
+          <Text style={styles.label}>LINHA:</Text>
           <Text style={styles.text}>{name}</Text>
         </View>
         <View style={styles.content}>
-          <Text style={styles.text}>DESCRIÇÃO:</Text>
+          <Text style={styles.label}>DESCRIÇÃO:</Text>
           <Text style={styles.text}>{descricao}</Text>
         </View>
 
         {isVisible && (
           <>
             <View style={styles.content}>
-              <Text style={styles.text}>MÁQUINA:</Text>
+              <Text style={styles.label}>MÁQUINA:</Text>
               <Text style={styles.text}>{maquina}</Text>
             </View>
             <View style={styles.content}>
-              <Text style={styles.text}>FABRICANTE:</Text>
+              <Text style={styles.label}>FABRICANTE:</Text>
               <Text style={styles.text}>{numeroFabricante}</Text>
             </View>
             <View style={styles.content}>
-              <Text style={styles.text}>COD. COMPRA:</Text>
+              <Text style={styles.label}>COD. COMPRA:</Text>
               <Text style={styles.text}>{codigoCompra}</Text>
             </View>
             <View style={styles.content}>
-              <Text style={styles.text}>LOCALIZAÇÃO:</Text>
+              <Text style={styles.label}>LOCALIZAÇÃO:</Text>
               <Text style={styles.text}>{localizacao}</Text>
             </View>
           </>
@@ -181,13 +182,13 @@ export default function CardTool({ id, name, maquina, descricao, numeroFabricant
 
         <View style={styles.button}>
           <TouchableOpacity style={styles.share} onPress={handleDeleteTool}>
-            <Feather name="trash-2" size={25} color={'#808080'} />
+            <Feather name="trash-2" size={22} color={colors.primary} />
           </TouchableOpacity>
           <TouchableOpacity style={styles.share} onPress={handleEditTool}>
-            <Feather name="edit" size={25} color={'#808080'} />
+            <Feather name="edit" size={22} color={colors.primary} />
           </TouchableOpacity>
           <TouchableOpacity style={styles.share} onPress={handleShare}>
-            <Feather name="send" size={25} color={'#808080'} />
+            <Feather name="share-2" size={22} color={colors.primary} />
           </TouchableOpacity>
         </View>
       </TouchableOpacity>

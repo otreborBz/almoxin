@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, Image, TouchableOpacity, TextInput, SafeAreaView, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, SafeAreaView, Alert } from 'react-native';
 import styles from './style';
+import Logo from '../../component/Logo';
 
 import { auth } from '../../service/firebaseConnection';
 import { onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
 
 export default function Login() {
-
   const navigation = useNavigation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -42,7 +42,7 @@ export default function Login() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.contentImage}>
-        <Image style={styles.image} source={require('../../assets/logoAlmoxin.png')} />
+        <Logo size="large" />
         <Text style={styles.text}>Login</Text>
       </View>
       <View style={styles.contentInput}>

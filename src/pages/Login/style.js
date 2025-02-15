@@ -10,17 +10,13 @@ const styles = StyleSheet.create({
   },
   contentImage: {
     alignItems: 'center',
-    marginBottom: 30,
-  },
-  image: {
-    width: 150,
-    height: 150,
-    marginBottom: 20,
+    marginBottom: 40,
   },
   text: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: colors.primary,
+    color: colors.text,
+    marginTop: 20,
   },
   contentInput: {
     width: '100%',
@@ -29,9 +25,10 @@ const styles = StyleSheet.create({
   input: {
     width: '100%',
     height: 50,
-    borderBottomWidth: 1,
-    borderRadius: 10,
-    backgroundColor: colors.inputBackground,
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: 12,
+    backgroundColor: colors.white,
     marginBottom: 15,
     paddingLeft: 15,
     fontSize: 16,
@@ -41,9 +38,17 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 10,
+    borderRadius: 12,
     backgroundColor: colors.buttonPrimary,
     marginTop: 20,
+    shadowColor: colors.buttonPrimary,
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 8,
   },
   buttonText: {
     color: colors.white,

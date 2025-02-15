@@ -150,23 +150,30 @@ export default function Tool({ route }) {
         onUpdate={fetchTools}
         onSearch={searchTools}
       />
-      <Text style={{margin: 10}}>Peças Encontradas: {listTools.length}</Text>
+      <Text style={styles.countText}>
+        {listTools.length} {listTools.length === 1 ? 'peça encontrada' : 'peças encontradas'}
+      </Text>
       {isLoading ? (
         <Loading />
       ) : (
         <View style={{ flex: 1 }}>
-          { listTools.length > 0 ? (
-            
+          {listTools.length > 0 ? (
             <FlatList
               data={listTools}
               keyExtractor={(item) => item.id}
               renderItem={({ item }) => <CardTool {...item} role={role} />}
               style={styles.listContent}
+              showsVerticalScrollIndicator={false}
             />
           ) : (
             <View style={styles.emptyContainer}>
-              <Image source={require('../../assets/empty.png')} style={styles.emptyImage} />
-              <Text style={styles.emptyText}>Nenhuma ferramenta encontrada</Text>
+              <Image 
+                source={require('../../assets/empty.png')} 
+                style={styles.emptyImage} 
+              />
+              <Text style={styles.emptyText}>
+                Nenhuma ferramenta encontrada
+              </Text>
             </View>
           )}
         </View>

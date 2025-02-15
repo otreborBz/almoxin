@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, TextInput, Alert } from 'react-native';
 import styles from './style';
-
-import IconFeather from '../iconFeather';
+import Logo from '../Logo';
 import Feather from 'react-native-vector-icons/Feather';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-
 import { useNavigation } from '@react-navigation/native';
-
 import { signOut } from 'firebase/auth';
 import { auth } from '../../service/firebaseConnection';
+import colors from '../../color';
 
 export default function Header({ placeHolder, icon, user, onUpdate, onSearch }) {
   const [textSearch, setTextSearch] = useState('');
@@ -39,45 +36,58 @@ export default function Header({ placeHolder, icon, user, onUpdate, onSearch }) 
     navigation.navigate(icon === 'addfile' ? 'AddTool' : 'AddUser');
   }
 
-  function emptyInput(){
+  function emptyInput() {
     setTextSearch('');
   }
 
   return (
     <View style={styles.container}>
-      <View style={styles.content}>
-        <Text style={styles.title}>Almoxin</Text>
-        <Text style={styles.welcome}>Seja Bem-vindo <Text style={{ fontWeight: 'bold' }}>{user}</Text></Text>
+      <View style={styles.topContent}>
+        <View style={styles.logoContainer}>
+          <Logo size="small" />
+          <Text style={styles.welcome}>Olá, <Text style={styles.userName}>{user}</Text></Text>
+        </View>
 
-        <TouchableOpacity style={styles.exitButton} onPress={exit}>
-          <Ionicons name="exit" size={30} color="#000000" />
+        <TouchableOpacity 
+          style={styles.exitButton} 
+          onPress={exit}
+          activeOpacity={0.7}
+        >
+          <Feather name="log-out" size={22} color={colors.primary} />
         </TouchableOpacity>
       </View>
 
-      <View style={styles.contentSearch}>
+      <View style={styles.searchContainer}>
         <View style={styles.searchWrapper}>
           <TextInput
-            style={styles.buttonSearch}
-            placeholder={`Busque por ${placeHolder}`}
+            style={styles.searchInput}
+            placeholder={`Buscar ${placeHolder}...`}
+            placeholderTextColor={colors.textSecondary}
             value={textSearch}
             onChangeText={(text) => setTextSearch(text)}
           />
-          <TouchableOpacity onPress={() => onSearch(textSearch)}>
-            <Feather name="search" size={25} color="#000000" />
+          <TouchableOpacity 
+            onPress={() => onSearch(textSearch)}
+            style={styles.searchButton}
+          >
+            <Feather name="search" size={20} color={colors.primary} />
           </TouchableOpacity>
         </View>
 
-        <View style={styles.actionButtonWrapper}>
-          <TouchableOpacity onPress={onUpdate} onPressOut={emptyInput}>
-            <Feather name="repeat" size={25} color="#000000" />
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity 
+          style={styles.actionButton} 
+          onPress={onUpdate} 
+          onPressOut={emptyInput}
+        >
+          <Feather name="refresh-ccw" size={20} color={colors.primary} />
+        </TouchableOpacity>
 
-        <View style={styles.actionButtonWrapper}>
-          <TouchableOpacity onPress={handleAddTool}>
-            <IconFeather icon={icon} />
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity 
+          style={styles.actionButton} 
+          onPress={handleAddTool}
+        >
+          <Feather name={icon === 'addfile' ? 'plus-circle' : 'user-plus'} size={20} color={colors.primary} />
+        </TouchableOpacity>
       </View>
     </View>
   );

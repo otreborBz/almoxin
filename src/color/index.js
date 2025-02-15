@@ -1,11 +1,12 @@
-const colors ={
-  buttonPrimary: '#111111',
-  white: '#fff',
-  border: '#ccc',
-  text: '#000',
-  background: '#f8f8f8'
-
+const colors = {
+  buttonPrimary: '#2563EB',
+  white: '#FFFFFF',
+  border: '#E5E7EB',
+  text: '#1F2937',
+  textSecondary: '#6B7280',
+  background: '#F9FAFB',
+  primary: '#2563EB',
+  secondary: '#4B5563'
 }
-
 
 export default colors;

@@ -1,80 +1,75 @@
 import { StyleSheet } from "react-native";
-import Colors from '../../color'
+import colors from '../../color'
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    paddingTop: 20, 
-    paddingBottom: 10,
-    backgroundColor: Colors.background,
+    backgroundColor: colors.background,
   },
-  contentHeader: {
-    width: '100%',
-    height: '12%', 
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 20, 
+  content: {
+    flex: 1,
+    padding: 16,
   },
-  textName: {
-    fontSize: 26,
-    fontWeight: 'bold',
-    color: Colors.primary,
-    letterSpacing: 2,
+  inputContainer: {
+    marginBottom: 16,
   },
-  textDescription: {
-    fontSize: 16, 
-    fontStyle: 'italic',
-    color: Colors.secondary,
-    marginTop: 5,
-  },
-  contentInput: {
-    width: '90%',
-    paddingBottom: 10,
-  },
-  textInput: {
-    fontSize: 16,
-    color: Colors.text,
-    marginBottom: 6, 
+  label: {
+    fontSize: 14,
+    color: colors.textSecondary,
+    marginBottom: 8,
+    marginLeft: 4,
+    fontWeight: '500',
   },
   input: {
     width: '100%',
-    height: 45, 
+    height: 50,
     borderWidth: 1,
-    borderColor: Colors.border,
-    borderRadius: 10,
-    paddingHorizontal: 15,
+    borderColor: colors.border,
+    borderRadius: 12,
+    backgroundColor: colors.white,
+    paddingHorizontal: 16,
     fontSize: 16,
-    backgroundColor: Colors.white,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 5 },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 5,
+    color: colors.text,
   },
-  contentButton: {
-    width: '90%',
+  buttonContainer: {
+    padding: 16,
+    backgroundColor: colors.white,
+    borderTopWidth: 1,
+    borderTopColor: colors.border,
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 20, 
+    gap: 12,
   },
   button: {
-    width: '48%',
-    height: 45,
+    flex: 1,
+    height: 50,
+    backgroundColor: colors.primary,
+    borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 10,
-    backgroundColor: Colors.buttonPrimary,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
+    shadowColor: colors.primary,
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.3,
     shadowRadius: 4,
-    elevation: 5,
+    elevation: 8,
+  },
+  buttonCancel: {
+    backgroundColor: colors.background,
+    borderWidth: 1,
+    borderColor: colors.border,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
   },
   buttonText: {
-    color: '#fff',
+    color: colors.white,
     fontSize: 16,
     fontWeight: '600',
   },
+  buttonTextCancel: {
+    color: colors.text,
+  }
 });
+
+export default styles;

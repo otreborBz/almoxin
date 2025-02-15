@@ -1,66 +1,79 @@
 import { StyleSheet } from 'react-native';
+import colors from '../../color';
 
 export default StyleSheet.create({
   container: {
-    backgroundColor: '#f5f5f5',
+    backgroundColor: colors.white,
     padding: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
+    borderBottomColor: colors.border,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.05,
+    shadowRadius: 3,
+    elevation: 3,
   },
-  content: {
+  topContent: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 5,
-    paddingTop: 10,
+    marginBottom: 16,
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#333',
+  logoContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   welcome: {
     fontSize: 14,
-    color: '#555',
-    flex: 1,
-    marginHorizontal: 8,
+    color: colors.textSecondary,
+    marginLeft: 12,
+  },
+  userName: {
+    color: colors.text,
+    fontWeight: '600',
   },
   exitButton: {
     padding: 8,
-    backgroundColor: '#eee',
     borderRadius: 8,
+    backgroundColor: colors.background,
   },
-  contentSearch: {
+  searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: 8,
+    gap: 8,
   },
   searchWrapper: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff',
-    borderRadius: 8,
+    backgroundColor: colors.background,
+    borderRadius: 12,
     borderWidth: 1,
-    borderColor: '#ddd',
-    paddingHorizontal: 8,
-    marginRight: 8,
+    borderColor: colors.border,
+    overflow: 'hidden',
   },
-  buttonSearch: {
+  searchInput: {
     flex: 1,
+    height: 40,
+    paddingHorizontal: 16,
     fontSize: 14,
-    padding: 8,
-    color: '#333',
+    color: colors.text,
   },
-  actionButtonWrapper: {
+  searchButton: {
+    padding: 8,
+    marginRight: 4,
+  },
+  actionButton: {
+    width: 40,
+    height: 40,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 8,
-    backgroundColor: '#fff',
-    borderRadius: 8,
+    borderRadius: 12,
+    backgroundColor: colors.background,
     borderWidth: 1,
-    borderColor: '#ddd',
-    marginLeft: 8,
-  },
+    borderColor: colors.border,
+  }
 });
