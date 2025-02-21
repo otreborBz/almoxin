@@ -1,75 +1,33 @@
 import React, { useState, useEffect } from 'react';
-import { FlatList, SafeAreaView, Alert, Keyboard, Text, View, Image } from 'react-native';
+import { FlatList, SafeAreaView, View, Text, Image } from 'react-native';
 import styles from './style';
 
 import Header from '../../component/header';
 import CardTool from '../../component/cardTool';
 import Loading from '../../component/loading';
 
-import { auth, db } from '../../service/firebaseConnection';
-import { collection, onSnapshot, doc, getDoc, query, where, getDocs } from 'firebase/firestore';
+import { searchTools, getAllTools } from '../../service/dataService';
 
-export default function Tool({ route }) {
-  const { role } = route.params;
-
+export default function Tool() {
   const [isLoading, setIsLoading] = useState(true);
-  const [listTools, setListTools] = useState([]);
-  const [userAuth, setUserAuth] = useState(null);
-  const [isSearching, setIsSearching] = useState(false);
   const [tools, setTools] = useState([]);
   const [filteredTools, setFilteredTools] = useState([]);
-  
+
   useEffect(() => {
-    const fetchUserAuth = async () => {
-      const user = auth.currentUser;
-      if (user) {
-        try {
-          const userDocRef = doc(db, 'users', user.uid);
-          const userDoc = await getDoc(userDocRef);
-
-          if (userDoc.exists()) {
-            setUserAuth(userDoc.data().name);
-          } else {
-            console.warn('Usuário não encontrado no Firestore.');
-          }
-        } catch (error) {
-          console.error('Erro ao buscar usuário autenticado:', error);
-        }
-      } else {
-        setUserAuth('Usuário desconhecido');
-      }
-    };
-
-    fetchUserAuth();
-    fetchTools();
+    loadTools();
   }, []);
 
-  function fetchTools() {
+  function loadTools() {
     setIsLoading(true);
-    setIsSearching(false);
-
-    const toolsRef = collection(db, 'tools');
-    const unsubscribe = onSnapshot(
-      toolsRef,
-      (snapshot) => {
-        const tools = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-
-        setListTools(tools);
-        setTools(tools);
-        setFilteredTools(tools);
-        setIsLoading(false);
-      },
-      (error) => {
-        console.error('Erro ao carregar ferramentas:', error);
-        Alert.alert('Erro', 'Não foi possível carregar a lista de ferramentas.');
-        setIsLoading(false);
-      }
-    );
-
-    return unsubscribe;
+    try {
+      const allTools = getAllTools();
+      setTools(allTools);
+      setFilteredTools(allTools);
+    } catch (error) {
+      console.error('Erro ao carregar dados:', error);
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   function handleSearch(text) {
@@ -78,35 +36,18 @@ export default function Tool({ route }) {
       return;
     }
 
-    const searchTerm = text.toLowerCase().trim();
-    
-    const filtered = tools.filter(tool => {
-      // Campos a serem pesquisados
-      const searchableFields = [
-        tool.name,
-        tool.codigoCompra,
-        tool.descricao,
-        tool.maquina,
-        tool.numeroFabricante,
-        tool.localizacao
-      ];
-
-      // Verifica se algum campo contém o termo pesquisado
-      return searchableFields.some(field => 
-        field?.toLowerCase().includes(searchTerm)
-      );
-    });
-
+    const filtered = searchTools(text);
     setFilteredTools(filtered);
   }
+
+  const renderItem = React.useCallback(({ item }) => (
+    <CardTool data={item} />
+  ), []);
 
   return (
     <SafeAreaView style={styles.container}>
       <Header
         placeHolder="peças"
-        icon="addfile"
-        user={userAuth || 'Carregando...'}
-        onUpdate={fetchTools}
         onSearch={handleSearch}
       />
       <Text style={styles.countText}>
@@ -116,13 +57,18 @@ export default function Tool({ route }) {
         <Loading />
       ) : (
         <View style={{ flex: 1 }}>
-          {listTools.length > 0 ? (
+          {tools.length > 0 ? (
             <FlatList
               data={filteredTools}
-              keyExtractor={(item) => item.id}
-              renderItem={({ item }) => <CardTool {...item} role={role} />}
+              keyExtractor={item => item.id}
+              renderItem={renderItem}
               style={styles.listContent}
               showsVerticalScrollIndicator={false}
+              removeClippedSubviews={true}
+              maxToRenderPerBatch={15}
+              windowSize={5}
+              initialNumToRender={10}
+              ListFooterComponent={<View style={{ height: 16 }} />}
             />
           ) : (
             <View style={styles.emptyContainer}>

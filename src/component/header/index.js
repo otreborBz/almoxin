@@ -1,59 +1,42 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, TextInput, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import styles from './style';
 import Logo from '../Logo';
 import Feather from 'react-native-vector-icons/Feather';
-import { useNavigation } from '@react-navigation/native';
-import { signOut } from 'firebase/auth';
-import { auth } from '../../service/firebaseConnection';
 import colors from '../../color';
 
-export default function Header({ placeHolder, icon, user, onUpdate, onSearch }) {
+export default function Header({ placeHolder, onSearch }) {
   const [textSearch, setTextSearch] = useState('');
   const navigation = useNavigation();
 
-  function exit() {
-    Alert.alert('Logout', 'Deseja realmente sair?', [
-      {
-        text: 'Não',
-        style: 'cancel',
-      },
-      {
-        text: 'Sim',
-        onPress: async () => {
-          try {
-            await signOut(auth);
-            navigation.navigate('Welcome');
-          } catch (error) {
-            console.log('Erro ao deslogar:', error);
-          }
-        },
-      },
-    ]);
-  }
+  const handleSearch = () => {
+    onSearch(textSearch);
+  };
 
-  function handleAddTool() {
-    navigation.navigate(icon === 'addfile' ? 'AddTool' : 'AddUser');
-  }
-
-  function emptyInput() {
+  const emptyInput = () => {
     setTextSearch('');
-  }
+    onSearch('');
+  };
+
+  const handleAddItem = () => {
+    navigation.navigate('AddItem');
+  };
 
   return (
     <View style={styles.container}>
       <View style={styles.topContent}>
         <View style={styles.logoContainer}>
           <Logo size="small" />
-          <Text style={styles.welcome}>Olá, <Text style={styles.userName}>{user}</Text></Text>
+          <Text style={styles.welcome}>
+            Almoxarifado <Text style={styles.companyName}>• Code BR</Text>
+          </Text>
         </View>
-
         <TouchableOpacity 
-          style={styles.exitButton} 
-          onPress={exit}
-          activeOpacity={0.7}
+          style={styles.addButton}
+          onPress={handleAddItem}
         >
-          <Feather name="log-out" size={22} color={colors.primary} />
+          <Feather name="plus" size={22} color={colors.primary} />
         </TouchableOpacity>
       </View>
 
@@ -67,7 +50,7 @@ export default function Header({ placeHolder, icon, user, onUpdate, onSearch }) 
             onChangeText={(text) => setTextSearch(text)}
           />
           <TouchableOpacity 
-            onPress={() => onSearch(textSearch)}
+            onPress={handleSearch}
             style={styles.searchButton}
           >
             <Feather name="search" size={20} color={colors.primary} />
@@ -76,17 +59,9 @@ export default function Header({ placeHolder, icon, user, onUpdate, onSearch }) 
 
         <TouchableOpacity 
           style={styles.actionButton} 
-          onPress={onUpdate} 
-          onPressOut={emptyInput}
+          onPress={emptyInput}
         >
           <Feather name="refresh-ccw" size={20} color={colors.primary} />
-        </TouchableOpacity>
-
-        <TouchableOpacity 
-          style={styles.actionButton} 
-          onPress={handleAddTool}
-        >
-          <Feather name={icon === 'addfile' ? 'plus-circle' : 'user-plus'} size={20} color={colors.primary} />
         </TouchableOpacity>
       </View>
     </View>

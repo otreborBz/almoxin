@@ -27,9 +27,14 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   welcome: {
-    fontSize: 14,
-    color: colors.textSecondary,
+    color: colors.text,
+    fontSize: 16,
+    fontWeight: '500',
     marginLeft: 12,
+  },
+  companyName: {
+    color: colors.primary,
+    fontWeight: '600',
   },
   userName: {
     color: colors.text,
@@ -75,5 +80,10 @@ export default StyleSheet.create({
     backgroundColor: colors.background,
     borderWidth: 1,
     borderColor: colors.border,
-  }
+  },
+  addButton: {
+    padding: 8,
+    borderRadius: 8,
+    backgroundColor: colors.background,
+  },
 });

@@ -1,127 +1,143 @@
 import React, { useState } from 'react';
-import { View, Text, SafeAreaView, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, Alert, Animated } from 'react-native';
 import styles from './style';
 import Feather from 'react-native-vector-icons/Feather';
 import * as Sharing from 'expo-sharing';
 import * as Print from 'expo-print';
-import { db } from '../../service/firebaseConnection';
-import { deleteDoc, doc, getDoc } from 'firebase/firestore';
-import { useNavigation } from '@react-navigation/native';
 import colors from '../../color';
 
-export default function CardTool({ id, name, maquina, descricao, numeroFabricante, codigoCompra, localizacao, role }) {
+export default function CardTool({ data }) {
   const [isVisible, setIsVisible] = useState(false);
-  const [showActions, setShowActions] = useState(false);
-  const navigation = useNavigation();
+  const [animation] = useState(new Animated.Value(0));
 
-  const now = new Date();
-  const dataFormatada = now.toLocaleDateString('pt-BR', {
-    day: '2-digit',
-    month: 'long',
-    year: 'numeric',
-  }) + ` às ${now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}`;
+  const toggleDetails = () => {
+    setIsVisible(!isVisible);
+    Animated.spring(animation, {
+      toValue: isVisible ? 0 : 1,
+      useNativeDriver: true,
+      tension: 20,
+      friction: 7
+    }).start();
+  };
+
+  const rotateIcon = animation.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['0deg', '180deg']
+  });
 
   async function generatePDF() {
+    const now = new Date();
+    const dataFormatada = now.toLocaleDateString('pt-BR', {
+      day: '2-digit',
+      month: 'long',
+      year: 'numeric',
+    }) + ` às ${now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}`;
+
     const htmlContent = `
       <!DOCTYPE html>
       <html>
         <head>
           <meta charset="utf-8">
-          <title>Detalhes da Ferramenta</title>
+          <title>Detalhes da Peça</title>
           <style>
             body {
               font-family: 'Helvetica', sans-serif;
-              color: #333;
+              color: #1F2937;
               line-height: 1.6;
               padding: 40px;
+              max-width: 800px;
+              margin: 0 auto;
+              background-color: #F9FAFB;
             }
             .header {
               text-align: center;
-              margin-bottom: 30px;
-              border-bottom: 2px solid #1a73e8;
+              margin-bottom: 40px;
+              border-bottom: 3px solid #2563EB;
               padding-bottom: 20px;
             }
             .title {
-              color: #1a73e8;
-              font-size: 24px;
+              color: #2563EB;
+              font-size: 28px;
               margin: 0;
+              font-weight: 600;
             }
             .date {
-              color: #666;
+              color: #6B7280;
               font-size: 14px;
               margin-top: 10px;
             }
             .content {
-              margin-top: 30px;
+              background-color: white;
+              border-radius: 12px;
+              padding: 30px;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             }
             .section {
-              margin-bottom: 20px;
-              padding: 15px;
-              background-color: #f8f9fa;
+              margin-bottom: 25px;
+              padding: 20px;
+              background-color: #F9FAFB;
               border-radius: 8px;
+              border-left: 4px solid #2563EB;
             }
             .label {
-              color: #1a73e8;
-              font-weight: bold;
+              color: #2563EB;
+              font-weight: 600;
               font-size: 14px;
-              margin-bottom: 5px;
+              text-transform: uppercase;
+              margin-bottom: 8px;
+              letter-spacing: 0.05em;
             }
             .value {
               font-size: 16px;
               margin: 0;
+              color: #1F2937;
             }
             .footer {
               margin-top: 40px;
               text-align: center;
               font-size: 12px;
-              color: #666;
-              border-top: 1px solid #ddd;
+              color: #6B7280;
+              border-top: 1px solid #E5E7EB;
               padding-top: 20px;
             }
           </style>
         </head>
         <body>
           <div class="header">
-            <h1 class="title">Detalhes da Ferramenta</h1>
+            <h1 class="title">Detalhes da Peça</h1>
             <p class="date">Gerado em: ${dataFormatada}</p>
           </div>
 
           <div class="content">
             <div class="section">
-              <div class="label">LINHA</div>
-              <p class="value">${name}</p>
+              <div class="label">Código do Item</div>
+              <p class="value">${data.Item}</p>
             </div>
 
             <div class="section">
-              <div class="label">MÁQUINA</div>
-              <p class="value">${maquina}</p>
+              <div class="label">Descrição</div>
+              <p class="value">${data["Item Description"]}</p>
             </div>
 
             <div class="section">
-              <div class="label">DESCRIÇÃO</div>
-              <p class="value">${descricao}</p>
+              <div class="label">Organização</div>
+              <p class="value">${data.Org}</p>
             </div>
 
             <div class="section">
-              <div class="label">NÚMERO DO FABRICANTE</div>
-              <p class="value">${numeroFabricante}</p>
+              <div class="label">Subinventário</div>
+              <p class="value">${data.Sub}</p>
             </div>
 
             <div class="section">
-              <div class="label">CÓDIGO DE COMPRA</div>
-              <p class="value">${codigoCompra}</p>
-            </div>
-
-            <div class="section">
-              <div class="label">LOCALIZAÇÃO</div>
-              <p class="value">${localizacao}</p>
+              <div class="label">Localização</div>
+              <p class="value">${data.Locator}</p>
             </div>
           </div>
 
           <div class="footer">
-            <p>Este documento foi gerado automaticamente pelo sistema de gerenciamento de ferramentas.</p>
-            <p>ID do documento: ${id}</p>
-            <p>Almox.In - Sistema de Gerenciamento de Ferramentas</p>
+            <p>Documento gerado automaticamente pelo sistema de gerenciamento de almoxarifado</p>
+            <p>ID: ${data.id}</p>
           </div>
         </body>
       </html>
@@ -140,128 +156,66 @@ export default function CardTool({ id, name, maquina, descricao, numeroFabricant
     }
   }
 
-  async function handleDeleteTool() {
-    if (role !== 'admin') {
-      Alert.alert('Acesso Negado', 'Você não tem permissão para excluir.');
-      return;
-    }
-
-    Alert.alert('Excluir', 'Deseja realmente excluir?', [
-      { text: 'Não', style: 'cancel' },
-      {
-        text: 'Sim',
-        onPress: async () => {
-          try {
-            await deleteDoc(doc(db, 'tools', id));
-            Alert.alert('Sucesso', 'Ferramenta excluída com sucesso!');
-          } catch (error) {
-            console.error('Erro ao excluir:', error);
-            Alert.alert('Erro', 'Não foi possível excluir a ferramenta.');
-          }
-        },
-      },
-    ]);
-  }
-
-  async function handleEditTool() {
-    if (role !== 'admin') {
-      Alert.alert('Acesso Negado', 'Você não tem permissão para editar.');
-      return;
-    }
-
-    try {
-      const docSnap = await getDoc(doc(db, 'tools', id));
-      if (docSnap.exists()) {
-        const toolData = { id: docSnap.id, ...docSnap.data() };
-        navigation.navigate('AddTool', { toolData, role });
-      } else {
-        Alert.alert('Erro', 'Ferramenta não encontrada.');
-      }
-    } catch (error) {
-      console.error('Erro ao carregar dados:', error);
-      Alert.alert('Erro', 'Não foi possível carregar os dados para edição.');
-    }
-  }
-
   return (
-    <SafeAreaView style={styles.container}>
-      <TouchableOpacity 
-        style={styles.touch} 
-        onPress={() => setIsVisible(!isVisible)}
-        activeOpacity={0.7}
-      >
-        <View style={styles.contentHeader}>
-          <View style={styles.mainInfo}>
-            <Text style={styles.label}>LINHA:</Text>
-            <Text style={styles.text}>{name}</Text>
+    <TouchableOpacity 
+      style={styles.container}
+      onPress={toggleDetails}
+      activeOpacity={0.9}
+    >
+      <View style={styles.mainContent}>
+        <View style={styles.headerContent}>
+          <View style={styles.itemInfo}>
+            <Text style={styles.itemCode}>{data.Item}</Text>
+            <View style={styles.locationBadge}>
+              <Feather name="map-pin" size={12} color={colors.primary} />
+              <Text style={styles.locationText}>{data.Locator}</Text>
+            </View>
           </View>
           <TouchableOpacity 
-            style={styles.menuButton}
-            onPress={() => setShowActions(!showActions)}
+            style={styles.shareButton}
+            onPress={generatePDF}
           >
-            <Feather 
-              name={showActions ? "x" : "more-vertical"} 
-              size={22} 
-              color={colors.primary} 
-            />
+            <Feather name="share-2" size={20} color={colors.primary} />
           </TouchableOpacity>
         </View>
 
-        <View style={styles.content}>
-          <Text style={styles.label}>DESCRIÇÃO:</Text>
-          <Text style={styles.text}>{descricao}</Text>
-        </View>
+        <Text style={styles.description} numberOfLines={isVisible ? undefined : 2}>
+          {data["Item Description"]}
+        </Text>
 
-        {isVisible && (
-          <>
-            <View style={styles.content}>
-              <Text style={styles.label}>MÁQUINA:</Text>
-              <Text style={styles.text}>{maquina}</Text>
+        <Animated.View style={[
+          styles.detailsContainer,
+          {
+            height: isVisible ? null : 0,
+            opacity: animation,
+            transform: [{ translateY: animation.interpolate({
+              inputRange: [0, 1],
+              outputRange: [-20, 0]
+            })}]
+          }
+        ]}>
+          <View style={styles.detailRow}>
+            <View style={styles.detailItem}>
+              <Text style={styles.detailLabel}>ORG</Text>
+              <Text style={styles.detailValue}>{data.Org}</Text>
             </View>
-            <View style={styles.content}>
-              <Text style={styles.label}>FABRICANTE:</Text>
-              <Text style={styles.text}>{numeroFabricante}</Text>
+            <View style={styles.detailItem}>
+              <Text style={styles.detailLabel}>SUB</Text>
+              <Text style={styles.detailValue}>{data.Sub}</Text>
             </View>
-            <View style={styles.content}>
-              <Text style={styles.label}>COD. COMPRA:</Text>
-              <Text style={styles.text}>{codigoCompra}</Text>
-            </View>
-            <View style={styles.content}>
-              <Text style={styles.label}>LOCALIZAÇÃO:</Text>
-              <Text style={styles.text}>{localizacao}</Text>
-            </View>
-          </>
-        )}
-
-        {showActions && (
-          <View style={styles.actionButtons}>
-            {role === 'admin' && (
-              <>
-                <TouchableOpacity 
-                  style={styles.actionButton} 
-                  onPress={handleDeleteTool}
-                >
-                  <Feather name="trash-2" size={20} color={colors.danger} />
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                  style={styles.actionButton} 
-                  onPress={handleEditTool}
-                >
-                  <Feather name="edit" size={20} color={colors.primary} />
-                </TouchableOpacity>
-              </>
-            )}
-
-            <TouchableOpacity 
-              style={styles.actionButton} 
-              onPress={generatePDF}
-            >
-              <Feather name="share-2" size={20} color={colors.primary} />
-            </TouchableOpacity>
           </View>
-        )}
-      </TouchableOpacity>
-    </SafeAreaView>
+        </Animated.View>
+
+        <Animated.View style={[styles.expandButton, {
+          transform: [{ rotate: rotateIcon }]
+        }]}>
+          <Feather 
+            name="chevron-down" 
+            size={20} 
+            color={colors.primary}
+          />
+        </Animated.View>
+      </View>
+    </TouchableOpacity>
   );
 }

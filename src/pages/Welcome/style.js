@@ -1,77 +1,57 @@
 import { StyleSheet } from 'react-native';
 import colors from '../../color';
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background,
   },
   logoContainer: {
     flex: 2,
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
   },
   subtitle: {
-    fontSize: 18,
     color: colors.textSecondary,
-    marginTop: 24,
+    fontSize: 16,
+    marginTop: 8,
   },
   footer: {
     flex: 1,
     backgroundColor: colors.white,
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 25,
     paddingHorizontal: 30,
-    paddingVertical: 40,
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: -3,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
-    elevation: 5,
+    paddingVertical: 50,
   },
   description: {
-    fontSize: 16,
     color: colors.text,
+    fontSize: 16,
     textAlign: 'center',
-    lineHeight: 24,
+    marginBottom: 30,
   },
   button: {
-    width: '100%',
+    backgroundColor: colors.primary,
+    borderRadius: 8,
     height: 56,
-    backgroundColor: colors.buttonPrimary,
-    borderRadius: 16,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 30,
-    shadowColor: colors.buttonPrimary,
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
-    elevation: 8,
   },
   buttonText: {
+    flex: 1,
     color: colors.white,
     fontSize: 18,
-    fontWeight: '600',
-    marginRight: 8,
+    textAlign: 'center',
+    marginLeft: 35,
   },
   buttonIcon: {
-    marginLeft: 8,
+    marginRight: 35,
   },
   version: {
-    fontSize: 12,
     color: colors.textSecondary,
+    fontSize: 12,
     textAlign: 'center',
+    marginTop: 30,
   }
 });
-
-export default styles;

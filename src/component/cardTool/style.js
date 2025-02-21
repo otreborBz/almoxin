@@ -3,8 +3,95 @@ import colors from '../../color'
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: 10,
-    marginBottom: 8,
+    backgroundColor: colors.white,
+    borderRadius: 16,
+    marginHorizontal: 16,
+    marginVertical: 8,
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    overflow: 'hidden',
+  },
+  mainContent: {
+    padding: 16,
+  },
+  headerContent: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    marginBottom: 12,
+  },
+  itemInfo: {
+    flex: 1,
+    marginRight: 12,
+  },
+  itemCode: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: colors.text,
+    marginBottom: 4,
+  },
+  locationBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.background,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 12,
+    alignSelf: 'flex-start',
+  },
+  locationText: {
+    fontSize: 12,
+    color: colors.primary,
+    marginLeft: 4,
+    fontWeight: '500',
+  },
+  shareButton: {
+    padding: 8,
+    borderRadius: 8,
+    backgroundColor: colors.background,
+  },
+  description: {
+    fontSize: 14,
+    color: colors.textSecondary,
+    lineHeight: 20,
+    marginBottom: 12,
+  },
+  detailsContainer: {
+    marginTop: 8,
+    overflow: 'hidden',
+  },
+  detailRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 12,
+  },
+  detailItem: {
+    flex: 1,
+    backgroundColor: colors.background,
+    padding: 12,
+    borderRadius: 8,
+    marginHorizontal: 4,
+  },
+  detailLabel: {
+    fontSize: 12,
+    color: colors.textSecondary,
+    marginBottom: 4,
+    fontWeight: '500',
+  },
+  detailValue: {
+    fontSize: 14,
+    color: colors.text,
+    fontWeight: '500',
+  },
+  expandButton: {
+    alignSelf: 'center',
+    marginTop: 8,
   },
   touch: {
     padding: 16,

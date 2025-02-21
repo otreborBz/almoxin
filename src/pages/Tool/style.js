@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
   },
   listContent: {
+    flex: 1,
     paddingBottom: 16,
   },
   emptyContainer: {

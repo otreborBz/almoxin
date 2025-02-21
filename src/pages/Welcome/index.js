@@ -1,6 +1,6 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, TouchableOpacity, StatusBar } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import styles from './style';
 import * as Animatable from 'react-native-animatable';
 import Feather from 'react-native-vector-icons/Feather';
@@ -9,8 +9,8 @@ import Logo from '../../component/Logo';
 export default function Welcome() {
   const navigation = useNavigation();
 
-  function openScreenLogin() {
-    navigation.navigate('Login');
+  function handleStart() {
+    navigation.navigate('Tool');
   }
 
   return (
@@ -43,10 +43,10 @@ export default function Welcome() {
 
         <TouchableOpacity 
           style={styles.button} 
-          onPress={openScreenLogin}
+          onPress={handleStart}
           activeOpacity={0.8}
         >
-          <Text style={styles.buttonText}>Começar</Text>
+          <Text style={styles.buttonText}>Acessar</Text>
           <Feather name="arrow-right" size={20} color="#FFF" style={styles.buttonIcon} />
         </TouchableOpacity>
 
